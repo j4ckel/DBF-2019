@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using REPO_DBF_2019_;
 
 namespace DB_IO_DBF_2019_
 {
@@ -105,7 +106,7 @@ namespace DB_IO_DBF_2019_
         }
         public void UpdateBook(ClassBog CB)
         {
-            
+
         }
     }
 }
