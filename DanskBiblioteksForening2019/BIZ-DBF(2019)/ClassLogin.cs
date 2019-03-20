@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using REPO_DBF_2019_;
+using DB_IO_DBF_2019_;
 
 namespace BIZ_DBF_2019_
 {
-    public class ClassLogin
+    public class ClassLogin : ClassNotify
     {
+        ClassDbfDB CDbfDB = new ClassDbfDB();
         private string _id;
         private string _user;
        
@@ -20,7 +22,7 @@ namespace BIZ_DBF_2019_
         public ClassPerson GetUserData(string id, string user)
         {
             ClassPerson person = new ClassPerson();
-
+            CDbfDB.GetUser(id,user);
             return person;
         }
 
@@ -32,7 +34,7 @@ namespace BIZ_DBF_2019_
                 if (value != _user)
                 {
                     _user = value;
-                    //Notify("user");
+                    Notify("user");
                 }
             }
         }
@@ -46,7 +48,7 @@ namespace BIZ_DBF_2019_
                 if (value != _id)
                 {
                     _id = value;
-                    //Notify("id");
+                    Notify("id");
                 }
             }
         }
