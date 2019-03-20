@@ -15,13 +15,16 @@ namespace REPO_DBF_2019_
         private string _mail;
         private string _rolle;
 
-        ClassPerson()
+        public ClassPerson()
         {
 
         }
 
+        //public ClassPerson()
+        //{
 
-        
+        //}
+
 
         public int id
         {
