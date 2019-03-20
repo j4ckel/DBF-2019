@@ -46,6 +46,7 @@
     <Compile Include="ClassNotify.cs" />
     <Compile Include="ClassPerson.cs" />
     <Compile Include="Classudlaan.cs" />
+    <Compile Include="ClassUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
