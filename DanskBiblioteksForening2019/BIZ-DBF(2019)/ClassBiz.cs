@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BIZ_DBF_2019_
 {
-    class ClassBiz
+    public class ClassBiz : ClassNotify
     {
         // Private fields
         private ObservableCollection<ClassBog> _boeger;
@@ -26,34 +26,60 @@ namespace BIZ_DBF_2019_
             person = new ClassPerson();
             laanteBoeger = GetAllLentBoks(person.id);
         }
-        
+
 
         // Public properties
         public ClassPerson person
         {
             get { return _person; }
-            set { _person = value; }
+            set
+            {
+                if (value != _person)
+                {
+                    _person = value;
+                    Notify("person");
+                }
+            }
         }
-        
+
         public ClassBog bog
         {
             get { return _bog; }
-            set { _bog = value; }
+            set
+            {
+                if (value != _bog)
+                {
+                    _bog = value;
+                    Notify("bog");
+                }
+            }
         }
-        
+
         public ObservableCollection<ClassBog> laanteBoeger
         {
             get { return _laanteBoeger; }
-            private set { _laanteBoeger = value; }
+            set
+            {
+                if (value != _laanteBoeger)
+                {
+                    _laanteBoeger = value;
+                    Notify("laanteBoeger");
+                }
+            }
         }
-        
+
         public ObservableCollection<ClassBog> boeger
         {
             get { return _boeger; }
-            private set { _boeger = value; }
+            set
+            {
+                if (value != _boeger)
+                {
+                    _boeger = value;
+                    Notify("boeger");
+                }
+            }
         }
-
-
 
         public ObservableCollection<ClassBog> GetAllLentBoks(int personID)
         {
