@@ -37,6 +37,46 @@
             <TextBox x:Name="genre"  Grid.Column="1" Grid.Row="5" Text="TextBox" />
             <TextBox x:Name="type"  Grid.Column="1" Grid.Row="6" Text="TextBox" />
             <TextBox x:Name="indkoeb"  Grid.Column="1" Grid.Row="7" Text="TextBox" />
+            <Label Content="ISBN"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,0"
+                   Grid.Row="0"
+                   VerticalAlignment="center" Width="200" Height="51"/>
+            <Label Content="Titel"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,0"
+                   Grid.Row="1"
+                   VerticalAlignment="center" Width="200" Height="51"/>
+            <Label Content="Udgivelsesdag"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,0"
+                   Grid.Row="2"
+                   VerticalAlignment="center" Width="200" Height="51"/>
+            <Label Content="Forfatter"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,0"
+                   Grid.Row="3"
+                   VerticalAlignment="center" Width="200" Height="51"/>
+            <Label Content="Forlag"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,0"
+                   Grid.Row="4"
+                   VerticalAlignment="center" Width="200" Height="51"/>
+            <Label Content="Genre"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,0"
+                   Grid.Row="5"
+                   VerticalAlignment="center" Width="200" Height="51"/>
+            <Label Content="Type"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,0"
+                   Grid.Row="6"
+                   VerticalAlignment="center" Width="200" Height="51"/>
+            <Label Content="Indkøb"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,0"
+                   Grid.Row="7"
+                   VerticalAlignment="center" Width="200" Height="51"/>
 
 
         </Grid>
