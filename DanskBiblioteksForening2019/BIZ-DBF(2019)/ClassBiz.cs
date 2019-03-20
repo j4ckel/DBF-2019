@@ -69,7 +69,7 @@ namespace BIZ_DBF_2019_
 
         }
 
-        public bool CheckForDoubleLending(ClasBog)
+        public bool CheckForDoubleLending(ClassBog inBog)
         {
 
         }
