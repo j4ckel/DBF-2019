@@ -1,4 +1,5 @@
-﻿using System;
+﻿using REPO_DBF_2019_;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -7,30 +8,33 @@ using System.Threading.Tasks;
 
 namespace DB_IO_DBF_2019_
 {
-    class ClassDbfDB
+    public class ClassDbfDB
     {
-        //ObservableCollection<ClassBog> CB = new ObservableCollection<ClassBog>();
+        ObservableCollection<ClassBog> CB = new ObservableCollection<ClassBog>();
 
         public ClassDbfDB()
         {
             
 
         }
-        public void GetAllBooksLike(string search)
+        public ObservableCollection<ClassBog> GetAllBooksLike(string search)
         {
-            //CB
+            
+            return GetAllBooksLike(search);
         }
 
-        public void GetAllLentToUser(string id)
+        public ObservableCollection<ClassBog> GetAllLentToUser(string id)
         {
-            //cb
+
+            return GetAllLentToUser(id);
         }
-        public void UpdateTheLendingStatus(string id)
+        public void UpdateTheLendingStatus(string id, bool status)
         {
 
         }
-        public void GetUser(string UserID, string Password)
+        public ClassUser GetUser(string UserID, string Password)
         {
+
 
         }
     }
