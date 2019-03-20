@@ -14,16 +14,20 @@ namespace BIZ_DBF_2019_
         private ObservableCollection<ClassBog> _laanteBoeger;
         private ClassBog _bog;
         private ClassPerson _person;
+        ClassDbfDB classDbfDB;
 
         /// <summary>
         /// Default constructor
         /// </summary>
         public ClassBiz()
         {
+            classDbfDB = new ClassDbfDB();
             bog = new ClassBog();
             person = new ClassPerson();
+            laanteBoeger = GetAllLentBoks(person.id);
         }
         
+
         // Public properties
         public ClassPerson person
         {
@@ -49,19 +53,21 @@ namespace BIZ_DBF_2019_
             private set { _boeger = value; }
         }
 
+
+
         public ObservableCollection<ClassBog> GetAllLentBoks(int personID)
         {
-
+            return classDbfDB.GetAllBooksLentToUser(personID.ToString());
         }
 
         public ObservableCollection<ClassBog> GetAllBooksWhereTheTitleContainsTheseWords(string words)
         {
-
+            return classDbfDB.GetAllBooksLike(words);
         }
 
         public void LendThisBookToTheUser(int bogID, int personID)
         {
-
+            
         }
 
         public void SubmitThisBookToTheLibrary(int bogID, int personID)
