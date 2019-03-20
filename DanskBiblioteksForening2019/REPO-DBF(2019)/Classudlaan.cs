@@ -9,7 +9,7 @@ namespace REPO_DBF_2019_
     /// <summary>
     /// This class handles the due time of the lent books.
     /// </summary>
-    class Classudlaan : ClassNotify
+   public class Classudlaan : ClassNotify
     {
         /// <summary>
         /// Default Constructor.
