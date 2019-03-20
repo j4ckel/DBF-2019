@@ -152,7 +152,7 @@ namespace DB_IO_DBF_2019_
             /// </summary>
             /// <param name="sqlQuery">String sql-Query</param>
             /// <returns></returns>
-            /*protected DataTable DbReturnDataTable(string sqlQuery)
+            protected DataTable DbReturnDataTable(string sqlQuery)
             {
                 DataTable dtRes = new DataTable();
                 try
@@ -175,7 +175,7 @@ namespace DB_IO_DBF_2019_
                     CloseDB();
                 }
                 return dtRes;
-            }*/
+            }
         }
     }
 }
