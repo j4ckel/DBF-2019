@@ -24,7 +24,8 @@ namespace GUI_DBF_2019_
         {
             InitializeComponent();
             UCGUI ucg = new UCGUI();
-            MainGrid.Children.Add(ucg);
+            //MainGrid.Children.Add(ucg);
+            gridRight.Children.Add(ucg);
         }
     }
 }
