@@ -10,7 +10,7 @@ namespace BIZ_DBF_2019_
     {
         private string _id;
         private string _user;
-
+       
         public ClassLogin()
         {
 
