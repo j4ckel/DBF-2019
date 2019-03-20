@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using REPO_DBF_2019_;
 
 namespace BIZ_DBF_2019_
 {
-    class ClassLogin
+    public class ClassLogin
     {
         private string _id;
         private string _user;
@@ -18,7 +19,9 @@ namespace BIZ_DBF_2019_
 
         public ClassPerson GetUserData(string id, string user)
         {
+            ClassPerson person = new ClassPerson();
 
+            return person;
         }
 
         public string user
