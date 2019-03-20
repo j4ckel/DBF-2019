@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace REPO_DBF_2019_
 {
-    class ClassPerson
+    public class ClassPerson : ClassNotify
     {
         private int _id;
         private string _navn;
@@ -31,7 +31,7 @@ namespace REPO_DBF_2019_
                 if (value != _id)
                 {
                     _id = value;
-                    //Notify("id");
+                    Notify("id");
                 }
             }
         }
@@ -47,7 +47,7 @@ namespace REPO_DBF_2019_
                 if (value != _navn)
                 {
                     _navn = value;
-                    //Notify("navn");
+                    Notify("navn");
                 }
             }
         }
@@ -63,7 +63,7 @@ namespace REPO_DBF_2019_
                 if (value != _adresse)
                 {
                     _adresse = value;
-                    //Notify("adresse");
+                    Notify("adresse");
                 }
             }
         }
@@ -79,7 +79,7 @@ namespace REPO_DBF_2019_
                 if (value != _telefon)
                 {
                     _telefon = value;
-                    //Notify("telefon");
+                    Notify("telefon");
                 }
             }
         }
@@ -95,7 +95,7 @@ namespace REPO_DBF_2019_
                 if (value != _mail)
                 {
                     _mail = value;
-                    //Notify("mail");
+                    Notify("mail");
                 }
             }
         }
@@ -111,7 +111,7 @@ namespace REPO_DBF_2019_
                 if (value != _rolle)
                 {
                     _rolle = value;
-                    //Notify("rolle");
+                    Notify("rolle");
                 }
             }
         }
