@@ -9,7 +9,7 @@ namespace REPO_DBF_2019_
     /// <summary>
     /// This Class Handles the fields and properties for each book.
     /// </summary>
-    class ClassBog
+   public class ClassBog : Classudlaan
     {
         /// <summary>
         /// Default Constructor.
@@ -31,43 +31,98 @@ namespace REPO_DBF_2019_
         public int id
         {
             get { return _id; }
-            set { _id = value; }
+            set
+            {
+                if (value != _id)
+                {
+                    _id = value;
+                    Notify("id");
+                }
+            }
         }
         public string isbnNr
         {
             get { return _isbnNr; }
-            set { _isbnNr = value; }
+            set
+            {
+                if (value != _isbnNr)
+                {
+                    _isbnNr = value;
+                    Notify("isbnNr");
+                }
+            }
         }
         public string titel
         {
             get { return _titel; }
-            set { _titel = value; }
+            set
+            {
+                if (value != _titel)
+                {
+                    _titel = value;
+                    Notify("titel");
+                }
+            }
         }
         public string forfatter
         {
             get { return _forfatter; }
-            set { _forfatter = value; }
+            set
+            {
+                if (value != _forfatter)
+                {
+                    _forfatter = value;
+                    Notify("forfatter");
+                }
+            }
         }
         public string forlag
         {
             get { return _forlag; }
-            set { _forlag = value; }
+            set
+            {
+                if (value != _forlag)
+                {
+                    _forlag = value;
+                    Notify("forlag");
+                }
+            }
         }
         public string genre
         {
             get { return _genre; }
-            set { _genre = value; }
+            set
+            {
+                if (value != _genre)
+                {
+                    _genre = value;
+                    Notify("genre");
+                }
+            }
         }
         public string type
         {
             get { return _type; }
-            set { _type = value; }
+            set
+            {
+                if (value != _type)
+                {
+                    _type = value;
+                    Notify("type");
+                }
+            }
         }
         public decimal pris
         {
             get { return _pris; }
-            set { _pris = value; }
+            set
+            {
+                if (value != _pris)
+                {
+                    _pris = value;
+                    Notify("pris");
+                }
+            }
         }
-
     }
 }

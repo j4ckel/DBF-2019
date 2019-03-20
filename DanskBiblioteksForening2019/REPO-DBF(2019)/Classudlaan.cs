@@ -9,7 +9,7 @@ namespace REPO_DBF_2019_
     /// <summary>
     /// This class handles the due time of the lent books.
     /// </summary>
-    class Classudlaan
+    class Classudlaan : ClassNotify
     {
         /// <summary>
         /// Default Constructor.
@@ -24,7 +24,14 @@ namespace REPO_DBF_2019_
         public DateTime afleveringsDato
         {
             get { return _afleveringsDato; }
-            set { _afleveringsDato = value; }
+            set
+            {
+                if (value != _afleveringsDato)
+                {
+                    _afleveringsDato = value;
+                    Notify("afleveringsDato");
+                }
+            }
         }
         /// <summary>
         /// Calculates the rent time of the books.

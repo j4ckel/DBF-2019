@@ -9,7 +9,7 @@ namespace REPO_DBF_2019_
     /// <summary>
     /// This Class handles the fields and properties for each person.
     /// </summary>
-    class ClassPerson
+    public class ClassPerson : ClassNotify
     {
         /// <summary>
         /// Default Constructor.
@@ -30,32 +30,74 @@ namespace REPO_DBF_2019_
         public int id
         {
             get { return _id; }
-            set { _id = value; }
+            set
+            {
+                if (value != _id)
+                {
+                    _id = value;
+                    Notify("id");
+                }
+            }
         }
-        public string MyProperty
+        public string navn
         {
             get { return _navn; }
-            set { _navn = value; }
+            set
+            {
+                if (value != _navn)
+                {
+                    _navn = value;
+                    Notify("navn");
+                }
+            }
         }
         public string adresse
         {
             get { return _adresse; }
-            set { _adresse = value; }
+            set
+            {
+                if (value != _adresse)
+                {
+                    _adresse = value;
+                    Notify("adresse");
+                }
+            }
         }
         public string telefon
         {
             get { return _telefon; }
-            set { _telefon = value; }
+            set
+            {
+                if (value != _telefon)
+                {
+                    _telefon = value;
+                    Notify("telefon");
+                }
+            }
         }
         public string mail
         {
             get { return _mail; }
-            set { _mail = value; }
+            set
+            {
+                if (value != _mail)
+                {
+                    _mail = value;
+                    Notify("mail");
+                }
+            }
         }
         public int rolle
         {
             get { return _rolle; }
-            set { _rolle = value; }
+            set
+            {
+                if (value != _rolle)
+                {
+                    _rolle = value;
+                    Notify("rolle");
+                }
+            }
         }
     }
 }
