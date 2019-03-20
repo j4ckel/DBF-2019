@@ -5,8 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace REPO_DBF_2019_
+namespace Repository
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ClassNotify : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
