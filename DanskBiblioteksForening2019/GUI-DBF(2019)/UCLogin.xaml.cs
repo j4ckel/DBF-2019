@@ -27,7 +27,7 @@ namespace GUI_DBF_2019_
             CB = inBiz;
 
         }
-
+           
 
 
         private void ButtonLogIn_Click(object sender, RoutedEventArgs e)
