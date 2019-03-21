@@ -13,8 +13,8 @@ namespace BIZ_DBF_2019_
     public class ClassBiz : ClassNotify
     {
         // Private fields
-        private ObservableCollection<ClassBog> _boeger;
-        private ObservableCollection<ClassBog> _laanteBoeger;
+        private List<ClassBog> _boeger;
+        private List<ClassBog> _laanteBoeger;
         private ClassBog _bog;
         private ClassPerson _person;
         ClassDbfDB classDbfDB;
@@ -58,7 +58,7 @@ namespace BIZ_DBF_2019_
             }
         }
 
-        public ObservableCollection<ClassBog> laanteBoeger
+        public List<ClassBog> laanteBoeger
         {
             get { return _laanteBoeger; }
             set
@@ -71,7 +71,7 @@ namespace BIZ_DBF_2019_
             }
         }
 
-        public ObservableCollection<ClassBog> boeger
+        public List<ClassBog> boeger
         {
             get { return _boeger; }
             set
@@ -84,12 +84,12 @@ namespace BIZ_DBF_2019_
             }
         }
 
-        public ObservableCollection<ClassBog> GetAllLentBoks(int personID)
+        public List<ClassBog> GetAllLentBoks(int personID)
         {
             return classDbfDB.GetAllBooksLentToUser(personID.ToString());
         }
 
-        public ObservableCollection<ClassBog> GetAllBooksWhereTheTitleContainsTheseWords(string words)
+        public List<ClassBog> GetAllBooksWhereTheTitleContainsTheseWords(string words)
         {
             return classDbfDB.GetAllBooksLike(words);
         }
