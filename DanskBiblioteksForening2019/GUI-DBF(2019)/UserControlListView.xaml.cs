@@ -16,16 +16,13 @@ using System.Windows.Shapes;
 namespace GUI_DBF_2019_
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for UserControlListView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class UserControlListView : UserControl
     {
-        public MainWindow()
+        public UserControlListView()
         {
             InitializeComponent();
-            UCGUI ucg = new UCGUI();
-            //MainGrid.Children.Add(ucg);
-            gridRight.Children.Add(ucg);
         }
     }
 }
