@@ -24,7 +24,10 @@ namespace GUI_DBF_2019_
         {
             InitializeComponent();
             UCGUI ucg = new UCGUI();
+            UCLogin ulg = new UCLogin();
             //MainGrid.Children.Add(ucg);
+            supGrid.Visibility = Visibility.Collapsed;
+            MainGrid.Children.Add(ulg);
             gridRight.Children.Add(ucg);
         }
     }

@@ -7,13 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid x:Name="MainGrid">
+        <Grid x:Name="supGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid x:Name="gridLeft"
               Grid.Column="0"/>
-        <Grid x:Name="gridRight" 
-              Grid.Column="1"/>
+        <Grid x:Name="gridRight"
+                  Grid.Column="1" />
+        </Grid>
     </Grid>
 </Window>

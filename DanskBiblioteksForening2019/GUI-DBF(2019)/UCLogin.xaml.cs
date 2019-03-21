@@ -24,5 +24,17 @@ namespace GUI_DBF_2019_
         {
             InitializeComponent();
         }
+
+        private void ButtonLogIn_Click(object sender, RoutedEventArgs e)
+        {
+            if (false)
+            {
+
+            }
+            else
+            {
+                LabelError.Visibility = Visibility.Visible;
+            }
+        }
     }
 }
