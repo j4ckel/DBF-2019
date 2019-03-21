@@ -105,7 +105,7 @@ namespace BIZ_DBF_2019_
             return classDbfDB.GetAllBooksLike(words);
         }
 
-        public void LendThisBookToTheUser(int bogID, int personID)
+        public void LendThisBookToTheUser(ClassBog lentBook, ClassUser user)
         {
             
         }
