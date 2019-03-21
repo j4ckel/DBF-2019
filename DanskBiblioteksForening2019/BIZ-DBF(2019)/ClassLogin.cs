@@ -10,10 +10,12 @@ namespace BIZ_DBF_2019_
 {
     public class ClassLogin : ClassNotify
     {
+        private ClassUser _classUser = new ClassUser();
         ClassDbfDB CDbfDB = new ClassDbfDB();
         private string _id;
         private string _user;
        
+
         public ClassLogin()
         {
 
@@ -26,6 +28,18 @@ namespace BIZ_DBF_2019_
             return person;
         }
 
+        public ClassUser classUser
+        {
+            get { return _classUser; }
+            set
+            {
+                if(value != _classUser)
+                {
+                    _classUser = value;
+                    Notify("classUser");
+                }
+            }
+        }
         public string user
         {
             get { return _user; }
