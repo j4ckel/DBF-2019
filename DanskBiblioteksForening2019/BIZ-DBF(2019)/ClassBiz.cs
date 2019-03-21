@@ -15,7 +15,7 @@ namespace BIZ_DBF_2019_
         private ObservableCollection<ClassBog> _boeger;
         private ObservableCollection<ClassBog> _laanteBoeger;
         private ClassBog _bog;
-        private ClassPerson _person;
+        private ClassUser _user;
         private ClassLogin _login;
         ClassDbfDB classDbfDB;
 
@@ -26,7 +26,7 @@ namespace BIZ_DBF_2019_
         {
             classDbfDB = new ClassDbfDB();
             bog = new ClassBog();
-            person = new ClassPerson();
+            user = new ClassUser();
         }
 
 
@@ -43,15 +43,15 @@ namespace BIZ_DBF_2019_
                 }
             }
         }
-        public ClassPerson person
+        public ClassUser user
         {
-            get { return _person; }
+            get { return _user; }
             set
             {
-                if (value != _person)
+                if (value != _user)
                 {
-                    _person = value;
-                    Notify("person");
+                    _user = value;
+                    Notify("user");
                 }
             }
         }
@@ -95,7 +95,7 @@ namespace BIZ_DBF_2019_
             }
         }
 
-        public ObservableCollection<ClassBog> GetAllLentBoks(int personID)
+        public ObservableCollection<ClassBog> GetAllLentBooks(int personID)
         {
             return classDbfDB.GetAllLentToUser(personID.ToString());
         }
@@ -117,10 +117,10 @@ namespace BIZ_DBF_2019_
 
         public bool HandleLogin()
         {
-            person = classDbfDB.GetUser(login);
-            if (person.id > 0)
+            user = classDbfDB.GetUser(user);
+            if (user.id > 0)
             {
-                laanteBoeger = GetAllLentBoks(person.id);
+                laanteBoeger = GetAllLentBooks(user.id);
                 return true;
             }
             else
