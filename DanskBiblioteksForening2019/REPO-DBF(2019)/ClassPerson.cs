@@ -20,11 +20,6 @@ namespace REPO_DBF_2019_
 
         }
 
-        //public ClassPerson()
-        //{
-
-        //}
-
 
         public int id
         {
