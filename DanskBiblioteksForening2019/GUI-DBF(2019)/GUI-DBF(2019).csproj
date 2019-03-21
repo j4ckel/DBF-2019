@@ -55,9 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="UCGUI.xaml.cs">
-      <DependentUpon>UCGUI.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControlListView.xaml.cs">
       <DependentUpon>UserControlListView.xaml</DependentUpon>
     </Compile>
@@ -73,10 +70,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UCGUI.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="UserControlListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
