@@ -11,6 +11,7 @@ namespace DB_IO_DBF_2019_
     public class ClassDbfDB
     {
         ObservableCollection<ClassBog> CB = new ObservableCollection<ClassBog>();
+        
 
         public ClassDbfDB()
         {
