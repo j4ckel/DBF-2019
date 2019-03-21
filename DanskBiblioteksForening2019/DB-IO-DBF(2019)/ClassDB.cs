@@ -20,8 +20,7 @@ namespace DB_IO_DBF_2019_
         /// The ClassDbCons purpose is to handle the connection to the DB.
         /// </summary>
 
-        public class ClassDbCon
-        {
+        
 
             private string connectionString;
             private SqlConnection con;
@@ -30,7 +29,7 @@ namespace DB_IO_DBF_2019_
             /// <summary>
             /// Default constructor with no arguments.
             /// </summary>
-            public ClassDbCon()
+            public ClassDB()
             {
                 //    connectionString = "Server=10.205.44.39,49172;Database=MovieDB_Patrick;User Id=AspIT;Password=Server2012;";
                 //    con = new SqlConnection(connectionString);
@@ -42,7 +41,7 @@ namespace DB_IO_DBF_2019_
             /// Save the connectionstring in the field connectionString and SqlConnection in the field con
             /// </summary>
             /// <param name="yourConString">A string with the connection settings</param>
-            public ClassDbCon(string yourConString)
+            public ClassDB(string yourConString)
             {
                 connectionString = yourConString;
                 con = new SqlConnection(connectionString);
@@ -188,6 +187,5 @@ namespace DB_IO_DBF_2019_
             {
 
             }
-        }
     }
 }
