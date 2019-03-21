@@ -14,7 +14,7 @@ namespace DB_IO_DBF_2019_
     /// <summary>
     /// The ClassDbCons purpose is to handle the connection to the DB.
     /// </summary>
-    class ClassDB
+    public class ClassDB
     {
         /// <summary>
         /// The ClassDbCons purpose is to handle the connection to the DB.

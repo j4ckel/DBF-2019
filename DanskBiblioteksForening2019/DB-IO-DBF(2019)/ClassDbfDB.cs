@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DB_IO_DBF_2019_
 {
-    public class ClassDbfDB
+    public class ClassDbfDB : ClassDB
     {
         //ObservableCollection<ClassBog> CB = new ObservableCollection<ClassBog>();
 
