@@ -21,11 +21,13 @@ namespace DB_IO_DBF_2019_
         public ObservableCollection<ClassBog> GetAllBooksLike(string search)
         {
             
+
             return GetAllBooksLike(search);
         }
 
         public ObservableCollection<ClassBog> GetAllLentToUser(string id)
         {
+
 
             return GetAllLentToUser(id);
         }
@@ -37,6 +39,7 @@ namespace DB_IO_DBF_2019_
         {
 
 
+            return GetUser(UserID, Password);
         }
     }
 }
