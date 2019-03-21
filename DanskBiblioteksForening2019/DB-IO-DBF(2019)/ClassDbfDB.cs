@@ -4,10 +4,11 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using REPO_DBF_2019_;
 
 namespace DB_IO_DBF_2019_
 {
-    class ClassDbfDB
+    public class ClassDbfDB
     {
         //ObservableCollection<ClassBog> CB = new ObservableCollection<ClassBog>();
 
@@ -29,9 +30,11 @@ namespace DB_IO_DBF_2019_
         {
 
         }
-        public void GetUser(string UserID, string Password)
+        public ClassUser GetUser(string UserID, string Password)
         {
+            ClassUser user = new ClassUser();
 
+            return user;
         }
     }
 }

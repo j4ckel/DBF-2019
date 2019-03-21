@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace REPO_DBF_2019_
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ClassNotify : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
