@@ -19,5 +19,10 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Label Content="CPR Nummer:" HorizontalAlignment="Left" Margin="61,21,0,0" VerticalAlignment="Top" Width="99" Grid.Column="1" Grid.Row="1"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="61,47,0,0" VerticalAlignment="Top" Width="99" Grid.Column="1" Grid.Row="1"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" Grid.Column="2" Margin="61,25,0,0" Grid.Row="1"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" Grid.Column="2" Margin="61,53,0,0" Grid.Row="1"/>
+        <Button Content="Log ind" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Grid.Column="1" Margin="146,94,0,0" Grid.Row="1" Grid.ColumnSpan="2" Height="27" Grid.RowSpan="2"/>
     </Grid>
 </UserControl>
