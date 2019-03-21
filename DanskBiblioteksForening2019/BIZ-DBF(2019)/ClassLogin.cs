@@ -21,11 +21,11 @@ namespace BIZ_DBF_2019_
 
         }
 
-        public ClassPerson GetUserData(string id, string user)
+        public ClassUser GetUserData(string id, string user)
         {
-            ClassPerson person = new ClassPerson();
+            ClassUser User = new ClassPe();
             CDbfDB.GetUser(id,user);
-            return person;
+            return User;
         }
 
         public ClassUser classUser

@@ -33,7 +33,7 @@ namespace DB_IO_DBF_2019_
         public ClassUser GetUser(string UserID, string Password)
         {
             ClassUser user = new ClassUser();
-
+            
             return user;
         }
     }
