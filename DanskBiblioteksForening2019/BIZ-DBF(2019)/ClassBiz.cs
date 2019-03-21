@@ -16,6 +16,7 @@ namespace BIZ_DBF_2019_
         private ObservableCollection<ClassBog> _laanteBoeger;
         private ClassBog _bog;
         private ClassPerson _person;
+        private ClassLogin _login;
         ClassDbfDB classDbfDB;
 
         /// <summary>
@@ -26,11 +27,22 @@ namespace BIZ_DBF_2019_
             classDbfDB = new ClassDbfDB();
             bog = new ClassBog();
             person = new ClassPerson();
-            laanteBoeger = GetAllLentBoks(person.id);
         }
 
 
         // Public properties
+        public ClassLogin login
+        {
+            get { return _login; }
+            set
+            {
+                if (value != _login)
+                {
+                    _login = value;
+                    Notify("login");
+                }
+            }
+        }
         public ClassPerson person
         {
             get { return _person; }
@@ -85,7 +97,7 @@ namespace BIZ_DBF_2019_
 
         public ObservableCollection<ClassBog> GetAllLentBoks(int personID)
         {
-            return classDbfDB.GetAllBooksLentToUser(personID.ToString());
+            return classDbfDB.GetAllLentToUser(personID.ToString());
         }
 
         public ObservableCollection<ClassBog> GetAllBooksWhereTheTitleContainsTheseWords(string words)
@@ -103,9 +115,18 @@ namespace BIZ_DBF_2019_
 
         }
 
-        public bool CheckForDoubleLending(ClassBog inBog)
+        public bool HandleLogin()
         {
-
+            person = classDbfDB.GetUser(login);
+            if (person.id > 0)
+            {
+                laanteBoeger = GetAllLentBoks(person.id);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

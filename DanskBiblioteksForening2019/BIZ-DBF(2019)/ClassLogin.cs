@@ -7,7 +7,7 @@ using REPO_DBF_2019_;
 
 namespace BIZ_DBF_2019_
 {
-    public class ClassLogin
+    public class ClassLogin : ClassNotify
     {
         private string _id;
         private string _user;
@@ -32,7 +32,7 @@ namespace BIZ_DBF_2019_
                 if (value != _user)
                 {
                     _user = value;
-                    //Notify("user");
+                    Notify("user");
                 }
             }
         }
@@ -46,7 +46,7 @@ namespace BIZ_DBF_2019_
                 if (value != _id)
                 {
                     _id = value;
-                    //Notify("id");
+                    Notify("id");
                 }
             }
         }
