@@ -61,11 +61,19 @@ namespace DB_IO_DBF_2019_
         {
 
         }
-        public ClassUser GetUser(string UserID, string Password)
+        public ClassUser GetUser(string cprNr, string Password)
         {
 
+            string strsql = "SELECT        dbo.Person.navn, dbo.Person.adresse, dbo.PersonTelefon.telefonnummer, dbo.PersonMail.mailAdr, " +
+                "dbo.Person.rolle FROM dbo.Access LEFT OUTER JOIN" +
+                "                         dbo.Person ON dbo.Access.userId = dbo.Person.id LEFT OUTER JOIN" +
+                "                         dbo.PersonTelefon ON dbo.Person.id = dbo.PersonTelefon.personID LEFT OUTER JOIN" +
+                "                         dbo.PersonMail ON dbo.Person.id = dbo.PersonMail.personID" +
+                $"WHERE(dbo.Access.cprNr = '{cprNr}') AND(dbo.Access.password = '{Password}')";
 
-            return GetUser(UserID, Password);
+
+
+            return GetUser(cprNr, Password);
         }
         public void UpdateBook(ClassBog CB)
         {
