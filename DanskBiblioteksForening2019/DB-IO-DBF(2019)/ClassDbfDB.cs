@@ -111,31 +111,94 @@ namespace DB_IO_DBF_2019_
 
         public ObservableCollection<string> GetTitles()
         {
+            ObservableCollection<string> cTitles = new ObservableCollection<string>();
+            string sqlQuery = "SELECT * FROM Titel";
+            DataTable dataTable = DbReturnDataTable(sqlQuery);
 
+            foreach (DataRow row in dataTable.Rows)
+            {
+                cTitles.Add(row["titel"].ToString());
+            }
+
+            return cTitles;
         }
         public ObservableCollection<string> GetAuthors()
         {
+            ObservableCollection<string> cAuthors = new ObservableCollection<string>();
+            string sqlQuery = "SELECT * FROM Forfatter";
+            DataTable dataTable = DbReturnDataTable(sqlQuery);
 
+            foreach (DataRow row in dataTable.Rows)
+            {
+                cAuthors.Add(row["forfatter"].ToString());
+            }
+
+            return cAuthors;
         }
         public ObservableCollection<string> GetISBNs()
         {
+            ObservableCollection<string> cISBN = new ObservableCollection<string>();
+            string sqlQuery = "SELECT * FROM ISBNnr";
+            DataTable dataTable = DbReturnDataTable(sqlQuery);
 
+            foreach (DataRow row in dataTable.Rows)
+            {
+                cISBN.Add(row["isbnNr"].ToString());
+            }
+
+            return cISBN;
         }
         public ObservableCollection<string> GetPublishers()
         {
+            ObservableCollection<string> cPublisher = new ObservableCollection<string>();
+            string sqlQuery = "SELECT * FROM Forlag";
+            DataTable dataTable = DbReturnDataTable(sqlQuery);
 
+            foreach (DataRow row in dataTable.Rows)
+            {
+                cPublisher.Add(row["forlagsNavn"].ToString());
+            }
+
+            return cPublisher;
         }
         public ObservableCollection<string> GetTypes()
         {
+            ObservableCollection<string> cTypes = new ObservableCollection<string>();
+            string sqlQuery = "SELECT * FROM Type";
+            DataTable dataTable = DbReturnDataTable(sqlQuery);
 
+            foreach (DataRow row in dataTable.Rows)
+            {
+                cTypes.Add(row["TypeNavn"].ToString());
+            }
+
+            return cTypes;
         }
         public ObservableCollection<string> GetGenre()
         {
+            ObservableCollection<string> cGenre = new ObservableCollection<string>();
+            string sqlQuery = "SELECT * FROM Genre";
+            DataTable dataTable = DbReturnDataTable(sqlQuery);
 
+            foreach (DataRow row in dataTable.Rows)
+            {
+                cGenre.Add(row["genreType"].ToString());
+            }
+
+            return cGenre;
         }
         public ObservableCollection<decimal> GetPrices()
         {
+            ObservableCollection<decimal> cPrice = new ObservableCollection<decimal>();
+            string sqlQuery = "SELECT * FROM Books";
+            DataTable dataTable = DbReturnDataTable(sqlQuery);
 
+            foreach (DataRow row in dataTable.Rows)
+            {
+                cPrice.Add(Convert.ToDecimal(row["pris"].ToString()));
+            }
+
+            return cPrice;
         }
     }
 }
