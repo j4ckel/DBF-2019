@@ -26,17 +26,50 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition />
 
-            </Grid.RowDefinitions>
+        </Grid.RowDefinitions>
 
-            <TextBox x:Name="isbn"  Grid.Column="1" Grid.Row="0" Text="TextBox" />
-            <TextBox x:Name="titel"  Grid.Column="1" Grid.Row="1" Text="TextBox" />
-            <TextBox x:Name="udgivelsesdag"  Grid.Column="1" Grid.Row="2" Text="TextBox" />
-            <TextBox x:Name="forfatter"  Grid.Column="1" Grid.Row="3" Text="TextBox" />
-            <TextBox x:Name="forlag"  Grid.Column="1" Grid.Row="4" Text="TextBox" />
-            <TextBox x:Name="genre"  Grid.Column="1" Grid.Row="5" Text="TextBox" />
-            <TextBox x:Name="type"  Grid.Column="1" Grid.Row="6" Text="TextBox" />
-            <TextBox x:Name="indkoeb"  Grid.Column="1" Grid.Row="7" Text="TextBox" />
+            <TextBox x:Name="isbn" 
+                     Grid.Column="1" 
+                     Grid.Row="0" 
+                     IsReadOnly="True"
+                     />
+            <TextBox x:Name="titel" 
+                     Grid.Column="1" 
+                     Grid.Row="1" 
+                     IsReadOnly="True"
+                     />
+            <TextBox x:Name="udgivelsesdag" 
+                     Grid.Column="1" 
+                     Grid.Row="2" 
+                     IsReadOnly="True"
+                     />
+            <TextBox x:Name="forfatter" 
+                     Grid.Column="1" 
+                     Grid.Row="3" 
+                     IsReadOnly="True"
+                     />
+            <TextBox x:Name="forlag"  
+                     Grid.Column="1" 
+                     Grid.Row="4" 
+                     IsReadOnly="True"
+                     />
+            <TextBox x:Name="genre" 
+                     Grid.Column="1" 
+                     Grid.Row="5" 
+                     IsReadOnly="True"
+                     />
+            <TextBox x:Name="type"  
+                     Grid.Column="1" 
+                     Grid.Row="6" 
+                     IsReadOnly="True"
+                     />
+            <TextBox x:Name="indkoeb" 
+                     Grid.Column="1" 
+                     Grid.Row="7"
+                     IsReadOnly="True"
+                     />
             <Label Content="ISBN"
                    HorizontalAlignment="Center"
                    Margin="0,0,0,0"
@@ -77,8 +110,25 @@
                    Margin="0,0,0,0"
                    Grid.Row="7"
                    VerticalAlignment="center" Width="200" Height="51"/>
+        <Button x:Name="CreateNewBook"
+                Content="Opret ny bog"
+                Grid.Column="1"
+                HorizontalAlignment="Stretch"
+                Margin="55,6.6,55,4.6"
+                Grid.Row="8"
+                VerticalAlignment="Stretch"
+                Width="80" 
+                />
+        <Button x:Name="EditBook"
+                Content="Rediger"
+                Grid.Column="0"
+                HorizontalAlignment="Stretch"
+                Margin="55,6.6,55,4.6"
+                Grid.Row="8"
+                VerticalAlignment="Stretch"
+                Width="80" />
 
 
-        </Grid>
+    </Grid>
     <!--</Grid>-->
 </UserControl>
