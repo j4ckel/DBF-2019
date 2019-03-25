@@ -27,7 +27,7 @@ namespace GUI_DBF_2019_
 
         private void EditBook_Click(object sender, RoutedEventArgs e)
         {
-            UCEdit
+            
         }
     }
 }
