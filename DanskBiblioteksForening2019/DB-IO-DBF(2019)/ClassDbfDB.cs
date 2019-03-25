@@ -43,17 +43,34 @@ namespace DB_IO_DBF_2019_
         {
             List<ClassBog> CB = new List<ClassBog>();
 
-            DataTable dt = DbReturnDataTable("SELECT * FROM Books WHERE titel = "+ search );
+            DataTable dt = DbReturnDataTable($"SELECT dbo.Books.id, dbo.Books.pris, dbo.Titel.titel, dbo.Forfatter.forfatter, dbo.Forlag.forlagsNavn, dbo.ISBNnr.isbnNr, dbo.Genre.genreType, dbo.Type.TypeNavn" +
+                $"FROM dbo.Books INNER JOIN" +
+                $" dbo.Type ON dbo.Books.typeID = dbo.Type.id" +
+                $" dbo.Forfatter ON dbo.Books.forfatterID = dbo.Forfatter.id INNER JOIN" +
+                $" dbo.Forlag ON dbo.Books.forlagID = dbo.Forlag.id INNER JOIN" +
+                $" dbo.Genre ON dbo.Books.genreID = dbo.Genre.id INNER JOIN" +
+                $" dbo.ISBNnr ON dbo.Books.isbnID = dbo.ISBNnr.id INNER JOIN" +
+                $" dbo.Titel ON dbo.Books.titelID = dbo.Titel.id INNER JOIN" +
+                $" dbo.Type ON dbo.Books.typeID = dbo.Type.id" +
+                $"WHERE        (dbo.Titel.titel = '*{search}*')");
             foreach (DataRow row in dt.Rows)
             {
-               
+                ClassBog bog = new ClassBog();
+                bog.id = Convert.ToInt32(row["id"].ToString());
+                bog.titel = row["titel"].ToString();
+                bog.forfatter = row["forfatter"].ToString();
+                bog.forlag = row["forlagsNavn"].ToString();
+                bog.isbnNr = row["isbnNr"].ToString();
+                bog.genre = row["genreType"].ToString();
+                bog.type = row["TypeNavn"].ToString();
+                bog.pris = Convert.ToDecimal(row["pris"].ToString());
+                CB.Add(bog);
             }
 
             return CB;
         }
         public List<ClassBog> GetAllLentToUser(string id)
         {
-
 
             return GetAllLentToUser(id);
         }
