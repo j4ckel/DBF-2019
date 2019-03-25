@@ -52,6 +52,7 @@ namespace REPO_DBF_2019_
                 {
                     _userName = value;
                     Notify("userName");
+
                 }
             }
         }
