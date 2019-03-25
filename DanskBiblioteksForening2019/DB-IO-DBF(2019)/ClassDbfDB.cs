@@ -9,18 +9,19 @@ using System.Threading.Tasks;
 
 namespace DB_IO_DBF_2019_
 {
-    public class ClassDbfDB
+    public class ClassDbfDB : ClassDB
     {
+
         public ClassDbfDB()
         {
             
 
         }
-        public List<ClassBog> GetAllBooksLike(string search)
+        public List<ClassBog> GetAllBooks()
         {
             List<ClassBog> CB = new List<ClassBog>();
 
-            DataTable dt = DBReturnDataTable("SELECT * FROM Books");
+            DataTable dt = DbReturnDataTable("SELECT * FROM Books");
             foreach(DataRow row in dt.Rows)
             {
                 ClassBog CLB = new ClassBog();
@@ -35,9 +36,21 @@ namespace DB_IO_DBF_2019_
                 
             }
 
-            return GetAllBooksLike(search);
+            return CB;
         }
 
+        public List<ClassBog> GetAllBooksLike(string search)
+        {
+            List<ClassBog> CB = new List<ClassBog>();
+
+            DataTable dt = DbReturnDataTable("SELECT * FROM Books WHERE titel = "+ search );
+            foreach (DataRow row in dt.Rows)
+            {
+               
+            }
+
+            return CB;
+        }
         public List<ClassBog> GetAllLentToUser(string id)
         {
 
@@ -53,6 +66,10 @@ namespace DB_IO_DBF_2019_
 
 
             return GetUser(UserID, Password);
+        }
+        public void UpdateBook(ClassBog CB)
+        {
+            
         }
     }
 }
