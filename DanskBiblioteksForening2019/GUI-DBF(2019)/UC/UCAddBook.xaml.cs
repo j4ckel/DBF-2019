@@ -20,7 +20,7 @@ namespace GUI_DBF_2019_
     /// </summary>
     public partial class UCAddBook : UserControl
     {
-        public UCAddBook()
+        public UCAddBook(Grid grid)
         {
             InitializeComponent();
         }

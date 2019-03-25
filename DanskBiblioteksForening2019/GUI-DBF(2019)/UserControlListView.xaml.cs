@@ -20,7 +20,7 @@ namespace GUI_DBF_2019_
     /// </summary>
     public partial class UserControlListView : UserControl
     {
-        public UserControlListView()
+        public UserControlListView(Grid gridLeft)
         {
             InitializeComponent();
         }

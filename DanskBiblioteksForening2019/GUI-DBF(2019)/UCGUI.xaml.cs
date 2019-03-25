@@ -20,14 +20,15 @@ namespace GUI_DBF_2019_
     /// </summary>
     public partial class UCGUI : UserControl
     {
-        public UCGUI()
+        public UCGUI(Grid gridRight)
         {
             InitializeComponent();
         }
 
         private void EditBook_Click(object sender, RoutedEventArgs e)
         {
-            
+            UCAddBook UCAB = new UCAddBook(this.UCGUIGrid);
+            ((Grid)Parent).Children.Add(UCAB);
         }
     }
 }
