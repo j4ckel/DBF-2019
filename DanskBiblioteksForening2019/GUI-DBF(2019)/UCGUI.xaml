@@ -126,7 +126,8 @@
                 Margin="55,6.6,55,4.6"
                 Grid.Row="8"
                 VerticalAlignment="Stretch"
-                Width="80" />
+                Width="80"
+                Click="EditBook_Click" />
 
 
     </Grid>

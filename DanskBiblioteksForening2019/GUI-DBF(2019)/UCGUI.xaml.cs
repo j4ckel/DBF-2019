@@ -24,5 +24,10 @@ namespace GUI_DBF_2019_
         {
             InitializeComponent();
         }
+
+        private void EditBook_Click(object sender, RoutedEventArgs e)
+        {
+            UCEdit
+        }
     }
 }
