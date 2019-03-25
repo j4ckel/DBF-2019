@@ -75,6 +75,40 @@ namespace DB_IO_DBF_2019_
 
             return GetAllLentToUser(id);
         }
+
+        public List<ClassBog> GetAvailbleBooks()
+        {
+            List<ClassBog> listCB = new List<ClassBog>();
+            DataTable dt = DbReturnDataTable($"SELECT        dbo.Titel.titel, dbo.Forfatter.forfatter, dbo.Forlag.forlagsNavn, dbo.ISBNnr.isbnNr, dbo.Genre.genreType, dbo.Type.TypeNavn, dbo.Books.pris, dbo.UdlaansStatus.status" +
+                $" FROM dbo.Books INNER JOIN" +
+                $" dbo.Forfatter ON dbo.Books.forfatterID = dbo.Forfatter.id INNER JOIN" +
+                $" dbo.Forlag ON dbo.Books.forlagID = dbo.Forlag.id INNER JOIN" +
+                $" dbo.Genre ON dbo.Books.genreID = dbo.Genre.id INNER JOIN" +
+                $" dbo.ISBNnr ON dbo.Books.isbnID = dbo.ISBNnr.id INNER JOIN" +
+                $" dbo.Type ON dbo.Books.typeID = dbo.Type.id INNER JOIN" +
+                $" dbo.Titel ON dbo.Books.titelID = dbo.Titel.id INNER JOIN" +
+                $" dbo.UdlaansStatus INNER JOIN" +
+                $" dbo.Udlaan ON dbo.UdlaansStatus.id = dbo.Udlaan.udlaansStatus ON " +
+                $"dbo.Books.id = dbo.Udlaan.bookID " +
+                $"WHERE(dbo.Udlaan.udlaansStatus = 2)");
+
+            foreach(DataRow row in dt.Rows)
+            {
+                ClassBog bog = new ClassBog();
+                bog.id = Convert.ToInt32(row["id"].ToString());
+                bog.isbnNr = row["isbnNr"].ToString();
+                bog.genre = row["genreType"].ToString();
+                bog.titel = row["titel"].ToString();
+                bog.forfatter = row["forfatter"].ToString();
+                bog.forlag = row["forlagsNavn"].ToString();
+                bog.type = row["TypeNavn"].ToString();
+                bog.pris = Convert.ToDecimal(row["pris"].ToString());
+                listCB.Add(bog);
+            }
+
+            return listCB;
+        }
+
         public void UpdateTheLendingStatus(string id, bool status)
         {
 
@@ -108,5 +142,6 @@ namespace DB_IO_DBF_2019_
         {
 
         }
+
     }
 }
