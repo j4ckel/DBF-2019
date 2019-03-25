@@ -20,21 +20,28 @@ namespace GUI_DBF_2019_
     /// </summary>
     public partial class UCLogin : UserControl
     {
-        public UCLogin()
+        ClassBiz CB;
+        public UCLogin(ClassBiz inBiz)
         {
             InitializeComponent();
+            CB = inBiz;
+
         }
+
+
 
         private void ButtonLogIn_Click(object sender, RoutedEventArgs e)
         {
-            if (false)
-            {
-
-            }
-            else
+            bool loginSuccess = CB.HandleLogin();
+            if (loginSuccess == false)
             {
                 LabelError.Visibility = Visibility.Visible;
             }
+            else
+            {
+                ((Grid)Parent).Children.Remove(this);
+            }
         }
+        
     }
 }
