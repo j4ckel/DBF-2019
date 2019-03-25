@@ -17,9 +17,9 @@ namespace DB_IO_DBF_2019_
             
 
         }
-        public List<ClassBog> GetAllBooks()
+        public ObservableCollection<ClassBog> GetAllBooks()
         {
-            List<ClassBog> CB = new List<ClassBog>();
+            ObservableCollection<ClassBog> CB = new ObservableCollection<ClassBog>();
 
             DataTable dt = DbReturnDataTable("SELECT * FROM Books");
             foreach(DataRow row in dt.Rows)
