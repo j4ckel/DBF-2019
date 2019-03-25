@@ -108,5 +108,34 @@ namespace DB_IO_DBF_2019_
         {
 
         }
+
+        public ObservableCollection<string> GetTitles()
+        {
+
+        }
+        public ObservableCollection<string> GetAuthors()
+        {
+
+        }
+        public ObservableCollection<string> GetISBNs()
+        {
+
+        }
+        public ObservableCollection<string> GetPublishers()
+        {
+
+        }
+        public ObservableCollection<string> GetTypes()
+        {
+
+        }
+        public ObservableCollection<string> GetGenre()
+        {
+
+        }
+        public ObservableCollection<decimal> GetPrices()
+        {
+
+        }
     }
 }
