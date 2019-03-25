@@ -81,28 +81,28 @@ namespace DB_IO_DBF_2019_
         }
         public ClassUser GetUser(string cprNr, string Password)
         {
-
             string strsql = "SELECT dbo.Person.navn, dbo.Person.adresse, dbo.PersonTelefon.telefonnummer, dbo.PersonMail.mailAdr, " +
                 "dbo.Person.rolle FROM dbo.Access LEFT OUTER JOIN" +
                 " dbo.Person ON dbo.Access.userId = dbo.Person.id LEFT OUTER JOIN" +
                 " dbo.PersonTelefon ON dbo.Person.id = dbo.PersonTelefon.personID LEFT OUTER JOIN" +
                 " dbo.PersonMail ON dbo.Person.id = dbo.PersonMail.personID" +
                 $"WHERE(dbo.Access.cprNr = '{cprNr}') AND(dbo.Access.password = '{Password}')";
-
+            ClassUser CU = new ClassUser();
             DataTable dt = DbReturnDataTable(strsql);
             foreach (DataRow row in dt.Rows)
             {
-                //userName = Cprnr
-                ClassUser CU = new ClassUser();
-                CU.userName = row[""]
-                ClassPerson CP = new ClassPerson();
-
-                    
-
+                CU = new ClassUser();
+                CU.userName = row["cprNr"].ToString();
+                CU.password = row["password"].ToString();                
+                
+                CU.navn = row["navn"].ToString();
+                CU.adresse = row["adresse"].ToString();
+                CU.telefon = row["navn"].ToString();
+                CU.mail = row["navn"].ToString();
+                CU.rolle = row["navn"].ToString();
             }
 
-
-            return GetUser(cprNr, Password);
+            return CU;
         }
         public void UpdateBook(ClassBog CB)
         {
