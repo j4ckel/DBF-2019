@@ -24,7 +24,9 @@ namespace GUI_DBF_2019_
         {
             InitializeComponent();
             UCGUI ucg = new UCGUI();
+            UserControlListView uclw = new UserControlListView();
             //MainGrid.Children.Add(ucg);
+            gridLeft.Children.Add(uclw);
             gridRight.Children.Add(ucg);
         }
     }

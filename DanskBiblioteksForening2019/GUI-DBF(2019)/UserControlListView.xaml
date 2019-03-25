@@ -6,16 +6,15 @@
              xmlns:local="clr-namespace:GUI_DBF_2019_"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid x:Name="UCListView">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        <ListView HorizontalAlignment="Center"
+        <ListView HorizontalAlignment="Stretch"
                   Margin="10"
-                  VerticalAlignment="Center"
-                  Height="280"
-                  Width="780"
+                  Grid.Row="0"
+                  VerticalAlignment="Stretch"
                   >
             <ListView.View>
                 <GridView>
@@ -24,11 +23,11 @@
             </ListView.View>
         </ListView>
         <Button Content="Gem"
-                HorizontalAlignment="Center"
-                Margin="312,29,312,51.6"
+                HorizontalAlignment="Stretch"
+                Margin="329,19,331,61.6"
                 Grid.Row="1"
-                VerticalAlignment="Center"
-                Width="176"
+                VerticalAlignment="Stretch"
+                Width="140"
                 Height="69"
                 />
     </Grid>
