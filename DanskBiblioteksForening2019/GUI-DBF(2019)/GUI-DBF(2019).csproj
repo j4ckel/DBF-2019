@@ -55,6 +55,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UC\UCEdit-Genre.xaml.cs">
+      <DependentUpon>UCEdit-Genre.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UCEdit-Indkøb.xaml.cs">
+      <DependentUpon>UCEdit-Indkøb.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UCEdit-Type.xaml.cs">
+      <DependentUpon>UCEdit-Type.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UCEdit-Forlag.xaml.cs">
+      <DependentUpon>UCEdit-Forlag.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UCEdit-Forfatter.xaml.cs">
+      <DependentUpon>UCEdit-Forfatter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UCEdit-Udgivelsesdato.xaml.cs">
+      <DependentUpon>UCEdit-Udgivelsesdato.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UCEdit-Titel.xaml.cs">
+      <DependentUpon>UCEdit-Titel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UCEdit-ISBN.xaml.cs">
+      <DependentUpon>UCEdit-ISBN.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UC\UCAddBook.xaml.cs">
+      <DependentUpon>UCAddBook.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UCGUI.xaml.cs">
       <DependentUpon>UCGUI.xaml</DependentUpon>
     </Compile>
@@ -70,6 +97,42 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UC\UCEdit-Genre.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\UCEdit-Indkøb.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\UCEdit-Type.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\UCEdit-Forlag.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\UCEdit-Forfatter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\UCEdit-Udgivelsesdato.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\UCEdit-Titel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\UCEdit-ISBN.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\UCAddBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UCGUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
