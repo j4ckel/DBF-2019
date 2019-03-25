@@ -43,7 +43,7 @@ namespace GUI_DBF_2019_
         private void ForfatterEdit_Click(object sender, RoutedEventArgs e)
         {
             UCEdit_Forfatter UCEditWriter = new UCEdit_Forfatter();
-            //save
+            
         }
 
         private void ForlagEdit_Click(object sender, RoutedEventArgs e)
