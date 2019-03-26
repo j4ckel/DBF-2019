@@ -301,66 +301,27 @@ namespace DB_IO_DBF_2019_
             ExecuteNonQuery($"INSERT INTO Forlag (forlagsNavn) VALUES ('{inPublisher.publisher}')");
         }
 
-        #region updates adds book titels, authors, etc
 
-        public void updatetitel(ClassBog bog)
-        {
-            try
-            {
-                string strsql = "UPDATE "
-            }
-            catch (Exception ex)
-            {
 
-                MessageBox.Show(ex.Message);
-            }
-        }
 
         #endregion
 
-        #region adds book titels, authors, etc
+        #region UpdateBookInfo
 
-        #region addtitel
-        public void addtitel(ClassBog bog)
+        public void UpdateTitleIntoDB(ClassTitle UpTitle, string newtitel)
         {
-            int intid = 0;
-            string strsql = $"INSERT INTO Titel (titel) VALUES('{bog}')";
-
-            try
-            {
-                intid = FunctionInsertTitel(strsql, bog);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);                 
-            }
+            ExecuteNonQuery($" update titel set titel = '{newtitel}' where titel = '{UpTitle}'");
+        }        
+        public void UpdateAuthorIntoDB(ClassAuthor UpAuthor, string newAuthor)
+        {
+            ExecuteNonQuery($"update forfatter set forfatter = '{UpAuthor.author}' where forfatter = '{newAuthor}'");
         }
 
-        protected int FunctionInsertTitel(string strsql, ClassBog inbog)
+        public void UpdatePublisherIntoDB(ClassPublisher UpPublisher, string newpublisher)
         {
-            int intRES = 0;
-            try
-            {
-
-                OpenDB();
-                using (SqlCommand cmd = new SqlCommand(strsql, ExecuteNonQuery))
-                {
-
-                    cmd.Parameters.Add("titel", SqlDbType.NVarChar).Value = inbog.titel;
-
-
-                    intRES = (int)cmd.ExecuteScalar();
-                }
-
-            CloseDB();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            return intRES;
+            ExecuteNonQuery($"update forlag set  forlagsNavn = '{UpPublisher.publisher}' where forlagsNavn = '{newpublisher}'");
+      
         }
-        #endregion
         #endregion
     }
 }
