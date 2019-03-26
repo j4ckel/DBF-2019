@@ -27,6 +27,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
 
         </Grid.RowDefinitions>
         <Label Content="ISBN"
@@ -125,6 +126,8 @@
         <ComboBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="5" Grid.Column="1" Margin="10,10,10,10"/>
         <ComboBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="6" Grid.Column="1" Margin="10,10,10,10"/>
         <ComboBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="7" Grid.Column="1" Margin="10,10,10,10"/>
+        <Button x:Name="buttonCancel" Content="Fortryd" Grid.Column="1" HorizontalAlignment="Stretch" Margin="10,10,10,10" Grid.Row="8" VerticalAlignment="Stretch" Click="ButtonCancel_Click" />
+        <Button x:Name="buttonSave" Content="Gem" HorizontalAlignment="Stretch" Margin="60,9.8,10,9.6" Grid.Row="8" VerticalAlignment="Stretch" Click="ButtonSave_Click" />
 
 
     </Grid>
