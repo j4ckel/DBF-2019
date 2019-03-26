@@ -6,7 +6,6 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using REPO_DBF_2019_;
 
 namespace DB_IO_DBF_2019_
 {
@@ -18,6 +17,7 @@ namespace DB_IO_DBF_2019_
             
 
         }
+        
         public List<ClassBog> GetAllBooks()
         {
             List<ClassBog> CB = new List<ClassBog>();
@@ -70,10 +70,27 @@ namespace DB_IO_DBF_2019_
 
             return CB;
         }
-        public List<ClassBog> GetAllLentToUser(string id)
+        public List<ClassBog> GetAllLentToUser(string personid)
         {
+            DataTable dt = DbReturnDataTable("SELECT dbo.Books.id, dbo.Type.TypeNavn, dbo.Titel.titel," +
+                " dbo.Genre.genreType, dbo.Forfatter.forfatter, dbo.Forlag.forlagsNavn, dbo.ISBNnr.isbnNr, dbo.Udlaan.udlaansStatus" +
+                "FROM dbo.Udlaan RIGHT OUTER JOIN dbo.Books INNER JOIN" +
+                " dbo.Forfatter ON dbo.Books.forfatterID = dbo.Forfatter.id INNER JOIN" +
+                " dbo.Forlag ON dbo.Books.forlagID = dbo.Forlag.id INNER JOIN" +
+                " dbo.Genre ON dbo.Books.genreID = dbo.Genre.id INNER JOIN" +
+                " dbo.ISBNnr ON dbo.Books.isbnID = dbo.ISBNnr.id INNER JOIN" +
+                " dbo.Titel ON dbo.Books.titelID = dbo.Titel.id INNER JOIN" +
+                " dbo.Type ON dbo.Books.typeID = dbo.Type.id ON dbo.Udlaan.bookID = dbo.Books.id" +
+                $"WHERE(dbo.Udlaan.personID = '{personid}') AND(dbo.Udlaan.udlaansStatus = 2)");
+            foreach (DataRow row in dt.Rows)
+            {
+                Classudlaan CUD = new Classudlaan();
 
-            return GetAllLentToUser(id);
+                
+
+            }
+            GetAllBooks();
+            return GetAllLentToUser(personid);
         }
         public void UpdateTheLendingStatus(string id, bool status)
         {
@@ -93,8 +110,7 @@ namespace DB_IO_DBF_2019_
             {
                 CU = new ClassUser();
                 CU.userName = row["cprNr"].ToString();
-                CU.password = row["password"].ToString();                
-                
+                CU.password = row["password"].ToString();       
                 CU.navn = row["navn"].ToString();
                 CU.adresse = row["adresse"].ToString();
                 CU.telefon = row["navn"].ToString();
