@@ -138,7 +138,15 @@ namespace DB_IO_DBF_2019_
         public void UpdateTheLendingStatus(string id, bool status)
         {
             string strsql = $"update Udlaan set udlaansStatus = {id} where {status} = bookID";
+            try
+            {
 
+            }
+            catch (Exception ex)
+            {
+
+                messagebox.show(ex.Message);
+            }
 
 
         }
@@ -180,10 +188,12 @@ namespace DB_IO_DBF_2019_
             foreach (DataRow row in dataTable.Rows)
             {
                 cTitles.Add(row["titel"].ToString());
+
             }
 
             return cTitles;
         }
+        
         public ObservableCollection<string> GetAuthors()
         {
             ObservableCollection<string> cAuthors = new ObservableCollection<string>();
@@ -219,6 +229,7 @@ namespace DB_IO_DBF_2019_
             foreach (DataRow row in dataTable.Rows)
             {
                 cPublisher.Add(row["forlagsNavn"].ToString());
+
             }
 
             return cPublisher;
@@ -262,7 +273,14 @@ namespace DB_IO_DBF_2019_
 
             return cPrice;
         }
+        
         #endregion
+
+        public void addtitel(ClassBog bog)
+        {
+            int intid = 0;
+            string strsql "INSERT INTO person";
+        }
     }
 }
 
