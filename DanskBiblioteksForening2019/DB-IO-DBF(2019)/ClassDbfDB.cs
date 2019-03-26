@@ -84,7 +84,16 @@ namespace DB_IO_DBF_2019_
                 $"WHERE(dbo.Udlaan.personID = '{personid}') AND(dbo.Udlaan.udlaansStatus = 2)");
             foreach (DataRow row in dt.Rows)
             {
+                ClassBog bog = new ClassBog();
+                bog.id = Convert.ToInt32(row["id"].ToString());
+                bog.titel = row["titel"].ToString();
+                bog.genre = row["genreType"].ToString();
+                bog.forfatter = row["forfatter"].ToString();
+                bog.forlag = row["forlagsNavn"].ToString();
+                bog.isbnNr = row["isbnNr"].ToString(); 
+
                 Classudlaan CUD = new Classudlaan();
+                CUD.udlaanstatus = row["udlaansStatus"].ToString();
 
                 
 
