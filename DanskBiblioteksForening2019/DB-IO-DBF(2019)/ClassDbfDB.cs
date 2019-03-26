@@ -115,6 +115,17 @@ namespace DB_IO_DBF_2019_
 
         public void UpdateTheLendingStatus(string id, bool status)
         {
+            string strsql = $"update Udlaan set udlaansStatus = {id} where {status} = bookID";
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+                messagebox.show(ex.Message);
+            }
+
 
         }
         public ClassUser GetUser(string cprNr, string Password)
@@ -255,6 +266,14 @@ namespace DB_IO_DBF_2019_
             }
 
             return cPrice;
+        }
+        
+        #endregion
+
+        public void addtitel(ClassBog bog)
+        {
+            int intid = 0;
+            string strsql "INSERT INTO person";
         }
     }
 }
