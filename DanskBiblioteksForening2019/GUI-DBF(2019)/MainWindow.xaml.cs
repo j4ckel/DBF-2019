@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BIZ_DBF_2019_;
+
 
 namespace GUI_DBF_2019_
 {
@@ -20,9 +22,12 @@ namespace GUI_DBF_2019_
     /// </summary>
     public partial class MainWindow : Window
     {
+        ClassBiz Cb = new ClassBiz();
         public MainWindow()
         {
             InitializeComponent();
+            
+            
         }
     }
 }

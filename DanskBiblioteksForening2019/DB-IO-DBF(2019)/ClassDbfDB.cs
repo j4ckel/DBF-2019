@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DB_IO_DBF_2019_
 {
@@ -84,7 +86,7 @@ namespace DB_IO_DBF_2019_
             catch (Exception ex)
             {
 
-                messagebox.show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
 
 
@@ -103,8 +105,7 @@ namespace DB_IO_DBF_2019_
             {
                 CU = new ClassUser();
                 CU.userName = row["cprNr"].ToString();
-                CU.password = row["password"].ToString();                
-                
+                CU.password = row["password"].ToString();     
                 CU.navn = row["navn"].ToString();
                 CU.adresse = row["adresse"].ToString();
                 CU.telefon = row["navn"].ToString();
@@ -118,7 +119,7 @@ namespace DB_IO_DBF_2019_
         {
 
         }
-
+        #region gets book titels, authors, etc
         public ObservableCollection<ClassTitle> GetTitles()
         {
             ObservableCollection<ClassTitle> cTitles = new ObservableCollection<ClassTitle>();
@@ -229,13 +230,69 @@ namespace DB_IO_DBF_2019_
 
             return cPrice;
         }
-        
+
         #endregion
 
+        #region updates adds book titels, authors, etc
+
+        public void updatetitel(ClassBog bog)
+        {
+            try
+            {
+                string strsql = "UPDATE "
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region adds book titels, authors, etc
+
+        #region addtitel
         public void addtitel(ClassBog bog)
         {
             int intid = 0;
-            string strsql "INSERT INTO person";
+            string strsql = $"INSERT INTO Titel (titel) VALUES('{bog}')";
+
+            try
+            {
+                intid = FunctionInsertTitel(strsql, bog);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);                 
+            }
         }
+
+        protected int FunctionInsertTitel(string strsql, ClassBog inbog)
+        {
+            int intRES = 0;
+            try
+            {
+
+                OpenDB();
+                using (SqlCommand cmd = new SqlCommand(strsql, ExecuteNonQuery))
+                {
+
+                    cmd.Parameters.Add("titel", SqlDbType.NVarChar).Value = inbog.titel;
+
+
+                    intRES = (int)cmd.ExecuteScalar();
+                }
+
+            CloseDB();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return intRES;
+        }
+        #endregion
+        #endregion
     }
 }
