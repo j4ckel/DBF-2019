@@ -14,11 +14,11 @@ namespace BIZ_DBF_2019_
         // Private fields
         private ObservableCollection<ClassBog> _boeger;
         private ObservableCollection<ClassBog> _laanteBoeger;
-        private ObservableCollection<string> _bookTitles;
-        private ObservableCollection<string> _bookAuthors;
-        private ObservableCollection<string> _bookPublishers;
-        private ObservableCollection<string> _bookGenre;
-        private ObservableCollection<string> _bookTypes;
+        private ObservableCollection<ClassTitle> _bookTitles;
+        private ObservableCollection<ClassAuthor> _bookAuthors;
+        private ObservableCollection<ClassPublisher> _bookPublishers;
+        private ObservableCollection<ClassGenre> _bookGenre;
+        private ObservableCollection<ClassType> _bookTypes;
         private ObservableCollection<decimal> _bookPrices;
         private ClassBog _bog;
         private ClassUser _user;
@@ -49,7 +49,7 @@ namespace BIZ_DBF_2019_
             }
         }
 
-        public ObservableCollection<string> bookTypes
+        public ObservableCollection<ClassType> bookTypes
         {
             get { return _bookTypes; }
             set
@@ -62,7 +62,7 @@ namespace BIZ_DBF_2019_
             }
         }
 
-        public ObservableCollection<string> bookGenre
+        public ObservableCollection<ClassGenre> bookGenre
         {
             get { return _bookGenre; }
             set
@@ -75,7 +75,7 @@ namespace BIZ_DBF_2019_
             }
         }
 
-        public ObservableCollection<string> bookPublishers
+        public ObservableCollection<ClassPublisher> bookPublishers
         {
             get { return _bookPublishers; }
             set
@@ -88,7 +88,7 @@ namespace BIZ_DBF_2019_
             }
         }
 
-        public ObservableCollection<string> bookAuthors
+        public ObservableCollection<ClassAuthor> bookAuthors
         {
             get { return _bookAuthors; }
             set
@@ -101,7 +101,7 @@ namespace BIZ_DBF_2019_
             }
         }
 
-        public ObservableCollection<string> bookTitles
+        public ObservableCollection<ClassTitle> bookTitles
         {
             get { return _bookTitles; }
             set
