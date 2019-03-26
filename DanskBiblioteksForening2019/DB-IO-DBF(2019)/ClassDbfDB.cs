@@ -139,7 +139,7 @@ namespace DB_IO_DBF_2019_
         }
         public void UpdateBook(ClassBog CB)
         {
-
+            ExecuteNonQuery($"");
         }
         public ObservableCollection<string> GetTitles()
         {
