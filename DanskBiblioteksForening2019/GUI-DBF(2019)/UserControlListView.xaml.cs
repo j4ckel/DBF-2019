@@ -19,7 +19,7 @@ namespace GUI_DBF_2019_
     /// Interaction logic for UserControlListView.xaml
     /// </summary>
     public partial class UserControlListView : UserControl
-    {
+    { 
         public UserControlListView(Grid gridLeft)
         {
             InitializeComponent();
