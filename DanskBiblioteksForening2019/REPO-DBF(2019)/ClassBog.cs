@@ -14,18 +14,18 @@ namespace REPO_DBF_2019_
         //Private Fields holding values
         #region Fields
         private int _id;
-        private string _isbnNr;
-        private string _titel;
-        private string _forfatter;
-        private string _forlag;
-        private string _genre;
-        private string _type;
+        private ClassISBN _isbnNr;
+        private ClassTitle _titel;
+        private ClassAuthor _forfatter;
+        private ClassPublisher _forlag;
+        private ClassGenre _genre;
+        private ClassType _type;
         private decimal _pris;
         #endregion
         /// <summary>
         /// Default Constructor.
         /// </summary>
-        public ClassBog(int inid,string inisbnNr,string intitel, string inforfatter,string inforlag,string ingenre,string intype,decimal inpris)
+        public ClassBog(int inid,ClassISBN inisbnNr,ClassTitle intitel, ClassAuthor inforfatter,ClassPublisher inforlag,ClassGenre ingenre,ClassType intype,decimal inpris)
         {
             inid = id;
 
@@ -51,7 +51,7 @@ namespace REPO_DBF_2019_
                 }
             }
         }   
-        public string isbnNr
+        public ClassISBN isbnNr
         {
             get { return _isbnNr; }
             set
@@ -64,7 +64,7 @@ namespace REPO_DBF_2019_
                 }
             }
         }
-        public string titel
+        public ClassTitle titel
         {
             get { return _titel; }
             set
@@ -77,7 +77,7 @@ namespace REPO_DBF_2019_
                 }
             }
         }
-        public string forfatter
+        public ClassAuthor forfatter
         {
             get { return _forfatter; }
             set
@@ -90,7 +90,7 @@ namespace REPO_DBF_2019_
                 }
             }
         }
-        public string forlag
+        public ClassPublisher forlag
         {
             get { return _forlag; }
             set
@@ -103,7 +103,7 @@ namespace REPO_DBF_2019_
                 }
             }
         }
-        public string genre
+        public ClassGenre genre
         {
             get { return _genre; }
             set
@@ -116,7 +116,7 @@ namespace REPO_DBF_2019_
                 }
             }
         }
-        public string type
+        public ClassType type
         {
             get { return _type; }
             set
