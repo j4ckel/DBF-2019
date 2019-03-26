@@ -28,11 +28,12 @@
                 <RowDefinition/>
 
             </Grid.RowDefinitions>
-        <TextBox x:Name="forfatter"  Grid.Column="1" Grid.Row="3" Text="TextBox" />
+        <TextBox x:Name="forfatter"  Grid.Column="1" Grid.Row="3" Text="Indtast Forfatter." GotFocus="Forfatter_GotFocus" />
         <Label Content="Forfatter"
-                   HorizontalAlignment="Center"
-                   Margin="0,0,0,0"
+                   HorizontalAlignment="Stretch"
                    Grid.Row="3"
-                   VerticalAlignment="center" Width="200" Height="51"/>
+                   VerticalAlignment="Stretch" />
+        <Button x:Name="SaveWriter" Content="Gem" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="7" Grid.Column="0" Click="SaveWriter_Click"/>
+        <Button x:Name="Decline" Content="Fortryd" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="7" Grid.Column="1" Click="Decline_Click"/>
     </Grid>
 </UserControl>

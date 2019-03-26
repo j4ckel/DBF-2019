@@ -30,14 +30,14 @@
 
         </Grid.RowDefinitions>
 
-        <TextBox x:Name="isbn"  Grid.Column="1" Grid.Row="0" Text="Indtast ISBN Nr." GotFocus="Isbn_GotFocus"/>
-        <TextBox x:Name="titel"  Grid.Column="1" Grid.Row="1" Text="Indtast Titel." GotFocus="Titel_GotFocus"/>
-        <TextBox x:Name="udgivelsesdag"  Grid.Column="1" Grid.Row="2" Text="Indtast Udgivelsesdato." GotFocus="Udgivelsesdag_GotFocus"/>
-        <TextBox x:Name="forfatter"  Grid.Column="1" Grid.Row="3" Text="Indtast Forfatter." GotFocus="Forfatter_GotFocus"/>
-        <TextBox x:Name="forlag"  Grid.Column="1" Grid.Row="4" Text="Indtast Forlag." GotFocus="Forlag_GotFocus"/>
-        <TextBox x:Name="genre"  Grid.Column="1" Grid.Row="5" Text="Indtast Genre."  Grid.RowSpan="2" GotFocus="Genre_GotFocus"/>
-        <TextBox x:Name="type"  Grid.Column="1" Grid.Row="6" Text="Indtast Type."  Grid.RowSpan="2" GotFocus="Type_GotFocus"/>
-        <TextBox x:Name="indkoeb"  Grid.Column="1" Grid.Row="7" Text="Indtast Indkøb." GotFocus="Indkoeb_GotFocus"/>
+        <TextBox x:Name="isbn"  Grid.Column="1" Grid.Row="0" Text="" IsReadOnly="True"/>
+        <TextBox x:Name="titel"  Grid.Column="1" Grid.Row="1" Text="" IsReadOnly="True"/>
+        <TextBox x:Name="udgivelsesdag"  Grid.Column="1" Grid.Row="2" Text="" IsReadOnly="True"/>
+        <TextBox x:Name="forfatter"  Grid.Column="1" Grid.Row="3" Text="" IsReadOnly="True" />
+        <TextBox x:Name="forlag"  Grid.Column="1" Grid.Row="4" Text="" IsReadOnly="True"/>
+        <TextBox x:Name="genre"  Grid.Column="1" Grid.Row="5" Text=""   IsReadOnly="True"/>
+        <TextBox x:Name="type"  Grid.Column="1" Grid.Row="6" Text=""   IsReadOnly="True"/>
+        <TextBox x:Name="indkoeb"  Grid.Column="1" Grid.Row="7" Text="" IsReadOnly="True"/>
         <Label Content="ISBN"
                    HorizontalAlignment="Stretch"
                    Grid.Row="0"

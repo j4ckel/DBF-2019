@@ -20,9 +20,35 @@ namespace GUI_DBF_2019_
     /// </summary>
     public partial class UCEdit_Indkøb : UserControl
     {
-        public UCEdit_Indkøb()
+        public UCEdit_Indkøb(Grid UCGUIGrid)
         {
             InitializeComponent();
         }
+
+
+
+        bool hasBeenClicked = false;
+        private void Indkøb_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (!hasBeenClicked)
+            {
+                TextBox box = sender as TextBox;
+                box.Text = String.Empty;
+                hasBeenClicked = true;
+            }
+            hasBeenClicked = false;
+        }
+
+        private void SaveWriter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Decline_Click(object sender, RoutedEventArgs e)
+        {
+            ((Grid)Parent).Children.Remove(this);
+        }
+
+        
     }
 }

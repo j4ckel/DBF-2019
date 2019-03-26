@@ -6,7 +6,34 @@
              xmlns:local="clr-namespace:GUI_DBF_2019_"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="400">
-    <Grid>
-            
+    <Grid x:Name="MainGrid" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!--<Grid Grid.Column="1" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>-->
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <TextBox x:Name="Indkøb"  Grid.Column="1" Grid.Row="6" Text="Indtast Indkøb." GotFocus="Indkøb_GotFocus"  />
+        <Label Content="Indkøb"
+                   HorizontalAlignment="Stretch"
+                   Grid.Row="6"
+                   VerticalAlignment="Stretch"  />
+        <Button x:Name="SaveWriter" Content="Gem" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="7" Grid.Column="0" Click="SaveWriter_Click"/>
+        <Button x:Name="Decline" Content="Fortryd" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="7" Grid.Column="1" Click="Decline_Click"/>
     </Grid>
 </UserControl>

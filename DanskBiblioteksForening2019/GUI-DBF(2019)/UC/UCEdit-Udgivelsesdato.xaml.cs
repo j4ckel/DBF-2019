@@ -20,9 +20,31 @@ namespace GUI_DBF_2019_
     /// </summary>
     public partial class UCEdit_Udgivelsesdato : UserControl
     {
-        public UCEdit_Udgivelsesdato()
+        public UCEdit_Udgivelsesdato(Grid UCGUIGrid)
         {
             InitializeComponent();
+        }
+
+        bool hasBeenClicked = false;
+        private void Udgivelsesdato_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (!hasBeenClicked)
+            {
+                TextBox box = sender as TextBox;
+                box.Text = String.Empty;
+                hasBeenClicked = true;
+            }
+            hasBeenClicked = false;
+        }
+
+        private void SaveWriter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Decline_Click(object sender, RoutedEventArgs e)
+        {
+            ((Grid)Parent).Children.Remove(this);
         }
     }
 }

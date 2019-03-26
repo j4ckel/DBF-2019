@@ -20,9 +20,42 @@ namespace GUI_DBF_2019_
     /// </summary>
     public partial class UCEdit_Forfatter : UserControl
     {
-        public UCEdit_Forfatter()
+        public UCEdit_Forfatter(Grid UCGUIGrid)
         {
             InitializeComponent();
+        }
+
+
+
+
+
+
+
+
+
+
+        //UX
+        bool hasBeenClicked = false;
+        private void Forfatter_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (!hasBeenClicked)
+            {
+                TextBox box = sender as TextBox;
+                box.Text = String.Empty;
+                hasBeenClicked = true;
+            }
+            hasBeenClicked = false;
+        }
+
+        private void SaveWriter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Decline_Click(object sender, RoutedEventArgs e)
+        {
+            
+            ((Grid)Parent).Children.Remove(this);
         }
     }
 }
