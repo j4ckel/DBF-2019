@@ -18,9 +18,9 @@ namespace DB_IO_DBF_2019_
 
         }
         
-        public List<ClassBog> GetAllBooks()
+        public ObservableCollection<ClassBog> GetAllBooks()
         {
-            List<ClassBog> CB = new List<ClassBog>();
+            ObservableCollection<ClassBog> CB = new ObservableCollection<ClassBog>();
 
             DataTable dt = DbReturnDataTable("SELECT * FROM Books");
             foreach(DataRow row in dt.Rows)
@@ -40,9 +40,9 @@ namespace DB_IO_DBF_2019_
             return CB;
         }
 
-        public List<ClassBog> GetAllBooksLike(string search)
+        public ObservableCollection<ClassBog> GetAllBooksLike(string search)
         {
-            List<ClassBog> CB = new List<ClassBog>();
+            ObservableCollection<ClassBog> CB = new ObservableCollection<ClassBog>();
 
             DataTable dt = DbReturnDataTable($"SELECT dbo.Books.id, dbo.Books.pris, dbo.Titel.titel, dbo.Forfatter.forfatter, dbo.Forlag.forlagsNavn, dbo.ISBNnr.isbnNr, dbo.Genre.genreType, dbo.Type.TypeNavn" +
                 $"FROM dbo.Books INNER JOIN" +
@@ -70,7 +70,7 @@ namespace DB_IO_DBF_2019_
 
             return CB;
         }
-        public List<ClassBog> GetAllLentToUser(string personid)
+        public ObservableCollection<ClassBog> GetAllLentToUser(string personid)
         {
             DataTable dt = DbReturnDataTable("SELECT dbo.Books.id, dbo.Type.TypeNavn, dbo.Titel.titel," +
                 " dbo.Genre.genreType, dbo.Forfatter.forfatter, dbo.Forlag.forlagsNavn, dbo.ISBNnr.isbnNr, dbo.Udlaan.udlaansStatus" +
@@ -93,9 +93,9 @@ namespace DB_IO_DBF_2019_
             return GetAllLentToUser(personid);
         }
 
-        public List<ClassBog> GetAvailbleBooks()
+        public ObservableCollection<ClassBog> GetAvailbleBooks()
         {
-            List<ClassBog> listCB = new List<ClassBog>();
+            ObservableCollection<ClassBog> listCB = new ObservableCollection<ClassBog>();
             DataTable dt = DbReturnDataTable($"SELECT        dbo.Titel.titel, dbo.Forfatter.forfatter, dbo.Forlag.forlagsNavn, dbo.ISBNnr.isbnNr, dbo.Genre.genreType, dbo.Type.TypeNavn, dbo.Books.pris, dbo.UdlaansStatus.status" +
                 $" FROM dbo.Books INNER JOIN" +
                 $" dbo.Forfatter ON dbo.Books.forfatterID = dbo.Forfatter.id INNER JOIN" +
