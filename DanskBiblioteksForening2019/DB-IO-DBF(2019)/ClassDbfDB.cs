@@ -158,80 +158,98 @@ namespace DB_IO_DBF_2019_
         {
 
         }
-        public ObservableCollection<string> GetTitles()
+        public ObservableCollection<ClassTitle> GetTitles()
         {
-            ObservableCollection<string> cTitles = new ObservableCollection<string>();
+            ObservableCollection<ClassTitle> cTitles = new ObservableCollection<ClassTitle>();
             string sqlQuery = "SELECT * FROM Titel";
             DataTable dataTable = DbReturnDataTable(sqlQuery);
 
             foreach (DataRow row in dataTable.Rows)
             {
-                cTitles.Add(row["titel"].ToString());
+                ClassTitle title = new ClassTitle();
+                title.title = row["titel"].ToString();
+                title.id = row["id"].ToString();
+                cTitles.Add(title);
             }
 
             return cTitles;
         }
-        public ObservableCollection<string> GetAuthors()
+        public ObservableCollection<ClassAuthor> GetAuthors()
         {
-            ObservableCollection<string> cAuthors = new ObservableCollection<string>();
+            ObservableCollection<ClassAuthor> cAuthors = new ObservableCollection<ClassAuthor>();
             string sqlQuery = "SELECT * FROM Forfatter";
             DataTable dataTable = DbReturnDataTable(sqlQuery);
 
             foreach (DataRow row in dataTable.Rows)
             {
-                cAuthors.Add(row["forfatter"].ToString());
+                ClassAuthor authors = new ClassAuthor();
+                authors.author = row["forfatter"].ToString();
+                authors.id = row["id"].ToString();
+                cAuthors.Add(authors);
             }
 
             return cAuthors;
         }
-        public ObservableCollection<string> GetISBNs()
+        public ObservableCollection<ClassISBN> GetISBNs()
         {
-            ObservableCollection<string> cISBN = new ObservableCollection<string>();
+            ObservableCollection<ClassISBN> cISBN = new ObservableCollection<ClassISBN>();
             string sqlQuery = "SELECT * FROM ISBNnr";
             DataTable dataTable = DbReturnDataTable(sqlQuery);
 
             foreach (DataRow row in dataTable.Rows)
             {
-                cISBN.Add(row["isbnNr"].ToString());
+                ClassISBN isbn = new ClassISBN();
+                isbn.ISBN = row["isbnNr"].ToString();
+                isbn.id = row["id"].ToString();
+                cISBN.Add(isbn);
             }
 
             return cISBN;
         }
-        public ObservableCollection<string> GetPublishers()
+        public ObservableCollection<ClassPublisher> GetPublishers()
         {
-            ObservableCollection<string> cPublisher = new ObservableCollection<string>();
+            ObservableCollection<ClassPublisher> cPublisher = new ObservableCollection<ClassPublisher>();
             string sqlQuery = "SELECT * FROM Forlag";
             DataTable dataTable = DbReturnDataTable(sqlQuery);
 
             foreach (DataRow row in dataTable.Rows)
             {
-                cPublisher.Add(row["forlagsNavn"].ToString());
+                ClassPublisher publishers = new ClassPublisher();
+                publishers.publisher = row["forlagsNavn"].ToString();
+                publishers.id = row["id"].ToString();
+                cPublisher.Add(publishers);
             }
 
             return cPublisher;
         }
-        public ObservableCollection<string> GetTypes()
+        public ObservableCollection<ClassType> GetTypes()
         {
-            ObservableCollection<string> cTypes = new ObservableCollection<string>();
+            ObservableCollection<ClassType> cTypes = new ObservableCollection<ClassType>();
             string sqlQuery = "SELECT * FROM Type";
             DataTable dataTable = DbReturnDataTable(sqlQuery);
 
             foreach (DataRow row in dataTable.Rows)
             {
-                cTypes.Add(row["TypeNavn"].ToString());
+                ClassType types = new ClassType();
+                types.type = row["TypeNavn"].ToString();
+                types.id = row["id"].ToString();
+                cTypes.Add(types);
             }
 
             return cTypes;
         }
-        public ObservableCollection<string> GetGenre()
+        public ObservableCollection<ClassGenre> GetGenre()
         {
-            ObservableCollection<string> cGenre = new ObservableCollection<string>();
+            ObservableCollection<ClassGenre> cGenre = new ObservableCollection<ClassGenre>();
             string sqlQuery = "SELECT * FROM Genre";
             DataTable dataTable = DbReturnDataTable(sqlQuery);
 
             foreach (DataRow row in dataTable.Rows)
             {
-                cGenre.Add(row["genreType"].ToString());
+                ClassGenre genre = new ClassGenre();
+                genre.genre = row["genreType"].ToString();
+                genre.id = row["id"].ToString();
+                cGenre.Add(genre);
             }
 
             return cGenre;
