@@ -169,15 +169,26 @@ namespace DB_IO_DBF_2019_
             catch (SqlException sqlEx)
             {
 
-                throw sqlEx;
+                    throw sqlEx;
+                }
+                finally
+                {
+                    CloseDB();
+                }
+                return dtRes;
             }
-            finally
+            protected string DbReturnString(string strSql)
             {
-                CloseDB();
+                
             }
-            return dtRes;
-        }
+            protected List<string> DbReturnList(string strSql)
+            {
+
+            }
+            protected bool DbReturnBool(string strSql)
+            {
+
+            }
     }
-    #endregion
 }
 
