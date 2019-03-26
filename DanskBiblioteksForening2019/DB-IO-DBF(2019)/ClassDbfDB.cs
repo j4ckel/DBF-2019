@@ -220,7 +220,7 @@ namespace DB_IO_DBF_2019_
             foreach (DataRow row in dataTable.Rows)
             {
                 ClassType types = new ClassType();
-                types.types = row["TypeNavn"].ToString();
+                types.type = row["TypeNavn"].ToString();
                 types.id = row["id"].ToString();
                 cTypes.Add(types);
             }
