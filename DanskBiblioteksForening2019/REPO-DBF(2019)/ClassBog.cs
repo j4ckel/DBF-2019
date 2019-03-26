@@ -9,10 +9,16 @@ namespace REPO_DBF_2019_
     /// <summary>
     /// This Class Handles the fields and properties for each book.
     /// </summary>
-    public class ClassBog : ClassNotify
+    public class ClassBog
     {
+        /// <summary>
+        /// Default Constructor.
+        /// </summary>
+        public ClassBog()
+        {
+
+        }
         //Private Fields holding values
-        #region Fields
         private int _id;
         private string _isbnNr;
         private string _titel;
@@ -21,128 +27,47 @@ namespace REPO_DBF_2019_
         private string _genre;
         private string _type;
         private decimal _pris;
-        #endregion
-        /// <summary>
-        /// Default Constructor.
-        /// </summary>
-        public ClassBog(int inid,string inisbnNr,string intitel, string inforfatter,string inforlag,string ingenre,string intype,decimal inpris)
-        {
-            inid = id;
-
-        }
-        public ClassBog()
-        {
-            id = 0;
-        }
-
         //Public Properties.
-        #region Properties
-
         public int id
         {
             get { return _id; }
-            set
-            {
-                if (value != _id)
-                {
-                    _id = value;
-                    Notify("id");
-
-                }
-            }
-        }   
+            set { _id = value; }
+        }
         public string isbnNr
         {
             get { return _isbnNr; }
-            set
-            {
-                if (value != _isbnNr)
-                {
-                    _isbnNr = value;
-                    Notify("isbnNr");
-
-                }
-            }
+            set { _isbnNr = value; }
         }
         public string titel
         {
             get { return _titel; }
-            set
-            {
-                if (value != _titel)
-                {
-                    _titel = value;
-                    Notify("titel");
-
-                }
-            }
+            set { _titel = value; }
         }
         public string forfatter
         {
             get { return _forfatter; }
-            set
-            {
-                if (value != _forfatter)
-                {
-                    _forfatter = value;
-                    Notify("forfatter");
-
-                }
-            }
+            set { _forfatter = value; }
         }
         public string forlag
         {
             get { return _forlag; }
-            set
-            {
-                if (value != _forlag)
-                {
-                    _forlag = value;
-                    Notify("forlag");
-
-                }
-            }
+            set { _forlag = value; }
         }
         public string genre
         {
             get { return _genre; }
-            set
-            {
-                if (value != _genre)
-                {
-                    _genre = value;
-                    Notify("genre");
-
-                }
-            }
+            set { _genre = value; }
         }
         public string type
         {
             get { return _type; }
-            set
-            {
-                if (value != _type)
-                {
-                    _type = value;
-                    Notify("type");
-
-                }
-            }
+            set { _type = value; }
         }
         public decimal pris
         {
             get { return _pris; }
-            set
-            {
-                if (value != _pris)
-                {
-                    _pris = value;
-                    Notify("pris");
-
-                }
-            }
+            set { _pris = value; }
         }
-        #endregion
 
     }
 }
