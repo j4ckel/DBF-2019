@@ -137,6 +137,9 @@ namespace DB_IO_DBF_2019_
 
         public void UpdateTheLendingStatus(string id, bool status)
         {
+            string strsql = $"update Udlaan set udlaansStatus = {id} where {status} = bookID";
+
+
 
         }
         public ClassUser GetUser(string cprNr, string Password)
@@ -167,6 +170,7 @@ namespace DB_IO_DBF_2019_
         {
 
         }
+        #region get book titel, author, isbn, publisher, type, genre, price
         public ObservableCollection<string> GetTitles()
         {
             ObservableCollection<string> cTitles = new ObservableCollection<string>();
@@ -258,5 +262,7 @@ namespace DB_IO_DBF_2019_
 
             return cPrice;
         }
+        #endregion
     }
 }
+
