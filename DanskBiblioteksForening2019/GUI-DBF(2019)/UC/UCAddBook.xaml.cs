@@ -73,5 +73,16 @@ namespace GUI_DBF_2019_
             UCEdit_Indkøb UCEditIndkøb = new UCEdit_Indkøb(UCGUIGrid);
             ((Grid)Parent).Children.Add(UCEditIndkøb);
         }
+
+        private void ButtonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            ((Grid)Parent).Children.Remove(this);
+
+        }
+
+        private void ButtonSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
