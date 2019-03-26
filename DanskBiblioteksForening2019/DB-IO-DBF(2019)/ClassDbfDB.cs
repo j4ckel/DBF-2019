@@ -154,11 +154,14 @@ namespace DB_IO_DBF_2019_
             }
 
             return CU;
-        }
+        }        
+
         public void UpdateBook(ClassBog CB)
         {
             ExecuteNonQuery($"");
         }
+
+        #region GetBookInfo
 
         public ObservableCollection<ClassTitle> GetTitles()
         {
@@ -269,5 +272,38 @@ namespace DB_IO_DBF_2019_
 
             return cPrice;
         }
+        #endregion
+
+        #region InsertBookInfo
+        public void InsertTitleIntoDB(ClassTitle inTitle)
+        {
+            ExecuteNonQuery($"INSERT INTO Titel (title) VALUES('{inTitle.title}')");
+        }
+
+        public void InsertAuthorIntoDB(ClassAuthor inAuthor)
+        {
+            ExecuteNonQuery($"INSERT INTO Forfatter (forfatter) VALUES('{inAuthor.author}')");
+        }
+
+        public void InsertGenreIntoDB(ClassGenre inGenre)
+        {
+            ExecuteNonQuery($"INSERT INTO Genre (genreType) VALUES('{inGenre.genre}')");
+        }
+
+        public void InsertISBNIntoDB(ClassISBN inISBN)
+        {
+            ExecuteNonQuery($"INSERT INTO ISBNnr (isbnNr) VALUES ('{inISBN.ISBN}')");
+        }
+
+        public void InsertPublisherIntoDB(ClassPublisher inPublisher)
+        {
+            ExecuteNonQuery($"INSERT INTO Forlag (forlagsNavn) VALUES ('{inPublisher.publisher}')");
+        }
+
+        public void InsertTypeIntoDB(ClassType inType)
+        {
+            ExecuteNonQuery($"INSERT INTO Type (TypeNavn) VALUES ('{inType}')");
+        }
+        #endregion
     }
 }
