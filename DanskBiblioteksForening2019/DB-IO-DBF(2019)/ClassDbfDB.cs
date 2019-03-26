@@ -167,6 +167,7 @@ namespace DB_IO_DBF_2019_
         {
 
         }
+
         public ObservableCollection<string> GetTitles()
         {
             ObservableCollection<string> cTitles = new ObservableCollection<string>();
@@ -258,5 +259,6 @@ namespace DB_IO_DBF_2019_
 
             return cPrice;
         }
+
     }
 }
