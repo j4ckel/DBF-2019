@@ -1,5 +1,6 @@
 ﻿using DB_IO_DBF_2019_;
 using REPO_DBF_2019_;
+using Repository;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -85,7 +86,7 @@ namespace BIZ_DBF_2019_
 
         public List<ClassBog> GetAllLentBoks(int personID)
         {
-            return classDbfDB.GetAllLentToUser(personID.ToString());
+            return classDbfDB.GetAllBooksLentToUser(personID.ToString());
         }
 
         public List<ClassBog> GetAllBooksWhereTheTitleContainsTheseWords(string words)
@@ -99,6 +100,11 @@ namespace BIZ_DBF_2019_
         }
 
         public void SubmitThisBookToTheLibrary(int bogID, int personID)
+        {
+
+        }
+
+        public bool CheckForDoubleLending(ClassBog inBog)
         {
 
         }
