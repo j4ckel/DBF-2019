@@ -118,12 +118,12 @@ namespace DB_IO_DBF_2019_
             string strsql = $"update Udlaan set udlaansStatus = {id} where {status} = bookID";
             try
             {
-
+                ExecuteNonQuery(strsql);
             }
             catch (Exception ex)
             {
 
-                messagebox.show(ex.Message);
+                throw ex;
             }
 
 
@@ -268,7 +268,6 @@ namespace DB_IO_DBF_2019_
             return cPrice;
         }
         
-        #endregion
 
         public void addtitel(ClassBog bog)
         {
