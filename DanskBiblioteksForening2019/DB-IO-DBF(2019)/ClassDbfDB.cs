@@ -78,6 +78,7 @@ namespace DB_IO_DBF_2019_
                 " dbo.Titel ON dbo.Books.titelID = dbo.Titel.id INNER JOIN" +
                 " dbo.Type ON dbo.Books.typeID = dbo.Type.id ON dbo.Udlaan.bookID = dbo.Books.id" +
                 $"WHERE(dbo.Udlaan.personID = '{personid}') AND(dbo.Udlaan.udlaansStatus = 2)");
+            ObservableCollection<ClassBog> listCB = new ObservableCollection<ClassBog>();
             foreach (DataRow row in dt.Rows)
             {
                 Classudlaan CUD = new Classudlaan();
@@ -85,57 +86,30 @@ namespace DB_IO_DBF_2019_
                 
 
             }
-            GetAllBooks();
-            return GetAllLentToUser(personid);
+            return listCB;
         }
 
         public ObservableCollection<ClassBog> GetAvailbleBooks()
         {
             ObservableCollection<ClassBog> listCB = new ObservableCollection<ClassBog>();
-            DataTable dt = DbReturnDataTable($"SELECT        dbo.Titel.titel, dbo.Forfatter.forfatter, dbo.Forlag.forlagsNavn, dbo.ISBNnr.isbnNr, dbo.Genre.genreType, dbo.Type.TypeNavn, dbo.Books.pris, dbo.UdlaansStatus.status" +
-                $" FROM dbo.Books INNER JOIN" +
-                $" dbo.Forfatter ON dbo.Books.forfatterID = dbo.Forfatter.id INNER JOIN" +
-                $" dbo.Forlag ON dbo.Books.forlagID = dbo.Forlag.id INNER JOIN" +
-                $" dbo.Genre ON dbo.Books.genreID = dbo.Genre.id INNER JOIN" +
-                $" dbo.ISBNnr ON dbo.Books.isbnID = dbo.ISBNnr.id INNER JOIN" +
-                $" dbo.Type ON dbo.Books.typeID = dbo.Type.id INNER JOIN" +
-                $" dbo.Titel ON dbo.Books.titelID = dbo.Titel.id INNER JOIN" +
-                $" dbo.UdlaansStatus INNER JOIN" +
-                $" dbo.Udlaan ON dbo.UdlaansStatus.id = dbo.Udlaan.udlaansStatus ON " +
-                $"dbo.Books.id = dbo.Udlaan.bookID " +
-                $"WHERE(dbo.Udlaan.udlaansStatus = 2)");
+            DataTable dt = DbReturnDataTable($"SELECT dbo.Books.titelID, dbo.Books.isbnID, dbo.Books.forfatterID, dbo.Books.forlagID, dbo.Books.genreID, dbo.Books.typeID, dbo.Books.pris, dbo.Books.id, dbo.UdlaansStatus.status"+
+                         "FROM dbo.Books INNER JOIN"+
+                         "dbo.Udlaan ON dbo.Books.id = dbo.Udlaan.bookID INNER JOIN"+
+                         "dbo.UdlaansStatus ON dbo.Udlaan.udlaansStatus = dbo.UdlaansStatus.id"+
+                         "WHERE(dbo.Udlaan.udlaansStatus = 2)");
 
             foreach(DataRow row in dt.Rows)
             {
                 ClassBog bog = new ClassBog();
-                ClassTitle classTitle = new ClassTitle();
-                ClassAuthor classAuthor = new ClassAuthor();
-                ClassPublisher classPublisher = new ClassPublisher();
-                ClassGenre classGenre = new ClassGenre();
-                ClassType classType = new ClassType();
-                ClassISBN classISBN = new ClassISBN();
 
                 bog.id = Convert.ToInt32(row["id"].ToString());
-                classTitle.title = row["titel"].ToString();
-                bog.titel = classTitle;
-
-                classAuthor.author = row["forfatter"].ToString();
-                bog.forfatter = classAuthor;
-
-                classPublisher.publisher = row["forlagsNavn"].ToString();
-                bog.forlag = classPublisher;
-
-                classISBN.ISBN = row["isbnNr"].ToString();
-                bog.isbnNr = classISBN;
-
-                classGenre.genre = row["genreType"].ToString();
-                bog.genre = classGenre;
-
-                classType.type = row["TypeNavn"].ToString();
-                bog.type = classType;
-
+                bog.isbnNr = GetISBNFromDB(row["isbnID"].ToString());
+                bog.titel = GetTitleFromDB(row["titelID"].ToString());
+                bog.forfatter = GetAuthorFromDB(row["forfatterID"].ToString());
+                bog.forlag = GetPublisherFromDB(row["forlagID"].ToString());
+                bog.genre = GetGenreFromDB(row["genreID"].ToString());
+                bog.type = GetTypeFromDB(row["typeID"].ToString());
                 bog.pris = Convert.ToDecimal(row["pris"].ToString());
-                
                 listCB.Add(bog);
             }
 
