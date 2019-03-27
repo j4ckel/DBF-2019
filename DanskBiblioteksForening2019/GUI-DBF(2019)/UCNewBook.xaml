@@ -30,49 +30,49 @@
 
         </Grid.RowDefinitions>
 
-        <TextBox x:Name="isbn"
+        <TextBox x:Name="tbisbn"
                      Text="Indtast ISBN."
                      Margin="5,5,5,5"
                      Grid.Column="1" 
                      Grid.Row="0" GotFocus="Isbn_GotFocus" 
                      />
-        <TextBox x:Name="titel" 
+        <TextBox x:Name="tbtitel" 
                  Text="Indtast Titel."    
                  Margin="5,5,5,5"
                      Grid.Column="1" 
                      Grid.Row="1" GotFocus="Titel_GotFocus" 
                      />
-        <TextBox x:Name="udgivelsesdag" 
+        <TextBox x:Name="tbudgivelsesdag" 
                      Grid.Column="1" 
                  Text="Indtast Udgivelsesdato."
                      Grid.Row="2" 
                      Margin="5,5,5,5" GotFocus="Udgivelsesdag_GotFocus"
                      />
-        <TextBox x:Name="forfatter" 
+        <TextBox x:Name="tbforfatter" 
                      Grid.Column="1" 
                  Text="Indtast Forfatter."
                      Grid.Row="3" 
                      Margin="5,5,5,5" GotFocus="Forfatter_GotFocus"
                      />
-        <TextBox x:Name="forlag" 
+        <TextBox x:Name="tbforlag" 
                      Margin="5,5,5,5"
                  Text="Indtast Forlag."
                      Grid.Column="1" 
                      Grid.Row="4" GotFocus="Forlag_GotFocus" 
                      />
-        <TextBox x:Name="genre" 
+        <TextBox x:Name="tbgenre" 
                      Grid.Column="1" 
                  Text="Indtast Genre."
                      Grid.Row="5" 
                      Margin="5,5,5,5" GotFocus="Genre_GotFocus"
                      />
-        <TextBox x:Name="type" 
+        <TextBox x:Name="tbtype" 
                  Text="Indtast Type."
                      Margin="5,5,5,5"
                      Grid.Column="1" 
                      Grid.Row="6" GotFocus="Type_GotFocus" 
                      />
-        <TextBox x:Name="indkoeb" 
+        <TextBox x:Name="tbindkoeb" 
                      Grid.Column="1" 
                      Grid.Row="7"
                  Text="Indtast Indkøb."

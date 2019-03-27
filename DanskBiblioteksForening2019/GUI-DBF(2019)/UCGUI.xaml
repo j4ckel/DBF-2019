@@ -43,36 +43,38 @@
                      IsReadOnly="True"
                      Text="{Binding bog.titel.title}"
                      />
-            <TextBox x:Name="udgivelsesdag" 
+            <TextBox x:Name="Udånsdato" 
                      Grid.Column="1" 
                      Grid.Row="2" 
                      Margin="5,5,5,5"
                      IsReadOnly="True"
-                    Text="{Binding bog.titel.title}"
+                 Text="{Binding bog.rentDate.strUdlaansDate}"
                      />
             <TextBox x:Name="forfatter" 
                      Grid.Column="1" 
                      Grid.Row="3" 
                      IsReadOnly="True"
                      Margin="5,5,5,5"
+                     Text="{Binding bog.forfatter.author}"
                      />
             <TextBox x:Name="forlag" 
                      Margin="5,5,5,5"
                      Grid.Column="1" 
                      Grid.Row="4" 
                      IsReadOnly="True"
-                     />
+                     Text="{Binding bog.forlag.publisher}" />
             <TextBox x:Name="genre" 
                      Grid.Column="1" 
                      Grid.Row="5" 
                      IsReadOnly="True"
                      Margin="5,5,5,5"
-                     />
+                     Text="{Binding bog.genre.genre}" />
             <TextBox x:Name="type"  
                      Margin="5,5,5,5"
                      Grid.Column="1" 
                      Grid.Row="6" 
                      IsReadOnly="True"
+                     Text="{Binding bog.type.type}" 
                      />
         <Label Content="&#xD;&#xA;ISBN"
                    HorizontalAlignment="Stretch"
@@ -84,7 +86,7 @@
                    Margin="0,0,0,0"
                    Grid.Row="1"
                    VerticalAlignment="Stretch"/>
-            <Label Content="&#xD;&#xA;Udgivelsesdag"
+            <Label Content="&#xD;&#xA;Udånsdato"
                    HorizontalAlignment="Stretch"
                    Margin="0,0,0,0"
                    Grid.Row="2"

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BIZ_DBF_2019_;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +21,28 @@ namespace GUI_DBF_2019_
     /// </summary>
     public partial class UCNewBook : UserControl
     {
+        ClassBiz CLB = new ClassBiz();
         public UCNewBook(Grid UCGUIGrid)
         {
             InitializeComponent();
+            
         }
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
-        {
+        {       
 
+            if (String.IsNullOrEmpty(tbisbn.Text)|| String.IsNullOrEmpty(tbforfatter.Text)|| String.IsNullOrEmpty(tbforlag.Text)|| String.IsNullOrEmpty(tbgenre.Text)|| String.IsNullOrEmpty(tbindkoeb.Text)|| String.IsNullOrEmpty(tbtitel.Text)|| String.IsNullOrEmpty(tbtype.Text)|| String.IsNullOrEmpty(tbudgivelsesdag.Text))
+            {
+                string caption = "Udfyld Manglende Felter";
+                string message = "Udfyld Venligst Alle Felter.";
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBox.Show(message, caption, buttons);
+            }
+            else
+            {
+                CLB.addbook(CLB.bog);
+                ((Grid)Parent).Children.Remove(this);
+            }
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)

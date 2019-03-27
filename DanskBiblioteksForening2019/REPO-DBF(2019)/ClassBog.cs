@@ -11,6 +11,7 @@ namespace REPO_DBF_2019_
     /// </summary>
     public class ClassBog : ClassNotify
     {
+        
         /// <summary>
         /// Default Constructor.
         /// </summary>
@@ -27,14 +28,27 @@ namespace REPO_DBF_2019_
         private ClassPublisher _forlag;
         private ClassGenre _genre;
         private ClassType _type;
+        private Classudlaan _rentdate;
         private decimal _pris;
         #endregion
         #region constructors
-       
-        
+
+
         #endregion
         #region Properties
 
+        public Classudlaan rentdate
+        {
+            get { return _rentdate; }
+            set
+            {
+                if (value != _rentdate)
+                {
+                    _rentdate = value;
+                    Notify("rentDate");
+                }
+            }
+        }
         public int id
         {
             get { return _id; }

@@ -12,8 +12,10 @@ namespace REPO_DBF_2019_
     public class Classudlaan : ClassNotify
     {
         private int _id;
+        private string _personID;
         private DateTime _udlaansdate;
         private string _udlaanstatus;
+        private string _strUdlaansDate;
 
         /// <summary>
         /// Default Constructor.
@@ -24,6 +26,33 @@ namespace REPO_DBF_2019_
         }
 
         #region Properties
+
+        public string personID
+        {
+            get { return _personID; }
+            set
+            {
+                if(value != _personID)
+                {
+                    _personID = value;
+                    Notify("personID");
+                }
+            }
+        }
+
+        public string strUdlaansDate
+        {
+            get { return _strUdlaansDate; }
+            set
+            {
+                if (value != _strUdlaansDate)
+                {
+                    _strUdlaansDate = value;
+                    Notify("strUdlaansDate");
+
+                }
+            }
+        }
 
         public int id
         {
@@ -79,8 +108,7 @@ namespace REPO_DBF_2019_
                 if (value != _udlaansdate)
                 {
                     _udlaansdate = value;
-                    Notify("udlaansdate");
-
+                    strUdlaansDate = _udlaansdate.Year.ToString() + _udlaansdate.Month.ToString() + _udlaansdate.Date.ToString();
                 }
             }
         }
