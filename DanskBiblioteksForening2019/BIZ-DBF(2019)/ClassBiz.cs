@@ -34,6 +34,7 @@ namespace BIZ_DBF_2019_
             user = new ClassUser();
 
             boeger = classDbfDB.GetAllBooks();
+            
 
         }
 
@@ -195,7 +196,13 @@ namespace BIZ_DBF_2019_
         {
 
         }
+        public void addbook(ClassBog bog)
+        {
+           
+           
+           
 
+        }
         public bool HandleLogin()
         {
             user = classDbfDB.GetUser(user.userName, user.password);
