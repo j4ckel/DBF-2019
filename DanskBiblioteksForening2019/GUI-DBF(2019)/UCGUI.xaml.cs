@@ -21,9 +21,12 @@ namespace GUI_DBF_2019_
     /// </summary>
     public partial class UCGUI : UserControl
     {
+        ClassBiz _CB;
         public UCGUI(ClassBiz inClass, Grid gridRight)
         {
             InitializeComponent();
+            _CB = inClass;
+            UCGUIGrid.DataContext = _CB;
         }
 
         private void EditBook_Click(object sender, RoutedEventArgs e)

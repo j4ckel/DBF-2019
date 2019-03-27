@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BIZ_DBF_2019_;
+using REPO_DBF_2019_;
 
 namespace GUI_DBF_2019_
 {
@@ -32,5 +33,12 @@ namespace GUI_DBF_2019_
             GridMain.DataContext = _CB;
         }
 
+        private void ListViewBooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            _CB.bog = null;
+            ListView LV = (ListView)sender;
+            _CB.bog = (ClassBog)LV.SelectedItem;
+        }
     }
 }

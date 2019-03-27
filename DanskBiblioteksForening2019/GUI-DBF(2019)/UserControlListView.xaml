@@ -25,21 +25,22 @@
                   VerticalAlignment="Stretch"
                   Margin="4"
                   Grid.ColumnSpan="3"
-                  ItemsSource="{Binding boeger}">
+                  ItemsSource="{Binding boeger}"
+                  SelectionChanged="ListViewBooks_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Titel"
                                     Width="auto"
-                                    DisplayMemberBinding="{Binding title.titel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    DisplayMemberBinding="{Binding titel.title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <GridViewColumn Header="Isbnr"
                                     Width="auto"
-                                    DisplayMemberBinding="{Binding bog.isbnNr.ISBN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    DisplayMemberBinding="{Binding isbnNr.ISBN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <GridViewColumn Header="Forfatter"
                                     Width="auto"
-                                    DisplayMemberBinding="{Binding bog.forfatter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    DisplayMemberBinding="{Binding forfatter.author, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <GridViewColumn Header="Genre"
                                     Width="auto"
-                                    DisplayMemberBinding="{Binding bog.genre, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    DisplayMemberBinding="{Binding genre.genre, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                 </GridView>
             </ListView.View>
