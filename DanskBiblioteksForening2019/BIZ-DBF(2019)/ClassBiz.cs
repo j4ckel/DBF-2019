@@ -31,6 +31,7 @@ namespace BIZ_DBF_2019_
 
 
         // Public properties
+        #region properties
         public ClassLogin login
         {
             get { return _login; }
@@ -94,7 +95,7 @@ namespace BIZ_DBF_2019_
                 }
             }
         }
-
+        #endregion
         public ObservableCollection<ClassBog> GetAllLentBooks(int personID)
         {
             return classDbfDB.GetAllLentToUser(personID.ToString());
