@@ -20,7 +20,9 @@ namespace BIZ_DBF_2019_
         private ObservableCollection<ClassGenre> _bookGenre;
         private ObservableCollection<ClassType> _bookTypes;
         private ObservableCollection<decimal> _bookPrices;
+        private ObservableCollection<DateTime> _rentDate;
         private ClassBog _bog;
+       
         private ClassUser _user;
         ClassDbfDB classDbfDB;
 
@@ -53,6 +55,18 @@ namespace BIZ_DBF_2019_
             }
         }
 
+        public ObservableCollection<DateTime> rentDate
+        {
+            get { return _rentDate; }
+            set
+            {
+                if (value != _rentDate)
+                {
+                    _rentDate = value;
+                    Notify("rentDate");
+                }
+            }
+        }
         public ObservableCollection<ClassType> bookTypes
         {
             get { return _bookTypes; }
