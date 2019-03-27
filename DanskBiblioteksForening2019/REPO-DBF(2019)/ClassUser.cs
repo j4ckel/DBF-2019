@@ -16,7 +16,7 @@ namespace REPO_DBF_2019_
         {
 
         }
-
+        #region Properties
         public string userType
         {
             get { return _userType; }
@@ -56,6 +56,7 @@ namespace REPO_DBF_2019_
                 }
             }
         }
+        #endregion
 
     }
 }

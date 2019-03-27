@@ -20,7 +20,7 @@ namespace REPO_DBF_2019_
 
         }
 
-
+        #region Properties
         public int id
         {
             get { return _id; }
@@ -113,6 +113,6 @@ namespace REPO_DBF_2019_
                 }
             }
         }
-
+        #endregion
     }
 }

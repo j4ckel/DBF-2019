@@ -9,33 +9,49 @@ namespace REPO_DBF_2019_
     /// <summary>
     /// This Class Handles the fields and properties for each book.
     /// </summary>
-    public class ClassBog : ClassNotify
+    public class ClassBog
     {
-        //Private Fields holding values
-        #region Fields
-        private int _id;
-        private string _isbnNr;
-        private string _titel;
-        private string _forfatter;
-        private string _forlag;
-        private string _genre;
-        private string _type;
-        private decimal _pris;
-        #endregion
         /// <summary>
         /// Default Constructor.
         /// </summary>
+        public ClassBog()
+        {
+
+        }
+        //Private Fields holding values
+        private int _id;
+        private ClassISBN _isbnNr;
+        private ClassTitle _titel;
+        private ClassAuthor _forfatter;
+        private ClassPublisher _forlag;
+        private ClassGenre _genre;
+        private ClassType _type;
+        private decimal _pris;
+        #endregion
+        #region constructors
         public ClassBog(int inid,string inisbnNr,string intitel, string inforfatter,string inforlag,string ingenre,string intype,decimal inpris)
         {
             inid = id;
-
+            inisbnNr = isbnNr;
+            intitel = titel;
+            inforfatter = forfatter;
+            inforlag = forlag;
+            ingenre = genre;
+            intype = type;
+            inpris = pris;
         }
         public ClassBog()
         {
             id = 0;
+            isbnNr = "";
+            titel = "";
+            forfatter = "";
+            forlag = "";
+            genre = "";
+            type = "";
+            pris = 0;
         }
-
-        //Public Properties.
+        #endregion
         #region Properties
 
         public int id
@@ -51,7 +67,7 @@ namespace REPO_DBF_2019_
                 }
             }
         }   
-        public string isbnNr
+        public ClassISBN isbnNr
         {
             get { return _isbnNr; }
             set
@@ -64,85 +80,36 @@ namespace REPO_DBF_2019_
                 }
             }
         }
-        public string titel
+        public ClassTitle titel
         {
             get { return _titel; }
-            set
-            {
-                if (value != _titel)
-                {
-                    _titel = value;
-                    Notify("titel");
-
-                }
-            }
+            set { _titel = value; }
         }
-        public string forfatter
+        public ClassAuthor forfatter
         {
             get { return _forfatter; }
-            set
-            {
-                if (value != _forfatter)
-                {
-                    _forfatter = value;
-                    Notify("forfatter");
-
-                }
-            }
+            set { _forfatter = value; }
         }
-        public string forlag
+        public ClassPublisher forlag
         {
             get { return _forlag; }
-            set
-            {
-                if (value != _forlag)
-                {
-                    _forlag = value;
-                    Notify("forlag");
-
-                }
-            }
+            set { _forlag = value; }
         }
-        public string genre
+        public ClassGenre genre
         {
             get { return _genre; }
-            set
-            {
-                if (value != _genre)
-                {
-                    _genre = value;
-                    Notify("genre");
-
-                }
-            }
+            set { _genre = value; }
         }
-        public string type
+        public ClassType type
         {
             get { return _type; }
-            set
-            {
-                if (value != _type)
-                {
-                    _type = value;
-                    Notify("type");
-
-                }
-            }
+            set { _type = value; }
         }
         public decimal pris
         {
             get { return _pris; }
-            set
-            {
-                if (value != _pris)
-                {
-                    _pris = value;
-                    Notify("pris");
-
-                }
-            }
+            set { _pris = value; }
         }
-        #endregion
 
     }
 }

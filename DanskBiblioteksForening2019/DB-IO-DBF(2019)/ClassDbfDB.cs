@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DB_IO_DBF_2019_
 {
@@ -26,8 +28,13 @@ namespace DB_IO_DBF_2019_
             foreach(DataRow row in dt.Rows)
             {
                 ClassBog CLB = new ClassBog();
+                ClassISBN classISBN = new ClassISBN();
+
+
                 CLB.id = Convert.ToInt32(row["id"]);
-                CLB.isbnNr = row["isbnr"].ToString();
+                classISBN.ISBN = row["isbnNr"].ToString();
+                CLB.isbnNr = classISBN;
+
                 CLB.titel = row["titel"].ToString();
                 CLB.forfatter = row["forfatter"].ToString();
                 CLB.forlag = row["forlag"].ToString();
@@ -144,8 +151,7 @@ namespace DB_IO_DBF_2019_
             {
                 CU = new ClassUser();
                 CU.userName = row["cprNr"].ToString();
-                CU.password = row["password"].ToString();                
-                
+                CU.password = row["password"].ToString();       
                 CU.navn = row["navn"].ToString();
                 CU.adresse = row["adresse"].ToString();
                 CU.telefon = row["navn"].ToString();
@@ -300,9 +306,26 @@ namespace DB_IO_DBF_2019_
             ExecuteNonQuery($"INSERT INTO Forlag (forlagsNavn) VALUES ('{inPublisher.publisher}')");
         }
 
-        public void InsertTypeIntoDB(ClassType inType)
+
+
+
+        #endregion
+
+        #region UpdateBookInfo
+
+        public void UpdateTitleIntoDB(ClassTitle UpTitle, string newtitel)
         {
-            ExecuteNonQuery($"INSERT INTO Type (TypeNavn) VALUES ('{inType}')");
+            ExecuteNonQuery($" update titel set titel = '{newtitel}' where titel = '{UpTitle}'");
+        }        
+        public void UpdateAuthorIntoDB(ClassAuthor UpAuthor, string newAuthor)
+        {
+            ExecuteNonQuery($"update forfatter set forfatter = '{UpAuthor.author}' where forfatter = '{newAuthor}'");
+        }
+
+        public void UpdatePublisherIntoDB(ClassPublisher UpPublisher, string newpublisher)
+        {
+            ExecuteNonQuery($"update forlag set  forlagsNavn = '{UpPublisher.publisher}' where forlagsNavn = '{newpublisher}'");
+      
         }
         #endregion
 

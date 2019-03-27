@@ -12,25 +12,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using BIZ_DBF_2019_;
-
 
 namespace GUI_DBF_2019_
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for UCGUI.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class UCGUI : UserControl
     {
-        ClassBiz Cb = new ClassBiz();
-        public MainWindow()
+        public UCGUI(Grid gridRight)
         {
             InitializeComponent();
-            UCGUI ucg = new UCGUI(gridRight);
-            //UserControlListView uclw = new UserControlListView(gridLeft);
-            //MainGrid.Children.Add(ucg);
-           // gridLeft.Children.Add(uclw);
-            gridRight.Children.Add(ucg);
+        }
+
+        private void EditBook_Click(object sender, RoutedEventArgs e)
+        {
+            UCAddBook UCAB = new UCAddBook(this.UCGUIGrid);
+            ((Grid)Parent).Children.Add(UCAB);
         }
     }
 }
