@@ -12,10 +12,11 @@ namespace BIZ_DBF_2019_
     public class ClassBiz : ClassNotify
     {
         // Private fields
-        private List<ClassBog> _boeger;
-        private List<ClassBog> _laanteBoeger;
+        private ObservableCollection<ClassBog> _boeger;
+        private ObservableCollection<ClassBog> _laanteBoeger;
         private ClassBog _bog;
         private ClassPerson _person;
+        private ClassLogin _login;
         ClassDbfDB classDbfDB;
 
         /// <summary>
@@ -26,11 +27,22 @@ namespace BIZ_DBF_2019_
             classDbfDB = new ClassDbfDB();
             bog = new ClassBog();
             person = new ClassPerson();
-            laanteBoeger = GetAllLentBoks(person.id);
         }
 
 
         // Public properties
+        public ClassLogin login
+        {
+            get { return _login; }
+            set
+            {
+                if (value != _login)
+                {
+                    _login = value;
+                    Notify("login");
+                }
+            }
+        }
         public ClassPerson person
         {
             get { return _person; }
@@ -57,7 +69,7 @@ namespace BIZ_DBF_2019_
             }
         }
 
-        public List<ClassBog> laanteBoeger
+        public ObservableCollection<ClassBog> laanteBoeger
         {
             get { return _laanteBoeger; }
             set
@@ -70,7 +82,7 @@ namespace BIZ_DBF_2019_
             }
         }
 
-        public List<ClassBog> boeger
+        public ObservableCollection<ClassBog> boeger
         {
             get { return _boeger; }
             set
@@ -83,17 +95,17 @@ namespace BIZ_DBF_2019_
             }
         }
 
-        public List<ClassBog> GetAllLentBoks(int personID)
+        public ObservableCollection<ClassBog> GetAllLentBoks(int personID)
         {
             return classDbfDB.GetAllLentToUser(personID.ToString());
         }
 
-        public List<ClassBog> GetAllBooksWhereTheTitleContainsTheseWords(string words)
+        public ObservableCollection<ClassBog> GetAllBooksWhereTheTitleContainsTheseWords(string words)
         {
             return classDbfDB.GetAllBooksLike(words);
         }
 
-        public void LendThisBookToTheUser(int bogID, int personID)
+        public void LendThisBookToTheUser(ClassBog lentBook, ClassUser user)
         {
             
         }
@@ -101,6 +113,20 @@ namespace BIZ_DBF_2019_
         public void SubmitThisBookToTheLibrary(int bogID, int personID)
         {
 
+        }
+
+        public bool HandleLogin()
+        {
+            person = classDbfDB.GetUser(login);
+            if (person.id > 0)
+            {
+                laanteBoeger = GetAllLentBoks(person.id);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
