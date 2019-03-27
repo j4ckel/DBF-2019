@@ -30,10 +30,10 @@
                 <GridView>
                     <GridViewColumn Header="Titel"
                                     Width="auto"
-                                    DisplayMemberBinding="{Binding bog.titel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    DisplayMemberBinding="{Binding title.titel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <GridViewColumn Header="Isbnr"
                                     Width="auto"
-                                    DisplayMemberBinding="{Binding bog.isbnNr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    DisplayMemberBinding="{Binding bog.isbnNr.ISBN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <GridViewColumn Header="Forfatter"
                                     Width="auto"
                                     DisplayMemberBinding="{Binding bog.forfatter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
