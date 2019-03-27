@@ -25,7 +25,6 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
-                <RowDefinition/>
                 <RowDefinition />
 
         </Grid.RowDefinitions>
@@ -72,13 +71,7 @@
                      Grid.Row="6" 
                      IsReadOnly="True"
                      />
-            <TextBox x:Name="indkoeb" 
-                     Grid.Column="1" 
-                     Grid.Row="7"
-                     Margin="5,5,5,5"
-                     IsReadOnly="True"
-                     />
-            <Label Content="&#xD;&#xA;ISBN"
+        <Label Content="&#xD;&#xA;ISBN"
                    HorizontalAlignment="Stretch"
                    Margin="0,0,0,0"
                    Grid.Row="0"
@@ -112,11 +105,6 @@
                    HorizontalAlignment="Stretch"
                    Margin="0,0,0,0"
                    Grid.Row="6"
-                   VerticalAlignment="Stretch" />
-            <Label Content="&#xD;&#xA;Indkøb"
-                   HorizontalAlignment="Stretch"
-                   Margin="0,0,0,0"
-                   Grid.Row="7"
                    VerticalAlignment="Stretch" />
         <Button x:Name="CreateNewBook"
                 Content="Opret ny bog"
