@@ -147,7 +147,12 @@ namespace DB_IO_DBF_2019_
 
             return listCB;
         }
-
+        public void InsertBookindb(ClassBog inBog)
+        {
+            string strsql = "INSERT INTO Books (isbnID,titelID,forfatterID,forlagID,genreID,typeID,pris) VALUES" +
+                " ("+ inBog.isbnNr +","+inBog.titel+ ","+inBog.forfatter+","+inBog.forlag+","+inBog.genre +","+inBog.type+","+inBog.pris+" ) ";
+            ExecuteNonQuery(strsql);
+        }
         public void UpdateTheLendingStatus(string id, bool status)
         {
 

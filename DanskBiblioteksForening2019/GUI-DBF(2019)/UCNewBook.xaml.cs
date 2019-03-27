@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BIZ_DBF_2019_;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace GUI_DBF_2019_
     /// </summary>
     public partial class UCNewBook : UserControl
     {
+        ClassBiz CLB = new ClassBiz();
         public UCNewBook(Grid UCGUIGrid)
         {
             InitializeComponent();
@@ -38,7 +40,7 @@ namespace GUI_DBF_2019_
             }
             else
             {
-
+                CLB.addbook(CLB.bog);
                 ((Grid)Parent).Children.Remove(this);
             }
         }
