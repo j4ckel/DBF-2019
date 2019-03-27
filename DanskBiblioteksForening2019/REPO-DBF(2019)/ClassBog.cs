@@ -9,7 +9,7 @@ namespace REPO_DBF_2019_
     /// <summary>
     /// This Class Handles the fields and properties for each book.
     /// </summary>
-    public class ClassBog
+    public class ClassBog :ClassNotify
     {
         /// <summary>
         /// Default Constructor.
@@ -19,6 +19,7 @@ namespace REPO_DBF_2019_
 
         }
         //Private Fields holding values
+        #region
         private int _id;
         private ClassISBN _isbnNr;
         private ClassTitle _titel;
@@ -29,28 +30,8 @@ namespace REPO_DBF_2019_
         private decimal _pris;
         #endregion
         #region constructors
-        public ClassBog(int inid,string inisbnNr,string intitel, string inforfatter,string inforlag,string ingenre,string intype,decimal inpris)
-        {
-            inid = id;
-            inisbnNr = isbnNr;
-            intitel = titel;
-            inforfatter = forfatter;
-            inforlag = forlag;
-            ingenre = genre;
-            intype = type;
-            inpris = pris;
-        }
-        public ClassBog()
-        {
-            id = 0;
-            isbnNr = "";
-            titel = "";
-            forfatter = "";
-            forlag = "";
-            genre = "";
-            type = "";
-            pris = 0;
-        }
+       
+        
         #endregion
         #region Properties
 
@@ -110,6 +91,6 @@ namespace REPO_DBF_2019_
             get { return _pris; }
             set { _pris = value; }
         }
-
+        #endregion
     }
 }

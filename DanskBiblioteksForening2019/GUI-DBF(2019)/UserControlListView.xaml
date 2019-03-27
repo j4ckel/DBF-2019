@@ -19,23 +19,32 @@
             <RowDefinition Height="170*" />
             <RowDefinition Height="41*" />
         </Grid.RowDefinitions>
-        <ListView HorizontalAlignment="Stretch"
+        <ListView x:Name="ListViewBooks"
+                  HorizontalAlignment="Stretch"
                   Grid.Row="1"
                   VerticalAlignment="Stretch"
-                  Margin="-1,6.778,2,3"
+                  Margin="4"
                   Grid.ColumnSpan="3">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn />
+                    <GridViewColumn Header="Isbnr"
+                                    Width="auto" />
+                    <GridViewColumn Header="Titel"
+                                    Width="auto" />
+                    <GridViewColumn Header="Forfatter"
+                                    Width="auto" />
+                    <GridViewColumn Header="Genre"
+                                    Width="auto" />
+
                 </GridView>
             </ListView.View>
         </ListView>
         <ComboBox Grid.Row="0"
                   VerticalAlignment="Top"
                   HorizontalAlignment="Stretch"
-                  Margin="211,6,0,0"
-                  Grid.ColumnSpan="3"
-                  Grid.RowSpan="2" />
+                  Margin="2.8,6,5,0"
+                  Grid.ColumnSpan="2"
+                  Grid.Column="1" />
         <Button x:Name="ButtonRturnBook"
                 Content="Aflever"
                 Grid.Column="1"
