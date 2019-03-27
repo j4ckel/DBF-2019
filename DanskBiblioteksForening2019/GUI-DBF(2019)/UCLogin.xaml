@@ -51,18 +51,10 @@
                  Grid.Column="2"
                  Margin="61,53,0,0"
                  Grid.Row="1" />
-        <Button x:Name="ButtonLogIn"
-                Content="Log ind"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Width="108"
-                Grid.Column="1"
-                Margin="146,94,0,0"
-                Grid.Row="1"
-                Grid.ColumnSpan="2"
-                Height="27"
-                Grid.RowSpan="2"
-                Click="ButtonLogIn_Click" />
+        
+        
+        
+        
         <Label x:Name="LabelError"
                Content="Fejl i CPR Nr. Eller  Password &#xD;&#xA;Tjek for fejl! Derefter prøv igen"
                HorizontalAlignment="Left"
@@ -73,6 +65,17 @@
                Height="43"
                Width="173"
                Visibility="Hidden" />
+        <Button x:Name="ButtonLogIn"
+                Content="Log ind"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="108"
+                Grid.Column="1"
+                Margin="146,94,0,0"
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Height="27"
+                Grid.RowSpan="2" Click="ButtonLogIn_Click_1"/>
 
 
 

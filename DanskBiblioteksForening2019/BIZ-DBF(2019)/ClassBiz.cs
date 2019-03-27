@@ -21,8 +21,6 @@ namespace BIZ_DBF_2019_
         private ObservableCollection<ClassType> _bookTypes;
         private ObservableCollection<decimal> _bookPrices;
         private ClassBog _bog;
-        private ClassPerson _person;
-        private ClassLogin _login;
         private ClassUser _user;
         ClassDbfDB classDbfDB;
 
@@ -34,7 +32,7 @@ namespace BIZ_DBF_2019_
             classDbfDB = new ClassDbfDB();
             bog = new ClassBog();
             user = new ClassUser();
-            person = new ClassPerson();
+            
         }
 
 

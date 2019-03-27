@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UCLogin.xaml.cs">
+      <DependentUpon>UCLogin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UCNewBook.xaml.cs">
       <DependentUpon>UCNewBook.xaml</DependentUpon>
     </Compile>

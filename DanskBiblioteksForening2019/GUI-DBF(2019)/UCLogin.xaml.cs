@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BIZ_DBF_2019_;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,10 +28,8 @@ namespace GUI_DBF_2019_
             CB = inBiz;
 
         }
-           
 
-
-        private void ButtonLogIn_Click(object sender, RoutedEventArgs e)
+        private void ButtonLogIn_Click_1(object sender, RoutedEventArgs e)
         {
             bool loginSuccess = CB.HandleLogin();
             if (loginSuccess == false)
@@ -42,6 +41,5 @@ namespace GUI_DBF_2019_
                 ((Grid)Parent).Children.Remove(this);
             }
         }
-        
     }
 }
