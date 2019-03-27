@@ -12,6 +12,7 @@ namespace REPO_DBF_2019_
     public class Classudlaan : ClassNotify
     {
         private int _id;
+        private string _personID;
         private DateTime _udlaansdate;
         private string _udlaanstatus;
         private string _strUdlaansDate;
@@ -25,6 +26,19 @@ namespace REPO_DBF_2019_
         }
 
         #region Properties
+
+        public string personID
+        {
+            get { return _personID; }
+            set
+            {
+                if(value != _personID)
+                {
+                    _personID = value;
+                    Notify("personID");
+                }
+            }
+        }
 
         public string strUdlaansDate
         {
