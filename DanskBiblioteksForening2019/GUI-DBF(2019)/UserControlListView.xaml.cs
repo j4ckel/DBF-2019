@@ -26,7 +26,7 @@ namespace GUI_DBF_2019_
         public UserControlListView(ClassBiz inClass, Grid gridLeft)
         {
             InitializeComponent();
-            _CB = inClass;
+            _CB = inClass;   
             MainLeftGrid = gridLeft;
 
             GridMain.DataContext = _CB;
