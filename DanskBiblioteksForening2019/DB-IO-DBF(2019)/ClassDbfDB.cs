@@ -26,35 +26,17 @@ namespace DB_IO_DBF_2019_
             DataTable dt = DbReturnDataTable("SELECT * FROM Books");
             foreach(DataRow row in dt.Rows)
             {
-                ClassBog CLB = new ClassBog();
-                ClassISBN classISBN = new ClassISBN();
-                ClassTitle classTitle = new ClassTitle();
-                ClassAuthor classAuthor = new ClassAuthor();
-                ClassPublisher classPublisher = new ClassPublisher();
-                ClassGenre classGenre = new ClassGenre();
-                ClassType classType = new ClassType();
+                ClassBog bog = new ClassBog();
 
-                CLB.id = Convert.ToInt32(row["id"]);
-               
-                classISBN.ISBN = row["isbnNr"].ToString();
-                CLB.isbnNr = classISBN;
-               
-                classTitle.title = row["titel"].ToString();
-                CLB.titel = classTitle;
-                
-                classAuthor.author = row["forfatter"].ToString();
-                CLB.forfatter = classAuthor;
-                
-                classPublisher.publisher = row["forlag"].ToString();
-                CLB.forlag = classPublisher;
-                
-                classGenre.genre = row["genre"].ToString();
-                CLB.genre = classGenre;
-                
-                classType.type = row["type"].ToString();
-                CLB.type = classType;
-
-                CLB.pris = Convert.ToDecimal(row["pris"]);                
+                bog.id = Convert.ToInt32(row["id"].ToString());
+                bog.isbnNr = GetISBNFromDB(row["isbnID"].ToString());
+                bog.titel = GetTitleFromDB(row["titelID"].ToString());
+                bog.forfatter = GetAuthorFromDB(row["forfatterID"].ToString());
+                bog.forlag = GetPublisherFromDB(row["forlagID"].ToString());
+                bog.genre = GetGenreFromDB(row["genreID"].ToString());
+                bog.type = GetTypeFromDB(row["typeID"].ToString());
+                bog.pris = Convert.ToDecimal(row["pris"].ToString());
+                CB.Add(bog);
             }
             return CB;
         }
@@ -63,45 +45,21 @@ namespace DB_IO_DBF_2019_
         {
             ObservableCollection<ClassBog> CB = new ObservableCollection<ClassBog>();
 
-            DataTable dt = DbReturnDataTable($"SELECT dbo.Books.id, dbo.Books.pris, dbo.Titel.titel, dbo.Forfatter.forfatter, dbo.Forlag.forlagsNavn, dbo.ISBNnr.isbnNr, dbo.Genre.genreType, dbo.Type.TypeNavn" +
-                $"FROM dbo.Books INNER JOIN" +
-                $" dbo.Type ON dbo.Books.typeID = dbo.Type.id" +
-                $" dbo.Forfatter ON dbo.Books.forfatterID = dbo.Forfatter.id INNER JOIN" +
-                $" dbo.Forlag ON dbo.Books.forlagID = dbo.Forlag.id INNER JOIN" +
-                $" dbo.Genre ON dbo.Books.genreID = dbo.Genre.id INNER JOIN" +
-                $" dbo.ISBNnr ON dbo.Books.isbnID = dbo.ISBNnr.id INNER JOIN" +
-                $" dbo.Titel ON dbo.Books.titelID = dbo.Titel.id INNER JOIN" +
-                $" dbo.Type ON dbo.Books.typeID = dbo.Type.id" +
-                $"WHERE        (dbo.Titel.titel = '*{search}*')");
+            DataTable dt = DbReturnDataTable($"SELECT dbo.Titel.titel, dbo.Books.isbnID, dbo.Books.forfatterID, dbo.Books.forlagID, dbo.Books.genreID, dbo.Books.typeID, dbo.Books.pris, dbo.Books.id, dbo.Books.titelID" +
+                "FROM dbo.Books INNER JOIN" +
+                "dbo.Titel ON dbo.Books.titelID = dbo.Titel.id"+
+                $"WHERE (dbo.Titel.titel = '*{search}*')");
             foreach (DataRow row in dt.Rows)
             {
                 ClassBog bog = new ClassBog();
-                ClassTitle classTitle = new ClassTitle();
-                ClassAuthor classAuthor = new ClassAuthor();
-                ClassPublisher classPublisher = new ClassPublisher();
-                ClassGenre classGenre = new ClassGenre();
-                ClassType classType = new ClassType();
-                ClassISBN classISBN = new ClassISBN();
 
                 bog.id = Convert.ToInt32(row["id"].ToString());
-                classTitle.title = row["titel"].ToString();
-                bog.titel = classTitle;
-
-                classAuthor.author = row["forfatter"].ToString();
-                bog.forfatter = classAuthor;
-
-                classPublisher.publisher = row["forlagsNavn"].ToString();
-                bog.forlag = classPublisher;
-
-                classISBN.ISBN = row["isbnNr"].ToString();
-                bog.isbnNr = classISBN;
-
-                classGenre.genre = row["genreType"].ToString();
-                bog.genre = classGenre;
-
-                classType.type = row["TypeNavn"].ToString();
-                bog.type = classType;
-
+                bog.isbnNr = GetISBNFromDB(row["isbnID"].ToString());
+                bog.titel = GetTitleFromDB(row["titelID"].ToString());
+                bog.forfatter = GetAuthorFromDB(row["forfatterID"].ToString());
+                bog.forlag = GetPublisherFromDB(row["forlagID"].ToString());
+                bog.genre = GetGenreFromDB(row["genreID"].ToString());
+                bog.type = GetTypeFromDB(row["typeID"].ToString());
                 bog.pris = Convert.ToDecimal(row["pris"].ToString());
                 CB.Add(bog);
             }
