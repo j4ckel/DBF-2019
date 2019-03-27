@@ -52,17 +52,11 @@
                   Grid.Column="1" />
         <Button x:Name="ButtonRturnBook"
                 Content="Aflever"
-                Grid.Column="1"
                 Grid.Row="2"
-                Margin="19.8,20,20.2,19.6"
-                MaxHeight="60"
-                MaxWidth="70" />
+                 Margin="19,28,26.2,9.6"/>
         <Button x:Name="ButtonBorrowBook"
                 Content="Udlån"
-                Grid.Column="2"
                 Grid.Row="2"
-                Margin="19.8,20,20,19.6"
-                MaxHeight="60"
-                MaxWidth="70" />
+                Grid.ColumnSpan="2" Margin="9.8,28,15,9.6" Grid.Column="1" />
     </Grid>
 </UserControl>

@@ -64,9 +64,6 @@
     <Compile Include="UC\UCEdit-Genre.xaml.cs">
       <DependentUpon>UCEdit-Genre.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC\UCEdit-Indkøb.xaml.cs">
-      <DependentUpon>UCEdit-Indkøb.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UC\UCEdit-Type.xaml.cs">
       <DependentUpon>UCEdit-Type.xaml</DependentUpon>
     </Compile>
@@ -111,10 +108,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UC\UCEdit-Genre.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UC\UCEdit-Indkøb.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
