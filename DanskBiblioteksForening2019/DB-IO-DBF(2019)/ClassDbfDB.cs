@@ -29,21 +29,34 @@ namespace DB_IO_DBF_2019_
             {
                 ClassBog CLB = new ClassBog();
                 ClassISBN classISBN = new ClassISBN();
-
+                ClassTitle classTitle = new ClassTitle();
+                ClassAuthor classAuthor = new ClassAuthor();
+                ClassPublisher classPublisher = new ClassPublisher();
+                ClassGenre classGenre = new ClassGenre();
+                ClassType classType = new ClassType();
 
                 CLB.id = Convert.ToInt32(row["id"]);
+               
                 classISBN.ISBN = row["isbnNr"].ToString();
                 CLB.isbnNr = classISBN;
 
-                CLB.titel = row["titel"].ToString();
-                CLB.forfatter = row["forfatter"].ToString();
-                CLB.forlag = row["forlag"].ToString();
-                CLB.genre = row["genre"].ToString();
-                CLB.type = row["type"].ToString();
-                CLB.pris = Convert.ToDecimal(row["pris"]);
-                
-            }
+                classTitle.title = row["titel"].ToString();
+                CLB.titel = classTitle;
 
+                classAuthor.author = row["forfatter"].ToString();
+                CLB.forfatter = classAuthor;
+
+                classPublisher.publisher = row["forlag"].ToString();
+                CLB.forlag = classPublisher;
+
+                classGenre.genre = row["genre"].ToString();
+                CLB.genre = classGenre;
+
+                classType.type = row["type"].ToString();
+                CLB.type = classType;
+
+                CLB.pris = Convert.ToDecimal(row["pris"]);                
+            }
             return CB;
         }
 
