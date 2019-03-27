@@ -19,6 +19,7 @@ namespace REPO_DBF_2019_
 
         }
         //Private Fields holding values
+        #region
         private int _id;
         private ClassISBN _isbnNr;
         private ClassTitle _titel;
