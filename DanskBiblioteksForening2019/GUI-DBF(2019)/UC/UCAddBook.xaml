@@ -30,40 +30,40 @@
             <RowDefinition/>
 
         </Grid.RowDefinitions>
-        <Label Content="ISBN"
+        <Label Content="&#xD;&#xA;ISBN"
                    HorizontalAlignment="Stretch"
                    Grid.Row="0"
                    VerticalAlignment="Stretch"/>
-        <Label Content="Titel"
+        <Label Content="&#xD;&#xA;Titel"
                    HorizontalAlignment="Stretch"
                    Grid.Row="1"
                    VerticalAlignment="Stretch"/>
-        <Label Content="Udgivelsesdag"
+        <Label Content="&#xD;&#xA;Udgivelsesdag"
                    HorizontalAlignment="Stretch"
                    Grid.Row="2"
                    VerticalAlignment="Stretch" 
                    />
-        <Label Content="Forfatter"
+        <Label Content="&#xD;&#xA;Forfatter"
                    HorizontalAlignment="Stretch"
                    Grid.Row="3"
                    VerticalAlignment="Stretch"
                    />
-        <Label Content="Forlag"
+        <Label Content="&#xD;&#xA;Forlag"
                    HorizontalAlignment="Stretch"
                    Grid.Row="4"
                    VerticalAlignment="Stretch"
                    />
-        <Label Content="Genre"
+        <Label Content="&#xD;&#xA;Genre"
                    HorizontalAlignment="Stretch"
                    Grid.Row="5"
                    VerticalAlignment="Stretch"
                    />
-        <Label Content="Type"
+        <Label Content="&#xD;&#xA;Type"
                    HorizontalAlignment="Stretch"
                    Grid.Row="6"
                    VerticalAlignment="Stretch"
                    />
-        <Label Content="Indkøb"
+        <Label Content="&#xD;&#xA;Indkøb"
                    HorizontalAlignment="Stretch"
                    Grid.Row="7"
                    VerticalAlignment="Stretch"

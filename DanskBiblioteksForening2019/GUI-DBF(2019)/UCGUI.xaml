@@ -30,12 +30,14 @@
 
         </Grid.RowDefinitions>
 
-            <TextBox x:Name="isbn" 
+            <TextBox x:Name="isbn"
+                     Margin="5,5,5,5"
                      Grid.Column="1" 
                      Grid.Row="0" 
                      IsReadOnly="True"
                      />
             <TextBox x:Name="titel" 
+                     Margin="5,5,5,5"
                      Grid.Column="1" 
                      Grid.Row="1" 
                      IsReadOnly="True"
@@ -43,14 +45,17 @@
             <TextBox x:Name="udgivelsesdag" 
                      Grid.Column="1" 
                      Grid.Row="2" 
+                     Margin="5,5,5,5"
                      IsReadOnly="True"
                      />
             <TextBox x:Name="forfatter" 
                      Grid.Column="1" 
                      Grid.Row="3" 
                      IsReadOnly="True"
+                     Margin="5,5,5,5"
                      />
-            <TextBox x:Name="forlag"  
+            <TextBox x:Name="forlag" 
+                     Margin="5,5,5,5"
                      Grid.Column="1" 
                      Grid.Row="4" 
                      IsReadOnly="True"
@@ -59,8 +64,10 @@
                      Grid.Column="1" 
                      Grid.Row="5" 
                      IsReadOnly="True"
+                     Margin="5,5,5,5"
                      />
             <TextBox x:Name="type"  
+                     Margin="5,5,5,5"
                      Grid.Column="1" 
                      Grid.Row="6" 
                      IsReadOnly="True"
@@ -68,48 +75,49 @@
             <TextBox x:Name="indkoeb" 
                      Grid.Column="1" 
                      Grid.Row="7"
+                     Margin="5,5,5,5"
                      IsReadOnly="True"
                      />
-            <Label Content="ISBN"
-                   HorizontalAlignment="Center"
+            <Label Content="&#xD;&#xA;ISBN"
+                   HorizontalAlignment="Stretch"
                    Margin="0,0,0,0"
                    Grid.Row="0"
-                   VerticalAlignment="center" Width="200" Height="51"/>
-            <Label Content="Titel"
-                   HorizontalAlignment="Center"
+                   VerticalAlignment="Stretch"/>
+            <Label Content="&#xD;&#xA;Titel"
+                   HorizontalAlignment="Stretch"
                    Margin="0,0,0,0"
                    Grid.Row="1"
-                   VerticalAlignment="center" Width="200" Height="51"/>
-            <Label Content="Udgivelsesdag"
-                   HorizontalAlignment="Center"
+                   VerticalAlignment="Stretch"/>
+            <Label Content="&#xD;&#xA;Udgivelsesdag"
+                   HorizontalAlignment="Stretch"
                    Margin="0,0,0,0"
                    Grid.Row="2"
-                   VerticalAlignment="center" Width="200" Height="51"/>
-            <Label Content="Forfatter"
-                   HorizontalAlignment="Center"
+                   VerticalAlignment="Stretch" />
+            <Label Content="&#xD;&#xA;Forfatter"
+                   HorizontalAlignment="Stretch"
                    Margin="0,0,0,0"
                    Grid.Row="3"
-                   VerticalAlignment="center" Width="200" Height="51"/>
-            <Label Content="Forlag"
-                   HorizontalAlignment="Center"
+                   VerticalAlignment="Stretch" />
+            <Label Content="&#xD;&#xA;Forlag"
+                   HorizontalAlignment="Stretch"
                    Margin="0,0,0,0"
                    Grid.Row="4"
-                   VerticalAlignment="center" Width="200" Height="51"/>
-            <Label Content="Genre"
-                   HorizontalAlignment="Center"
+                   VerticalAlignment="Stretch" />
+            <Label Content="&#xD;&#xA;Genre"
+                   HorizontalAlignment="Stretch"
                    Margin="0,0,0,0"
                    Grid.Row="5"
-                   VerticalAlignment="center" Width="200" Height="51"/>
-            <Label Content="Type"
-                   HorizontalAlignment="Center"
+                   VerticalAlignment="Stretch" />
+            <Label Content="&#xD;&#xA;Type"
+                   HorizontalAlignment="Stretch"
                    Margin="0,0,0,0"
                    Grid.Row="6"
-                   VerticalAlignment="center" Width="200" Height="51"/>
-            <Label Content="Indkøb"
-                   HorizontalAlignment="Center"
+                   VerticalAlignment="Stretch" />
+            <Label Content="&#xD;&#xA;Indkøb"
+                   HorizontalAlignment="Stretch"
                    Margin="0,0,0,0"
                    Grid.Row="7"
-                   VerticalAlignment="center" Width="200" Height="51"/>
+                   VerticalAlignment="Stretch" />
         <Button x:Name="CreateNewBook"
                 Content="Opret ny bog"
                 Grid.Column="1"
