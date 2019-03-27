@@ -351,6 +351,8 @@ namespace DB_IO_DBF_2019_
 
         #endregion
 
+        #region insertbookinfo
+
         public void InsertTitleIntoDB(ClassTitle inTitle)
         {
             ExecuteNonQuery($"INSERT INTO Titel (title) VALUES('{inTitle.title}')");
@@ -381,7 +383,7 @@ namespace DB_IO_DBF_2019_
             ExecuteNonQuery($"INSERT INTO Type (TypeNavn) VALUES ('{inType.type}')");
         }
 
-       
+        #endregion
 
         #region UpdateBookInfo
 
