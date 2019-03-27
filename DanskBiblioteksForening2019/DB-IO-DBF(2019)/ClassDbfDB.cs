@@ -16,8 +16,7 @@ namespace DB_IO_DBF_2019_
 
         public ClassDbfDB()
         {
-            
-
+            SetCon("Server=10.205.44.39,49172;Database=DBF_2019;User Id=AspIT;Password=Server2012;");
         }
         
         public ObservableCollection<ClassBog> GetAllBooks()
@@ -219,7 +218,7 @@ namespace DB_IO_DBF_2019_
             ExecuteNonQuery($"");
         }
 
-        #region GetBookInfo
+        #region GetBooksInfo
 
         public ObservableCollection<ClassTitle> GetTitles()
         {
@@ -332,6 +331,12 @@ namespace DB_IO_DBF_2019_
         }
         #endregion
 
+        #region GetBookInfo
+
+        private ClassAuthor  
+
+        #endregion
+
         #region InsertBookInfo
         public void InsertTitleIntoDB(ClassTitle inTitle)
         {
@@ -358,26 +363,43 @@ namespace DB_IO_DBF_2019_
             ExecuteNonQuery($"INSERT INTO Forlag (forlagsNavn) VALUES ('{inPublisher.publisher}')");
         }
 
-
-
+        public void InsertTypeIntoDB(ClassType inType)
+        {
+            ExecuteNonQuery($"INSERT INTO Type (TypeNavn) VALUES ('{inType.type}')");
+        }
 
         #endregion
 
         #region UpdateBookInfo
 
-        public void UpdateTitleIntoDB(ClassTitle UpTitle, string newtitel)
+        public void UpdateTitleInDB(ClassTitle inTitle)
         {
-            ExecuteNonQuery($" update titel set titel = '{newtitel}' where titel = '{UpTitle}'");
-        }        
-        public void UpdateAuthorIntoDB(ClassAuthor UpAuthor, string newAuthor)
-        {
-            ExecuteNonQuery($"update forfatter set forfatter = '{UpAuthor.author}' where forfatter = '{newAuthor}'");
+            ExecuteNonQuery($"UPDATE Titel SET titel = '{inTitle.title}' WHERE id = {inTitle.id}");
         }
 
-        public void UpdatePublisherIntoDB(ClassPublisher UpPublisher, string newpublisher)
+        public void UpdateAuthorInDB(ClassAuthor inAuthor)
         {
-            ExecuteNonQuery($"update forlag set  forlagsNavn = '{UpPublisher.publisher}' where forlagsNavn = '{newpublisher}'");
-      
+            ExecuteNonQuery($"UPDATE Forfatter SET forfatter = '{inAuthor.author}' WHERE id = {inAuthor.id}");
+        }
+
+        public void UpdatePublisherInDB(ClassPublisher inPublisher)
+        {
+            ExecuteNonQuery($"UPDATE Forlag SET forlagsNavn = '{inPublisher.publisher}' WHERE id = {inPublisher.id}");
+        }
+
+        public void UpdateGenreInDB(ClassGenre inGenre)
+        {
+            ExecuteNonQuery($"UPDATE Genre SET genreType = '{inGenre.genre}' WHERE id = {inGenre.id}");
+        }
+
+        public void UpdateISBNInDB(ClassISBN inISBN)
+        {
+            ExecuteNonQuery($"UPDATE ISBNnr SET isbnNr = '{inISBN.ISBN}' WHERE id = {inISBN.id}");
+        }
+
+        public void UpdateTypeInDB(ClassType inType)
+        {
+            ExecuteNonQuery($"UPDATE Type SET TypeNavn = '{inType.type}' WHERE id = {inType.id}");
         }
         #endregion
     }
