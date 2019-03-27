@@ -14,9 +14,14 @@ namespace BIZ_DBF_2019_
         // Private fields
         private ObservableCollection<ClassBog> _boeger;
         private ObservableCollection<ClassBog> _laanteBoeger;
+        private ObservableCollection<ClassTitle> _bookTitles;
+        private ObservableCollection<ClassAuthor> _bookAuthors;
+        private ObservableCollection<ClassPublisher> _bookPublishers;
+        private ObservableCollection<ClassGenre> _bookGenre;
+        private ObservableCollection<ClassType> _bookTypes;
+        private ObservableCollection<decimal> _bookPrices;
         private ClassBog _bog;
         private ClassUser _user;
-        private ClassLogin _login;
         ClassDbfDB classDbfDB;
 
         /// <summary>
@@ -31,19 +36,84 @@ namespace BIZ_DBF_2019_
 
 
         // Public properties
-        #region properties
-        public ClassLogin login
+        public ObservableCollection<decimal> bookPrices
         {
-            get { return _login; }
+            get { return _bookPrices; }
             set
             {
-                if (value != _login)
+                if (value != _bookPrices)
                 {
-                    _login = value;
-                    Notify("login");
+                    _bookPrices = value;
+                    Notify("bookPrices");
                 }
             }
         }
+
+        public ObservableCollection<ClassType> bookTypes
+        {
+            get { return _bookTypes; }
+            set
+            {
+                if (value != _bookTypes)
+                {
+                    _bookTypes = value;
+                    Notify("bookTypes");
+                }
+            }
+        }
+
+        public ObservableCollection<ClassGenre> bookGenre
+        {
+            get { return _bookGenre; }
+            set
+            {
+                if (value != _bookGenre)
+                {
+                    _bookGenre = value;
+                    Notify("bookGenre");
+                }
+            }
+        }
+
+        public ObservableCollection<ClassPublisher> bookPublishers
+        {
+            get { return _bookPublishers; }
+            set
+            {
+                if (value != _bookPublishers)
+                {
+                    _bookPublishers = value;
+                    Notify("bookPublishers");
+                }
+            }
+        }
+
+        public ObservableCollection<ClassAuthor> bookAuthors
+        {
+            get { return _bookAuthors; }
+            set
+            {
+                if (value != _bookAuthors)
+                {
+                    _bookAuthors = value;
+                    Notify("bookAuthors");
+                }
+            }
+        }
+
+        public ObservableCollection<ClassTitle> bookTitles
+        {
+            get { return _bookTitles; }
+            set
+            {
+                if (value != _bookTitles)
+                {
+                    _bookTitles = value;
+                    Notify("bookTitles");
+                }
+            }
+        }
+        
         public ClassUser user
         {
             get { return _user; }
@@ -95,6 +165,12 @@ namespace BIZ_DBF_2019_
                 }
             }
         }
+
+        public void GetBooksFromDB()
+        {
+            boeger = classDbfDB.GetAllBooks();
+            MakeCollectionsForComboBoxes();
+        }
         #endregion
         public ObservableCollection<ClassBog> GetAllLentBooks(int personID)
         {
@@ -118,7 +194,7 @@ namespace BIZ_DBF_2019_
 
         public bool HandleLogin()
         {
-            user = classDbfDB.GetUser(user);
+            user = classDbfDB.GetUser(user.userName, user.password);
             if (user.id > 0)
             {
                 laanteBoeger = GetAllLentBooks(user.id);
@@ -128,6 +204,16 @@ namespace BIZ_DBF_2019_
             {
                 return false;
             }
+        }
+
+        public void MakeCollectionsForComboBoxes()
+        {
+            bookTitles = classDbfDB.GetTitles();
+            bookAuthors = classDbfDB.GetAuthors();
+            bookPublishers = classDbfDB.GetPublishers();
+            bookTypes = classDbfDB.GetTypes();
+            bookGenre = classDbfDB.GetGenre();
+            bookPrices = classDbfDB.GetPrices();
         }
     }
 }
