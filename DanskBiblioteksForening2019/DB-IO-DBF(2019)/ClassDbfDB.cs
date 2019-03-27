@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DB_IO_DBF_2019_
 {
@@ -14,35 +16,52 @@ namespace DB_IO_DBF_2019_
 
         public ClassDbfDB()
         {
-            
-
+            SetCon("Server=10.205.44.39,49172;Database=DBF_2019;User Id=AspIT;Password=Server2012;");
         }
         
-        public List<ClassBog> GetAllBooks()
+        public ObservableCollection<ClassBog> GetAllBooks()
         {
-            List<ClassBog> CB = new List<ClassBog>();
+            ObservableCollection<ClassBog> CB = new ObservableCollection<ClassBog>();
 
             DataTable dt = DbReturnDataTable("SELECT * FROM Books");
             foreach(DataRow row in dt.Rows)
             {
                 ClassBog CLB = new ClassBog();
-                CLB.id = Convert.ToInt32(row["id"]);
-                CLB.isbnNr = row["isbnr"].ToString();
-                CLB.titel = row["titel"].ToString();
-                CLB.forfatter = row["forfatter"].ToString();
-                CLB.forlag = row["forlag"].ToString();
-                CLB.genre = row["genre"].ToString();
-                CLB.type = row["type"].ToString();
-                CLB.pris = Convert.ToDecimal(row["pris"]);
-                
-            }
+                ClassISBN classISBN = new ClassISBN();
+                ClassTitle classTitle = new ClassTitle();
+                ClassAuthor classAuthor = new ClassAuthor();
+                ClassPublisher classPublisher = new ClassPublisher();
+                ClassGenre classGenre = new ClassGenre();
+                ClassType classType = new ClassType();
 
+                CLB.id = Convert.ToInt32(row["id"]);
+               
+                classISBN.ISBN = row["isbnNr"].ToString();
+                CLB.isbnNr = classISBN;
+               
+                classTitle.title = row["titel"].ToString();
+                CLB.titel = classTitle;
+                
+                classAuthor.author = row["forfatter"].ToString();
+                CLB.forfatter = classAuthor;
+                
+                classPublisher.publisher = row["forlag"].ToString();
+                CLB.forlag = classPublisher;
+                
+                classGenre.genre = row["genre"].ToString();
+                CLB.genre = classGenre;
+                
+                classType.type = row["type"].ToString();
+                CLB.type = classType;
+
+                CLB.pris = Convert.ToDecimal(row["pris"]);                
+            }
             return CB;
         }
 
-        public List<ClassBog> GetAllBooksLike(string search)
+        public ObservableCollection<ClassBog> GetAllBooksLike(string search)
         {
-            List<ClassBog> CB = new List<ClassBog>();
+            ObservableCollection<ClassBog> CB = new ObservableCollection<ClassBog>();
 
             DataTable dt = DbReturnDataTable($"SELECT dbo.Books.id, dbo.Books.pris, dbo.Titel.titel, dbo.Forfatter.forfatter, dbo.Forlag.forlagsNavn, dbo.ISBNnr.isbnNr, dbo.Genre.genreType, dbo.Type.TypeNavn" +
                 $"FROM dbo.Books INNER JOIN" +
@@ -57,20 +76,39 @@ namespace DB_IO_DBF_2019_
             foreach (DataRow row in dt.Rows)
             {
                 ClassBog bog = new ClassBog();
+                ClassTitle classTitle = new ClassTitle();
+                ClassAuthor classAuthor = new ClassAuthor();
+                ClassPublisher classPublisher = new ClassPublisher();
+                ClassGenre classGenre = new ClassGenre();
+                ClassType classType = new ClassType();
+                ClassISBN classISBN = new ClassISBN();
+
                 bog.id = Convert.ToInt32(row["id"].ToString());
-                bog.titel = row["titel"].ToString();
-                bog.forfatter = row["forfatter"].ToString();
-                bog.forlag = row["forlagsNavn"].ToString();
-                bog.isbnNr = row["isbnNr"].ToString();
-                bog.genre = row["genreType"].ToString();
-                bog.type = row["TypeNavn"].ToString();
+                classTitle.title = row["titel"].ToString();
+                bog.titel = classTitle;
+
+                classAuthor.author = row["forfatter"].ToString();
+                bog.forfatter = classAuthor;
+
+                classPublisher.publisher = row["forlagsNavn"].ToString();
+                bog.forlag = classPublisher;
+
+                classISBN.ISBN = row["isbnNr"].ToString();
+                bog.isbnNr = classISBN;
+
+                classGenre.genre = row["genreType"].ToString();
+                bog.genre = classGenre;
+
+                classType.type = row["TypeNavn"].ToString();
+                bog.type = classType;
+
                 bog.pris = Convert.ToDecimal(row["pris"].ToString());
                 CB.Add(bog);
             }
 
             return CB;
         }
-        public List<ClassBog> GetAllLentToUser(string personid)
+        public ObservableCollection<ClassBog> GetAllLentToUser(string personid)
         {
             DataTable dt = DbReturnDataTable("SELECT dbo.Books.id, dbo.Type.TypeNavn, dbo.Titel.titel," +
                 " dbo.Genre.genreType, dbo.Forfatter.forfatter, dbo.Forlag.forlagsNavn, dbo.ISBNnr.isbnNr, dbo.Udlaan.udlaansStatus" +
@@ -84,16 +122,7 @@ namespace DB_IO_DBF_2019_
                 $"WHERE(dbo.Udlaan.personID = '{personid}') AND(dbo.Udlaan.udlaansStatus = 2)");
             foreach (DataRow row in dt.Rows)
             {
-                ClassBog bog = new ClassBog();
-                bog.id = Convert.ToInt32(row["id"].ToString());
-                bog.titel = row["titel"].ToString();
-                bog.genre = row["genreType"].ToString();
-                bog.forfatter = row["forfatter"].ToString();
-                bog.forlag = row["forlagsNavn"].ToString();
-                bog.isbnNr = row["isbnNr"].ToString(); 
-
                 Classudlaan CUD = new Classudlaan();
-                CUD.udlaanstatus = row["udlaansStatus"].ToString();
 
                 
 
@@ -102,9 +131,9 @@ namespace DB_IO_DBF_2019_
             return GetAllLentToUser(personid);
         }
 
-        public List<ClassBog> GetAvailbleBooks()
+        public ObservableCollection<ClassBog> GetAvailbleBooks()
         {
-            List<ClassBog> listCB = new List<ClassBog>();
+            ObservableCollection<ClassBog> listCB = new ObservableCollection<ClassBog>();
             DataTable dt = DbReturnDataTable($"SELECT        dbo.Titel.titel, dbo.Forfatter.forfatter, dbo.Forlag.forlagsNavn, dbo.ISBNnr.isbnNr, dbo.Genre.genreType, dbo.Type.TypeNavn, dbo.Books.pris, dbo.UdlaansStatus.status" +
                 $" FROM dbo.Books INNER JOIN" +
                 $" dbo.Forfatter ON dbo.Books.forfatterID = dbo.Forfatter.id INNER JOIN" +
@@ -121,14 +150,34 @@ namespace DB_IO_DBF_2019_
             foreach(DataRow row in dt.Rows)
             {
                 ClassBog bog = new ClassBog();
+                ClassTitle classTitle = new ClassTitle();
+                ClassAuthor classAuthor = new ClassAuthor();
+                ClassPublisher classPublisher = new ClassPublisher();
+                ClassGenre classGenre = new ClassGenre();
+                ClassType classType = new ClassType();
+                ClassISBN classISBN = new ClassISBN();
+
                 bog.id = Convert.ToInt32(row["id"].ToString());
-                bog.isbnNr = row["isbnNr"].ToString();
-                bog.genre = row["genreType"].ToString();
-                bog.titel = row["titel"].ToString();
-                bog.forfatter = row["forfatter"].ToString();
-                bog.forlag = row["forlagsNavn"].ToString();
-                bog.type = row["TypeNavn"].ToString();
+                classTitle.title = row["titel"].ToString();
+                bog.titel = classTitle;
+
+                classAuthor.author = row["forfatter"].ToString();
+                bog.forfatter = classAuthor;
+
+                classPublisher.publisher = row["forlagsNavn"].ToString();
+                bog.forlag = classPublisher;
+
+                classISBN.ISBN = row["isbnNr"].ToString();
+                bog.isbnNr = classISBN;
+
+                classGenre.genre = row["genreType"].ToString();
+                bog.genre = classGenre;
+
+                classType.type = row["TypeNavn"].ToString();
+                bog.type = classType;
+
                 bog.pris = Convert.ToDecimal(row["pris"].ToString());
+                
                 listCB.Add(bog);
             }
 
@@ -162,86 +211,107 @@ namespace DB_IO_DBF_2019_
             }
 
             return CU;
-        }
+        }        
+
         public void UpdateBook(ClassBog CB)
         {
-
+            ExecuteNonQuery($"");
         }
 
-        public ObservableCollection<string> GetTitles()
+        #region GetBooksInfo
+
+        public ObservableCollection<ClassTitle> GetTitles()
         {
-            ObservableCollection<string> cTitles = new ObservableCollection<string>();
+            ObservableCollection<ClassTitle> cTitles = new ObservableCollection<ClassTitle>();
             string sqlQuery = "SELECT * FROM Titel";
             DataTable dataTable = DbReturnDataTable(sqlQuery);
 
             foreach (DataRow row in dataTable.Rows)
             {
-                cTitles.Add(row["titel"].ToString());
+                ClassTitle title = new ClassTitle();
+                title.title = row["titel"].ToString();
+                title.id = row["id"].ToString();
+                cTitles.Add(title);
             }
 
             return cTitles;
         }
-        public ObservableCollection<string> GetAuthors()
+        public ObservableCollection<ClassAuthor> GetAuthors()
         {
-            ObservableCollection<string> cAuthors = new ObservableCollection<string>();
+            ObservableCollection<ClassAuthor> cAuthors = new ObservableCollection<ClassAuthor>();
             string sqlQuery = "SELECT * FROM Forfatter";
             DataTable dataTable = DbReturnDataTable(sqlQuery);
 
             foreach (DataRow row in dataTable.Rows)
             {
-                cAuthors.Add(row["forfatter"].ToString());
+                ClassAuthor authors = new ClassAuthor();
+                authors.author = row["forfatter"].ToString();
+                authors.id = row["id"].ToString();
+                cAuthors.Add(authors);
             }
 
             return cAuthors;
         }
-        public ObservableCollection<string> GetISBNs()
+        public ObservableCollection<ClassISBN> GetISBNs()
         {
-            ObservableCollection<string> cISBN = new ObservableCollection<string>();
+            ObservableCollection<ClassISBN> cISBN = new ObservableCollection<ClassISBN>();
             string sqlQuery = "SELECT * FROM ISBNnr";
             DataTable dataTable = DbReturnDataTable(sqlQuery);
 
             foreach (DataRow row in dataTable.Rows)
             {
-                cISBN.Add(row["isbnNr"].ToString());
+                ClassISBN isbn = new ClassISBN();
+                isbn.ISBN = row["isbnNr"].ToString();
+                isbn.id = row["id"].ToString();
+                cISBN.Add(isbn);
             }
 
             return cISBN;
         }
-        public ObservableCollection<string> GetPublishers()
+        public ObservableCollection<ClassPublisher> GetPublishers()
         {
-            ObservableCollection<string> cPublisher = new ObservableCollection<string>();
+            ObservableCollection<ClassPublisher> cPublisher = new ObservableCollection<ClassPublisher>();
             string sqlQuery = "SELECT * FROM Forlag";
             DataTable dataTable = DbReturnDataTable(sqlQuery);
 
             foreach (DataRow row in dataTable.Rows)
             {
-                cPublisher.Add(row["forlagsNavn"].ToString());
+                ClassPublisher publishers = new ClassPublisher();
+                publishers.publisher = row["forlagsNavn"].ToString();
+                publishers.id = row["id"].ToString();
+                cPublisher.Add(publishers);
             }
 
             return cPublisher;
         }
-        public ObservableCollection<string> GetTypes()
+        public ObservableCollection<ClassType> GetTypes()
         {
-            ObservableCollection<string> cTypes = new ObservableCollection<string>();
+            ObservableCollection<ClassType> cTypes = new ObservableCollection<ClassType>();
             string sqlQuery = "SELECT * FROM Type";
             DataTable dataTable = DbReturnDataTable(sqlQuery);
 
             foreach (DataRow row in dataTable.Rows)
             {
-                cTypes.Add(row["TypeNavn"].ToString());
+                ClassType types = new ClassType();
+                types.type = row["TypeNavn"].ToString();
+                types.id = row["id"].ToString();
+                cTypes.Add(types);
             }
 
             return cTypes;
         }
-        public ObservableCollection<string> GetGenre()
+        public ObservableCollection<ClassGenre> GetGenre()
         {
-            ObservableCollection<string> cGenre = new ObservableCollection<string>();
+            ObservableCollection<ClassGenre> cGenre = new ObservableCollection<ClassGenre>();
             string sqlQuery = "SELECT * FROM Genre";
             DataTable dataTable = DbReturnDataTable(sqlQuery);
 
             foreach (DataRow row in dataTable.Rows)
             {
-                cGenre.Add(row["genreType"].ToString());
+                ClassGenre genre = new ClassGenre();
+                genre.genre = row["genreType"].ToString();
+                genre.id = row["id"].ToString();
+                cGenre.Add(genre);
             }
 
             return cGenre;
@@ -259,6 +329,78 @@ namespace DB_IO_DBF_2019_
 
             return cPrice;
         }
+        #endregion
 
+        #region GetBookInfo
+
+        private ClassAuthor
+
+        #endregion
+
+        #region InsertBookInfo
+        public void InsertTitleIntoDB(ClassTitle inTitle)
+        {
+            ExecuteNonQuery($"INSERT INTO Titel (title) VALUES('{inTitle.title}')");
+        }
+
+        public void InsertAuthorIntoDB(ClassAuthor inAuthor)
+        {
+            ExecuteNonQuery($"INSERT INTO Forfatter (forfatter) VALUES('{inAuthor.author}')");
+        }
+
+        public void InsertGenreIntoDB(ClassGenre inGenre)
+        {
+            ExecuteNonQuery($"INSERT INTO Genre (genreType) VALUES('{inGenre.genre}')");
+        }
+
+        public void InsertISBNIntoDB(ClassISBN inISBN)
+        {
+            ExecuteNonQuery($"INSERT INTO ISBNnr (isbnNr) VALUES ('{inISBN.ISBN}')");
+        }
+
+        public void InsertPublisherIntoDB(ClassPublisher inPublisher)
+        {
+            ExecuteNonQuery($"INSERT INTO Forlag (forlagsNavn) VALUES ('{inPublisher.publisher}')");
+        }
+
+        public void InsertTypeIntoDB(ClassType inType)
+        {
+            ExecuteNonQuery($"INSERT INTO Type (TypeNavn) VALUES ('{inType.type}')");
+        }
+
+        #endregion
+
+        #region UpdateBookInfo
+
+        public void UpdateTitleInDB(ClassTitle inTitle)
+        {
+            ExecuteNonQuery($"UPDATE Titel SET titel = '{inTitle.title}' WHERE id = {inTitle.id}");
+        }
+
+        public void UpdateAuthorInDB(ClassAuthor inAuthor)
+        {
+            ExecuteNonQuery($"UPDATE Forfatter SET forfatter = '{inAuthor.author}' WHERE id = {inAuthor.id}");
+        }
+
+        public void UpdatePublisherInDB(ClassPublisher inPublisher)
+        {
+            ExecuteNonQuery($"UPDATE Forlag SET forlagsNavn = '{inPublisher.publisher}' WHERE id = {inPublisher.id}");
+        }
+
+        public void UpdateGenreInDB(ClassGenre inGenre)
+        {
+            ExecuteNonQuery($"UPDATE Genre SET genreType = '{inGenre.genre}' WHERE id = {inGenre.id}");
+        }
+
+        public void UpdateISBNInDB(ClassISBN inISBN)
+        {
+            ExecuteNonQuery($"UPDATE ISBNnr SET isbnNr = '{inISBN.ISBN}' WHERE id = {inISBN.id}");
+        }
+
+        public void UpdateTypeInDB(ClassType inType)
+        {
+            ExecuteNonQuery($"UPDATE Type SET TypeNavn = '{inType.type}' WHERE id = {inType.id}");
+        }
+        #endregion
     }
 }

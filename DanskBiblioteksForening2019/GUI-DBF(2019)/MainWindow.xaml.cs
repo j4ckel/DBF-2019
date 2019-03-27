@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BIZ_DBF_2019_;
 
+
 namespace GUI_DBF_2019_
 {
     /// <summary>
