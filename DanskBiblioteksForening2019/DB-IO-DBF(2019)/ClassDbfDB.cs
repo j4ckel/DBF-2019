@@ -306,27 +306,11 @@ namespace DB_IO_DBF_2019_
             ExecuteNonQuery($"INSERT INTO Forlag (forlagsNavn) VALUES ('{inPublisher.publisher}')");
         }
 
-
-
-
-        #endregion
-
-        #region UpdateBookInfo
-
-        public void UpdateTitleIntoDB(ClassTitle UpTitle, string newtitel)
+        public void InsertTypeIntoDB(ClassType inType)
         {
-            ExecuteNonQuery($" update titel set titel = '{newtitel}' where titel = '{UpTitle}'");
-        }        
-        public void UpdateAuthorIntoDB(ClassAuthor UpAuthor, string newAuthor)
-        {
-            ExecuteNonQuery($"update forfatter set forfatter = '{UpAuthor.author}' where forfatter = '{newAuthor}'");
+            ExecuteNonQuery($"INSERT INTO Type (TypeNavn) VALUES ('{inType.type}')");
         }
 
-        public void UpdatePublisherIntoDB(ClassPublisher UpPublisher, string newpublisher)
-        {
-            ExecuteNonQuery($"update forlag set  forlagsNavn = '{UpPublisher.publisher}' where forlagsNavn = '{newpublisher}'");
-      
-        }
         #endregion
 
         #region UpdateBookInfo
@@ -341,6 +325,25 @@ namespace DB_IO_DBF_2019_
             ExecuteNonQuery($"UPDATE Forfatter SET forfatter = '{inAuthor.author}' WHERE id = {inAuthor.id}");
         }
 
+        public void UpdatePublisherInDB(ClassPublisher inPublisher)
+        {
+            ExecuteNonQuery($"UPDATE Forlag SET forlagsNavn = '{inPublisher.publisher}' WHERE id = {inPublisher.id}");
+        }
+
+        public void UpdateGenreInDB(ClassGenre inGenre)
+        {
+            ExecuteNonQuery($"UPDATE Genre SET genreType = '{inGenre.genre}' WHERE id = {inGenre.id}");
+        }
+
+        public void UpdateISBNInDB(ClassISBN inISBN)
+        {
+            ExecuteNonQuery($"UPDATE ISBNnr SET isbnNr = '{inISBN.ISBN}' WHERE id = {inISBN.id}");
+        }
+
+        public void UpdateTypeInDB(ClassType inType)
+        {
+            ExecuteNonQuery($"UPDATE Type SET TypeNavn = '{inType.type}' WHERE id = {inType.id}");
+        }
         #endregion
     }
 }
