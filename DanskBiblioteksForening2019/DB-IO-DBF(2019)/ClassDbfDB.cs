@@ -333,7 +333,7 @@ namespace DB_IO_DBF_2019_
 
         #region GetBookInfo
 
-        private ClassAuthor  
+        private ClassAuthor
 
         #endregion
 
