@@ -305,5 +305,19 @@ namespace DB_IO_DBF_2019_
             ExecuteNonQuery($"INSERT INTO Type (TypeNavn) VALUES ('{inType}')");
         }
         #endregion
+
+        #region UpdateBookInfo
+
+        public void UpdateTitleInDB(ClassTitle inTitle)
+        {
+            ExecuteNonQuery($"UPDATE Titel SET titel = '{inTitle.title}' WHERE id = {inTitle.id}");
+        }
+
+        public void UpdateAuthorInDB(ClassAuthor inAuthor)
+        {
+            ExecuteNonQuery($"UPDATE Forfatter SET forfatter = '{inAuthor.author}' WHERE id = {inAuthor.id}");
+        }
+
+        #endregion
     }
 }
