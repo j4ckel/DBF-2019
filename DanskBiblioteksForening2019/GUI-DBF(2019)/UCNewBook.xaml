@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="GUI_DBF_2019_.UCGUI"
+﻿<UserControl x:Class="GUI_DBF_2019_.UCNewBook"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:GUI_DBF_2019_"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="400">
-    <Grid x:Name="UCGUIGrid">
+    <Grid x:Name="UCNBGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -17,115 +17,125 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>-->
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition />
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition />
 
         </Grid.RowDefinitions>
 
-            <TextBox x:Name="isbn"
+        <TextBox x:Name="isbn"
+                     Text="Indtast ISBN."
                      Margin="5,5,5,5"
                      Grid.Column="1" 
-                     Grid.Row="0" 
-                     IsReadOnly="True"
+                     Grid.Row="0" GotFocus="Isbn_GotFocus" 
                      />
-            <TextBox x:Name="titel" 
-                     Margin="5,5,5,5"
+        <TextBox x:Name="titel" 
+                 Text="Indtast Titel."    
+                 Margin="5,5,5,5"
                      Grid.Column="1" 
-                     Grid.Row="1" 
-                     IsReadOnly="True"
+                     Grid.Row="1" GotFocus="Titel_GotFocus" 
                      />
-            <TextBox x:Name="udgivelsesdag" 
+        <TextBox x:Name="udgivelsesdag" 
                      Grid.Column="1" 
+                 Text="Indtast Udgivelsesdato."
                      Grid.Row="2" 
-                     Margin="5,5,5,5"
-                     IsReadOnly="True"
+                     Margin="5,5,5,5" GotFocus="Udgivelsesdag_GotFocus"
                      />
-            <TextBox x:Name="forfatter" 
+        <TextBox x:Name="forfatter" 
                      Grid.Column="1" 
+                 Text="Indtast Forfatter."
                      Grid.Row="3" 
-                     IsReadOnly="True"
-                     Margin="5,5,5,5"
+                     Margin="5,5,5,5" GotFocus="Forfatter_GotFocus"
                      />
-            <TextBox x:Name="forlag" 
+        <TextBox x:Name="forlag" 
                      Margin="5,5,5,5"
+                 Text="Indtast Forlag."
                      Grid.Column="1" 
-                     Grid.Row="4" 
-                     IsReadOnly="True"
+                     Grid.Row="4" GotFocus="Forlag_GotFocus" 
                      />
-            <TextBox x:Name="genre" 
+        <TextBox x:Name="genre" 
                      Grid.Column="1" 
+                 Text="Indtast Genre."
                      Grid.Row="5" 
-                     IsReadOnly="True"
-                     Margin="5,5,5,5"
+                     Margin="5,5,5,5" GotFocus="Genre_GotFocus"
                      />
-            <TextBox x:Name="type"  
+        <TextBox x:Name="type" 
+                 Text="Indtast Type."
                      Margin="5,5,5,5"
                      Grid.Column="1" 
-                     Grid.Row="6" 
-                     IsReadOnly="True"
+                     Grid.Row="6" GotFocus="Type_GotFocus" 
+                     />
+        <TextBox x:Name="indkoeb" 
+                     Grid.Column="1" 
+                     Grid.Row="7"
+                 Text="Indtast Indkøb."
+                     Margin="5,5,5,5" GotFocus="Indkoeb_GotFocus"
                      />
         <Label Content="&#xD;&#xA;ISBN"
                    HorizontalAlignment="Stretch"
                    Margin="0,0,0,0"
                    Grid.Row="0"
                    VerticalAlignment="Stretch"/>
-            <Label Content="&#xD;&#xA;Titel"
+        <Label Content="&#xD;&#xA;Titel"
                    HorizontalAlignment="Stretch"
                    Margin="0,0,0,0"
                    Grid.Row="1"
                    VerticalAlignment="Stretch"/>
-            <Label Content="&#xD;&#xA;Udgivelsesdag"
+        <Label Content="&#xD;&#xA;Udgivelsesdag"
                    HorizontalAlignment="Stretch"
                    Margin="0,0,0,0"
                    Grid.Row="2"
                    VerticalAlignment="Stretch" />
-            <Label Content="&#xD;&#xA;Forfatter"
+        <Label Content="&#xD;&#xA;Forfatter"
                    HorizontalAlignment="Stretch"
                    Margin="0,0,0,0"
                    Grid.Row="3"
                    VerticalAlignment="Stretch" />
-            <Label Content="&#xD;&#xA;Forlag"
+        <Label Content="&#xD;&#xA;Forlag"
                    HorizontalAlignment="Stretch"
                    Margin="0,0,0,0"
                    Grid.Row="4"
                    VerticalAlignment="Stretch" />
-            <Label Content="&#xD;&#xA;Genre"
+        <Label Content="&#xD;&#xA;Genre"
                    HorizontalAlignment="Stretch"
                    Margin="0,0,0,0"
                    Grid.Row="5"
                    VerticalAlignment="Stretch" />
-            <Label Content="&#xD;&#xA;Type"
+        <Label Content="&#xD;&#xA;Type"
                    HorizontalAlignment="Stretch"
                    Margin="0,0,0,0"
                    Grid.Row="6"
                    VerticalAlignment="Stretch" />
-        <Button x:Name="CreateNewBook"
-                Content="Opret ny bog"
+        <Label Content="&#xD;&#xA;Indkøb"
+                   HorizontalAlignment="Stretch"
+                   Margin="0,0,0,0"
+                   Grid.Row="7"
+                   VerticalAlignment="Stretch" />
+        <Button x:Name="buttonCancel"
+                Content="Fortryd"
                 Grid.Column="1"
                 HorizontalAlignment="Stretch"
                 Margin="55,6.6,55,4.6"
                 Grid.Row="8"
                 VerticalAlignment="Stretch"
-                Width="80" Click="CreateNewBook_Click" 
+                Width="80" Click="ButtonCancel_Click" 
                 />
-        <Button x:Name="EditBook"
-                Content="Rediger"
+        <Button x:Name="buttonSave"
+                Content="Gem"
                 Grid.Column="0"
                 HorizontalAlignment="Stretch"
                 Margin="55,6.6,55,4.6"
                 Grid.Row="8"
                 VerticalAlignment="Stretch"
-                Width="80"
-                Click="EditBook_Click" />
+                Width="80" Click="ButtonSave_Click" />
 
 
     </Grid>
-    <!--</Grid>-->
 </UserControl>

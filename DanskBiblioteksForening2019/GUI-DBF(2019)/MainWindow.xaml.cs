@@ -22,12 +22,12 @@ namespace GUI_DBF_2019_
     /// </summary>
     public partial class MainWindow : Window
     {
-        ClassBiz Cb = new ClassBiz();
+        ClassBiz CB = new ClassBiz();
         public MainWindow()
         {
             InitializeComponent();
-            UCGUI ucg = new UCGUI(gridRight);
-            UserControlListView uclw = new UserControlListView(gridLeft);
+            UCGUI ucg = new UCGUI(CB, gridRight);
+            UserControlListView uclw = new UserControlListView(CB, gridLeft);
             gridLeft.Children.Add(uclw);
             gridRight.Children.Add(ucg);
         }

@@ -52,6 +52,12 @@ namespace DB_IO_DBF_2019_
             foreach (DataRow row in dt.Rows)
             {
                 ClassBog bog = new ClassBog();
+                ClassTitle classTitle = new ClassTitle();
+                ClassAuthor classAuthor = new ClassAuthor();
+                ClassPublisher classPublisher = new ClassPublisher();
+                ClassGenre classGenre = new ClassGenre();
+                ClassType classType = new ClassType();
+                ClassISBN classISBN = new ClassISBN();
 
                 bog.id = Convert.ToInt32(row["id"].ToString());
                 bog.isbnNr = GetISBNFromDB(row["isbnID"].ToString());

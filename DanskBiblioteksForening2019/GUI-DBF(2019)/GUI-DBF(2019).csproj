@@ -55,11 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UCLogin.xaml.cs">
+      <DependentUpon>UCLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCNewBook.xaml.cs">
+      <DependentUpon>UCNewBook.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UC\UCEdit-Genre.xaml.cs">
       <DependentUpon>UCEdit-Genre.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UC\UCEdit-Indkøb.xaml.cs">
-      <DependentUpon>UCEdit-Indkøb.xaml</DependentUpon>
     </Compile>
     <Compile Include="UC\UCEdit-Type.xaml.cs">
       <DependentUpon>UCEdit-Type.xaml</DependentUpon>
@@ -100,11 +103,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UC\UCEdit-Genre.xaml">
+    <Page Include="UCNewBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC\UCEdit-Indkøb.xaml">
+    <Page Include="UC\UCEdit-Genre.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -143,6 +146,10 @@
     <Page Include="UserControlListView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UCLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
