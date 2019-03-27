@@ -32,7 +32,9 @@ namespace BIZ_DBF_2019_
             classDbfDB = new ClassDbfDB();
             bog = new ClassBog();
             user = new ClassUser();
-            
+
+            boeger = classDbfDB.GetAllBooks();
+
         }
 
 

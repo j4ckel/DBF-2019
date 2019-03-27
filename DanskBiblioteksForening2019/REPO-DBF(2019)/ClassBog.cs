@@ -61,35 +61,89 @@ namespace REPO_DBF_2019_
                 }
             }
         }
+
+
         public ClassTitle titel
         {
             get { return _titel; }
-            set { _titel = value; }
+            set
+            {
+                if (value != _titel)
+                {
+                    _titel = value;
+                    Notify("titel");
+                }
+            }
         }
+
+
+
+
         public ClassAuthor forfatter
         {
             get { return _forfatter; }
-            set { _forfatter = value; }
+            set
+            {
+                if (value != _forfatter)
+                {
+                    _forfatter = value;
+                    Notify("forfatter");
+                }
+            }
         }
+
+
+
         public ClassPublisher forlag
         {
             get { return _forlag; }
-            set { _forlag = value; }
+            set
+            {
+                if (value != _forlag)
+                {
+                    _forlag = value;
+                    Notify("forlag");
+                }
+            }
         }
+
         public ClassGenre genre
         {
             get { return _genre; }
-            set { _genre = value; }
+            set
+            {
+                if (value != _genre)
+                {
+                    _genre = value;
+                    Notify("genre");
+                }
+            }
         }
+
         public ClassType type
         {
             get { return _type; }
-            set { _type = value; }
+            set
+            {
+                if (value != _type)
+                {
+                    _type = value;
+                    Notify("type");
+                }
+            }
         }
+
         public decimal pris
         {
             get { return _pris; }
-            set { _pris = value; }
+            set
+            {
+                if (value != _pris)
+                {
+                    _pris = value;
+                    Notify("pris");
+                }
+            }
         }
         #endregion
     }
