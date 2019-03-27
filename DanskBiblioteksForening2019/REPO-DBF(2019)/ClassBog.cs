@@ -11,7 +11,7 @@ namespace REPO_DBF_2019_
     /// </summary>
     public class ClassBog : ClassNotify
     {
-        //Private Fields holding values
+      
         #region Fields
         private int _id;
         private string _isbnNr;
@@ -22,20 +22,30 @@ namespace REPO_DBF_2019_
         private string _type;
         private decimal _pris;
         #endregion
-        /// <summary>
-        /// Default Constructor.
-        /// </summary>
+        #region constructors
         public ClassBog(int inid,string inisbnNr,string intitel, string inforfatter,string inforlag,string ingenre,string intype,decimal inpris)
         {
             inid = id;
-
+            inisbnNr = isbnNr;
+            intitel = titel;
+            inforfatter = forfatter;
+            inforlag = forlag;
+            ingenre = genre;
+            intype = type;
+            inpris = pris;
         }
         public ClassBog()
         {
             id = 0;
+            isbnNr = "";
+            titel = "";
+            forfatter = "";
+            forlag = "";
+            genre = "";
+            type = "";
+            pris = 0;
         }
-
-        //Public Properties.
+        #endregion
         #region Properties
 
         public int id
