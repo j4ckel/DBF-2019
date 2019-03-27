@@ -16,8 +16,7 @@ namespace DB_IO_DBF_2019_
 
         public ClassDbfDB()
         {
-            
-
+            SetCon("Server=10.205.44.39,49172;Database=DBF_2019;User Id=AspIT;Password=Server2012;");
         }
         
         public ObservableCollection<ClassBog> GetAllBooks()
@@ -180,7 +179,7 @@ namespace DB_IO_DBF_2019_
             ExecuteNonQuery($"");
         }
 
-        #region GetBookInfo
+        #region GetBooksInfo
 
         public ObservableCollection<ClassTitle> GetTitles()
         {
@@ -291,6 +290,12 @@ namespace DB_IO_DBF_2019_
 
             return cPrice;
         }
+        #endregion
+
+        #region GetBookInfo
+
+        private ClassAuthor  
+
         #endregion
 
         #region InsertBookInfo
