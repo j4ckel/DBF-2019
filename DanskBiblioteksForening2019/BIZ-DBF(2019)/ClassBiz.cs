@@ -191,9 +191,9 @@ namespace BIZ_DBF_2019_
             MakeCollectionsForComboBoxes();
         }
         #endregion
-        public ObservableCollection<ClassBog> GetAllLentBooks(int personID)
+        public ObservableCollection<ClassBog> GetAllLentBooks()
         {
-            return classDbfDB.GetAllLentToUser(personID.ToString());
+            return classDbfDB.GetAllLentToUser(user);
         }
 
         public ObservableCollection<ClassBog> GetAllBooksWhereTheTitleContainsTheseWords(string words)

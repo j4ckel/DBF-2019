@@ -425,9 +425,9 @@ namespace DB_IO_DBF_2019_
             ExecuteNonQuery($"UPDATE Type SET TypeNavn = '{inType.type}' WHERE id = {inType.id}");
         }
 
-        public void UpdateRentStatus(ClassBog inUdlaan)
+        public void UpdateRentStatus(ClassBog inBook, ClassUser inPerson)
         {
-            ExecuteNonQuery($"UPDATE Udlaan SET udlaansStatus = {inUdlaan}, udlaansDato = 2019-03-27, personID = 1, bookID = 1")
+            ExecuteNonQuery($"UPDATE Udlaan SET udlaansStatus = {inBook.rentdate.udlaanstatus}, udlaansDato = {inBook.rentdate.strUdlaansDate}, personID = {inPerson.id}, bookID = {inBook.id}");
         }
         #endregion
     }
