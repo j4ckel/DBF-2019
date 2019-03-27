@@ -177,18 +177,19 @@ namespace DB_IO_DBF_2019_
                 }
                 return dtRes;
             }
-            protected string DbReturnString(string strSql)
-            {
+            //protected string DbReturnString(string strSql)
+            //{
                 
-            }
-            protected List<string> DbReturnList(string strSql)
-            {
+            //}
+            //protected List<string> DbReturnList(string strSql)
+            //{
 
-            }
-            protected bool DbReturnBool(string strSql)
-            {
+            //}
+            //protected bool DbReturnBool(string strSql)
+            //{
 
-            }
+            //}
+        #endregion
     }
 }
 
