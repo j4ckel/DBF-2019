@@ -39,19 +39,19 @@ namespace DB_IO_DBF_2019_
                
                 classISBN.ISBN = row["isbnNr"].ToString();
                 CLB.isbnNr = classISBN;
-
+               
                 classTitle.title = row["titel"].ToString();
                 CLB.titel = classTitle;
-
+                
                 classAuthor.author = row["forfatter"].ToString();
                 CLB.forfatter = classAuthor;
-
+                
                 classPublisher.publisher = row["forlag"].ToString();
                 CLB.forlag = classPublisher;
-
+                
                 classGenre.genre = row["genre"].ToString();
                 CLB.genre = classGenre;
-
+                
                 classType.type = row["type"].ToString();
                 CLB.type = classType;
 
@@ -77,13 +77,32 @@ namespace DB_IO_DBF_2019_
             foreach (DataRow row in dt.Rows)
             {
                 ClassBog bog = new ClassBog();
+                ClassTitle classTitle = new ClassTitle();
+                ClassAuthor classAuthor = new ClassAuthor();
+                ClassPublisher classPublisher = new ClassPublisher();
+                ClassGenre classGenre = new ClassGenre();
+                ClassType classType = new ClassType();
+                ClassISBN classISBN = new ClassISBN();
+
                 bog.id = Convert.ToInt32(row["id"].ToString());
-                bog.titel = row["titel"].ToString();
-                bog.forfatter = row["forfatter"].ToString();
-                bog.forlag = row["forlagsNavn"].ToString();
-                bog.isbnNr = row["isbnNr"].ToString();
-                bog.genre = row["genreType"].ToString();
-                bog.type = row["TypeNavn"].ToString();
+                classTitle.title = row["titel"].ToString();
+                bog.titel = classTitle;
+
+                classAuthor.author = row["forfatter"].ToString();
+                bog.forfatter = classAuthor;
+
+                classPublisher.publisher = row["forlagsNavn"].ToString();
+                bog.forlag = classPublisher;
+
+                classISBN.ISBN = row["isbnNr"].ToString();
+                bog.isbnNr = classISBN;
+
+                classGenre.genre = row["genreType"].ToString();
+                bog.genre = classGenre;
+
+                classType.type = row["TypeNavn"].ToString();
+                bog.type = classType;
+
                 bog.pris = Convert.ToDecimal(row["pris"].ToString());
                 CB.Add(bog);
             }
@@ -132,14 +151,34 @@ namespace DB_IO_DBF_2019_
             foreach(DataRow row in dt.Rows)
             {
                 ClassBog bog = new ClassBog();
+                ClassTitle classTitle = new ClassTitle();
+                ClassAuthor classAuthor = new ClassAuthor();
+                ClassPublisher classPublisher = new ClassPublisher();
+                ClassGenre classGenre = new ClassGenre();
+                ClassType classType = new ClassType();
+                ClassISBN classISBN = new ClassISBN();
+
                 bog.id = Convert.ToInt32(row["id"].ToString());
-                bog.isbnNr = row["isbnNr"].ToString();
-                bog.genre = row["genreType"].ToString();
-                bog.titel = row["titel"].ToString();
-                bog.forfatter = row["forfatter"].ToString();
-                bog.forlag = row["forlagsNavn"].ToString();
-                bog.type = row["TypeNavn"].ToString();
+                classTitle.title = row["titel"].ToString();
+                bog.titel = classTitle;
+
+                classAuthor.author = row["forfatter"].ToString();
+                bog.forfatter = classAuthor;
+
+                classPublisher.publisher = row["forlagsNavn"].ToString();
+                bog.forlag = classPublisher;
+
+                classISBN.ISBN = row["isbnNr"].ToString();
+                bog.isbnNr = classISBN;
+
+                classGenre.genre = row["genreType"].ToString();
+                bog.genre = classGenre;
+
+                classType.type = row["TypeNavn"].ToString();
+                bog.type = classType;
+
                 bog.pris = Convert.ToDecimal(row["pris"].ToString());
+                
                 listCB.Add(bog);
             }
 
