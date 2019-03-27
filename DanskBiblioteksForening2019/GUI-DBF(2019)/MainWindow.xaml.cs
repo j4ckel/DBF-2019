@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BIZ_DBF_2019_;
 
 namespace GUI_DBF_2019_
 {
@@ -20,11 +21,12 @@ namespace GUI_DBF_2019_
     /// </summary>
     public partial class MainWindow : Window
     {
+        ClassBiz CB = new ClassBiz();
         public MainWindow()
         {
             InitializeComponent();
-            UCGUI ucg = new UCGUI(gridRight);
-            UserControlListView uclw = new UserControlListView(gridLeft);
+            UCGUI ucg = new UCGUI(CB, gridRight);
+            UserControlListView uclw = new UserControlListView(CB, gridLeft);
             gridLeft.Children.Add(uclw);
             gridRight.Children.Add(ucg);
         }

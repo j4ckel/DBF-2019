@@ -24,17 +24,22 @@
                   Grid.Row="1"
                   VerticalAlignment="Stretch"
                   Margin="4"
-                  Grid.ColumnSpan="3">
+                  Grid.ColumnSpan="3"
+                  ItemsSource="{Binding boeger}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Isbnr"
-                                    Width="auto" />
+                                    Width="auto"
+                                    DisplayMemberBinding="{Binding bog.isbnNr}"/>
                     <GridViewColumn Header="Titel"
-                                    Width="auto" />
+                                    Width="auto"
+                                    DisplayMemberBinding="{Binding bog.titel}" />
                     <GridViewColumn Header="Forfatter"
-                                    Width="auto" />
+                                    Width="auto"
+                                    DisplayMemberBinding="{Binding bog.forfatter}" />
                     <GridViewColumn Header="Genre"
-                                    Width="auto" />
+                                    Width="auto"
+                                    DisplayMemberBinding="{Binding bog.genre}" />
 
                 </GridView>
             </ListView.View>

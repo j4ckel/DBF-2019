@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BIZ_DBF_2019_;
 
 namespace GUI_DBF_2019_
 {
@@ -19,10 +20,16 @@ namespace GUI_DBF_2019_
     /// Interaction logic for UserControlListView.xaml
     /// </summary>
     public partial class UserControlListView : UserControl
-    { 
-        public UserControlListView(Grid gridLeft)
+    {
+        Grid MainLeftGrid;
+        ClassBiz _CB;
+        public UserControlListView(ClassBiz inClass, Grid gridLeft)
         {
             InitializeComponent();
+            _CB = inClass;
+            MainLeftGrid = gridLeft;
+
+            GridMain.DataContext = _CB;
         }
 
     }
