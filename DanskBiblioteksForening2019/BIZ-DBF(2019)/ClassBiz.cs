@@ -36,6 +36,7 @@ namespace BIZ_DBF_2019_
 
 
         // Public properties
+        #region properties
         public ObservableCollection<decimal> bookPrices
         {
             get { return _bookPrices; }
