@@ -36,6 +36,7 @@ namespace BIZ_DBF_2019_
 
 
         // Public properties
+        #region properties
         public ObservableCollection<decimal> bookPrices
         {
             get { return _bookPrices; }
@@ -171,7 +172,7 @@ namespace BIZ_DBF_2019_
             boeger = classDbfDB.GetAllBooks();
             MakeCollectionsForComboBoxes();
         }
-
+        #endregion
         public ObservableCollection<ClassBog> GetAllLentBooks(int personID)
         {
             return classDbfDB.GetAllLentToUser(personID.ToString());
