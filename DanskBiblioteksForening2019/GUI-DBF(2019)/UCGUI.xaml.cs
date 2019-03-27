@@ -27,8 +27,14 @@ namespace GUI_DBF_2019_
 
         private void EditBook_Click(object sender, RoutedEventArgs e)
         {
-            UCAddBook UCAB = new UCAddBook(this.UCGUIGrid);
+            UCAddBook UCAB = new UCAddBook(UCGUIGrid);
             ((Grid)Parent).Children.Add(UCAB);
+        }
+
+        private void CreateNewBook_Click(object sender, RoutedEventArgs e)
+        {
+            UCNewBook UCNB = new UCNewBook(UCGUIGrid);
+            ((Grid)Parent).Children.Add(UCNB);
         }
     }
 }

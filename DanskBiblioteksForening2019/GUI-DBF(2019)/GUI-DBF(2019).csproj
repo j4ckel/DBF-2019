@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UCNewBook.xaml.cs">
+      <DependentUpon>UCNewBook.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UC\UCEdit-Genre.xaml.cs">
       <DependentUpon>UCEdit-Genre.xaml</DependentUpon>
     </Compile>
@@ -100,6 +103,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UCNewBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UC\UCEdit-Genre.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
