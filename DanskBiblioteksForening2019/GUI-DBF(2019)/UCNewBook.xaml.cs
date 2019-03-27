@@ -41,9 +41,6 @@ namespace GUI_DBF_2019_
             else
             {
                 CLB.addbook(CLB.bog);
-
-                
-
                 ((Grid)Parent).Children.Remove(this);
             }
         }
