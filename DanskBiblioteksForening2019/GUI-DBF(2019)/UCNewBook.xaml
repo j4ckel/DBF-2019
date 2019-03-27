@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:GUI_DBF_2019_"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="400">
-    <Grid x:Name="UCNBGrid">
+    <Grid Background="White" x:Name="UCNBGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
