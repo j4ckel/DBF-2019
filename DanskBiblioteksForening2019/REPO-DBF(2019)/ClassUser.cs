@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace REPO_DBF_2019_
 {
-    public class ClassUser : ClassNotify
+    public class ClassUser : ClassPerson
     {
         private string _userName;
         private string _password;
@@ -52,6 +52,7 @@ namespace REPO_DBF_2019_
                 {
                     _userName = value;
                     Notify("userName");
+
                 }
             }
         }

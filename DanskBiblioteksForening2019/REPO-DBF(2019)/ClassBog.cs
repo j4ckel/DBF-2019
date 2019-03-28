@@ -9,65 +9,140 @@ namespace REPO_DBF_2019_
     /// <summary>
     /// This Class Handles the fields and properties for each book.
     /// </summary>
-    public class ClassBog
+    public class ClassBog : ClassNotify
     {
+        //Private Fields holding values
+        #region Fields
+        private int _id;
+        private ClassISBN _isbnNr;
+        private ClassTitle _titel;
+        private ClassAuthor _forfatter;
+        private ClassPublisher _forlag;
+        private ClassGenre _genre;
+        private ClassType _type;
+        private decimal _pris;
+        #endregion
         /// <summary>
         /// Default Constructor.
         /// </summary>
-        public ClassBog()
+        public ClassBog(int inid,ClassISBN inisbnNr,ClassTitle intitel, ClassAuthor inforfatter,ClassPublisher inforlag,ClassGenre ingenre,ClassType intype,decimal inpris)
         {
+            inid = id;
 
         }
-        //Private Fields holding values
-        private int _id;
-        private string _isbnNr;
-        private string _titel;
-        private string _forfatter;
-        private string _forlag;
-        private string _genre;
-        private string _type;
-        private decimal _pris;
+        public ClassBog()
+        {
+            id = 0;
+        }
+
         //Public Properties.
+        #region Properties
+
         public int id
         {
             get { return _id; }
-            set { _id = value; }
-        }
-        public string isbnNr
+            set
+            {
+                if (value != _id)
+                {
+                    _id = value;
+                    Notify("id");
+
+                }
+            }
+        }   
+        public ClassISBN isbnNr
         {
             get { return _isbnNr; }
-            set { _isbnNr = value; }
+            set
+            {
+                if (value != _isbnNr)
+                {
+                    _isbnNr = value;
+                    Notify("isbnNr");
+
+                }
+            }
         }
-        public string titel
+        public ClassTitle titel
         {
             get { return _titel; }
-            set { _titel = value; }
+            set
+            {
+                if (value != _titel)
+                {
+                    _titel = value;
+                    Notify("titel");
+
+                }
+            }
         }
-        public string forfatter
+        public ClassAuthor forfatter
         {
             get { return _forfatter; }
-            set { _forfatter = value; }
+            set
+            {
+                if (value != _forfatter)
+                {
+                    _forfatter = value;
+                    Notify("forfatter");
+
+                }
+            }
         }
-        public string forlag
+        public ClassPublisher forlag
         {
             get { return _forlag; }
-            set { _forlag = value; }
+            set
+            {
+                if (value != _forlag)
+                {
+                    _forlag = value;
+                    Notify("forlag");
+
+                }
+            }
         }
-        public string genre
+        public ClassGenre genre
         {
             get { return _genre; }
-            set { _genre = value; }
+            set
+            {
+                if (value != _genre)
+                {
+                    _genre = value;
+                    Notify("genre");
+
+                }
+            }
         }
-        public string type
+        public ClassType type
         {
             get { return _type; }
-            set { _type = value; }
+            set
+            {
+                if (value != _type)
+                {
+                    _type = value;
+                    Notify("type");
+
+                }
+            }
         }
         public decimal pris
         {
             get { return _pris; }
-            set { _pris = value; }
+            set
+            {
+                if (value != _pris)
+                {
+                    _pris = value;
+                    Notify("pris");
+
+                }
+            }
         }
+        #endregion
 
     }
 }

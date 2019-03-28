@@ -42,9 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookProperties\ClassAuthor.cs" />
     <Compile Include="ClassBog.cs" />
+    <Compile Include="BookProperties\ClassGenre.cs" />
+    <Compile Include="BookProperties\ClassISBN.cs" />
     <Compile Include="ClassNotify.cs" />
     <Compile Include="ClassPerson.cs" />
+    <Compile Include="BookProperties\ClassTitle.cs" />
+    <Compile Include="BookProperties\ClassPublisher.cs" />
+    <Compile Include="BookProperties\ClassType.cs" />
     <Compile Include="Classudlaan.cs" />
     <Compile Include="ClassUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
