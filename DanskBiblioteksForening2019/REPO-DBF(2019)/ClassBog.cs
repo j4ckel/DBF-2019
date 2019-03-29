@@ -17,7 +17,15 @@ namespace REPO_DBF_2019_
         /// </summary>
         public ClassBog()
         {
-
+            id = 0;
+            isbnNr = new ClassISBN();
+            titel = new ClassTitle();
+            forfatter = new ClassAuthor();
+            forlag = new ClassPublisher();
+            genre = new ClassGenre();
+            type = new ClassType();
+            rentdate = new Classudlaan();
+            pris = 0;
         }
         //Private Fields holding values
         #region

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using REPO_DBF_2019_;
+using BIZ_DBF_2019_;
 
 
 namespace GUI_DBF_2019_
@@ -23,16 +24,21 @@ namespace GUI_DBF_2019_
     public partial class UCAddBook : UserControl
     {
         ClassBog CBog;
+        ClassBiz _CB;
 
-        public UCAddBook(Grid grid)
+        public UCAddBook(Grid grid, ClassBiz inCB)
         {
             InitializeComponent();
+            _CB = inCB;
             CBog = new ClassBog();
+            UCGUIGrid.DataContext = _CB;
         }
-        public UCAddBook(Grid grid, ClassBog inBog)
+        public UCAddBook(Grid grid, ClassBog inBog, ClassBiz inCB)
         {
             InitializeComponent();
+            _CB = inCB;
             CBog = inBog;
+            UCGUIGrid.DataContext = _CB;
         }
 
         private void ISBN_Edit_Click(object sender, RoutedEventArgs e)

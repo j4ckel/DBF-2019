@@ -108,7 +108,7 @@ namespace REPO_DBF_2019_
                 if (value != _udlaansdate)
                 {
                     _udlaansdate = value;
-                    strUdlaansDate = _udlaansdate.Year.ToString() + _udlaansdate.Month.ToString() + _udlaansdate.Date.ToString();
+                    strUdlaansDate = _udlaansdate.ToShortDateString();
                 }
             }
         }
