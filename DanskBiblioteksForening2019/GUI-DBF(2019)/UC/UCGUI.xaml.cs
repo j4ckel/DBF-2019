@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BIZ_DBF_2019_;
+using REPO_DBF_2019_;
 
 namespace GUI_DBF_2019_
 {
@@ -37,8 +38,9 @@ namespace GUI_DBF_2019_
 
         private void CreateNewBook_Click(object sender, RoutedEventArgs e)
         {
-            UCNewBook UCNB = new UCNewBook(UCGUIGrid);
-            ((Grid)Parent).Children.Add(UCNB);
+            ClassBog cBOG = new ClassBog();
+            UCAddBook UCAB = new UCAddBook(UCGUIGrid, cBOG, _CB);
+            ((Grid)Parent).Children.Add(UCAB);
         }
     }
 }

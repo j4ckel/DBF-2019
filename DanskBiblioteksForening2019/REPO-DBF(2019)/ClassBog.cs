@@ -9,7 +9,7 @@ namespace REPO_DBF_2019_
     /// <summary>
     /// This Class Handles the fields and properties for each book.
     /// </summary>
-    public class ClassBog : ClassNotify
+    public class ClassBog : ClassNotify, ICloneable
     {
         
         /// <summary>
@@ -27,6 +27,22 @@ namespace REPO_DBF_2019_
             rentdate = new Classudlaan();
             pris = 0;
         }
+
+        public ClassBog(int inId, ClassISBN inISBN, ClassTitle inTitle, ClassAuthor inAuthor, ClassPublisher inPublisher,
+                        ClassGenre inGenre, ClassType inType, Classudlaan inRentDate, decimal inPris)
+        {
+            id = inId;
+            isbnNr = inISBN;
+            titel = inTitle;
+            forfatter = inAuthor;
+            forlag = inPublisher;
+            genre = inGenre;
+            type = inType;
+            rentdate = inRentDate;
+            pris = inPris;
+        }
+
+
         //Private Fields holding values
         #region
         private int _id;
@@ -166,6 +182,12 @@ namespace REPO_DBF_2019_
                     Notify("pris");
                 }
             }
+        }
+
+        public object Clone()
+        {
+            return new ClassBog(this.id, this.isbnNr, this.titel, this.forfatter,
+                                this.forlag, this.genre, this.type, this.rentdate, this.pris);
         }
         #endregion
     }

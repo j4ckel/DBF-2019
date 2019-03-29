@@ -23,23 +23,34 @@ namespace GUI_DBF_2019_
     /// </summary>
     public partial class UCAddBook : UserControl
     {
-        ClassBog CBog;
+        ClassBiz _CBtemp;
         ClassBiz _CB;
 
         public UCAddBook(Grid grid, ClassBiz inCB)
         {
             InitializeComponent();
             _CB = inCB;
-            CBog = new ClassBog();
-            UCGUIGrid.DataContext = _CB;
+            _CBtemp = new ClassBiz();
+            MakeBookCopy(_CB, _CBtemp);
+            UCGUIGrid.DataContext = _CBtemp;
         }
+
+        
         public UCAddBook(Grid grid, ClassBog inBog, ClassBiz inCB)
         {
             InitializeComponent();
             _CB = inCB;
-            CBog = inBog;
-            UCGUIGrid.DataContext = _CB;
+            _CBtemp = new ClassBiz();
+            MakeBookCopy(_CB, _CBtemp);
+            UCGUIGrid.DataContext = _CBtemp;
         }
+
+        private void MakeBookCopy(ClassBiz fromBIZ,ClassBiz toBIZ)
+        {
+            toBIZ.bog = (ClassBog)fromBIZ.bog.Clone();
+        }
+                
+
 
         private void ISBN_Edit_Click(object sender, RoutedEventArgs e)
         {
@@ -86,13 +97,17 @@ namespace GUI_DBF_2019_
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
+            
             ((Grid)Parent).Children.Remove(this);
 
         }
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-
+            MakeBookCopy(_CBtemp, _CB);
+            // kald til metode der indsætter bogen i databasen
         }
+
+        
     }
 }
