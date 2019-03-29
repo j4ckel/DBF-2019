@@ -222,10 +222,10 @@ namespace BIZ_DBF_2019_
             MakeCollectionsForComboBoxes();
         }
         #endregion
-        //public ObservableCollection<ClassBog> GetAllLentBooks(ClassUser personID)
-        //{
-        //    return classDbfDB.GetAllLentToUser(personID,"1");
-        //}
+        public ObservableCollection<ClassBog> GetAllLentBooks(ClassUser personID)
+        {
+            return classDbfDB.GetAllLentToUser(personID, "1");
+        }
 
         public ObservableCollection<ClassBog> GetAllBooksWhereTheTitleContainsTheseWords(string words)
         {
