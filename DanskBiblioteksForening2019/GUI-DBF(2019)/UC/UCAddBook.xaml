@@ -121,7 +121,7 @@
                   VerticalAlignment="Stretch" 
                   Grid.Row="0" 
                   Grid.Column="1" 
-                  Margin="10,10,10,10"/>
+                  Margin="10,10,10,10" />
         <ComboBox x:Name="comboTitel"
                   ItemsSource="{Binding bookTitles}"
                   DisplayMemberPath="title"
