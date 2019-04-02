@@ -16,14 +16,14 @@ namespace DB_IO_DBF_2019_
 
         public ClassDbfDB()
         {
-            SetCon("Server=10.205.44.39,49172;Database=DBF_2019;User Id=AspIT;Password=Server2012;");
+            SetCon("Data Source=CV-BB-5851;Initial Catalog=DBF_2019;Integrated Security=True;");
         }
         
         public ObservableCollection<ClassBog> GetAllBooks()
         {
             ObservableCollection<ClassBog> CB = new ObservableCollection<ClassBog>();
 
-            DataTable dt = DbReturnDataTable("SELECT * FROM Books");
+            DataTable dt = DbReturnDataTable("EXEC spGetBooks");
             foreach(DataRow row in dt.Rows)
             {
                 ClassBog bog = new ClassBog();
@@ -45,10 +45,7 @@ namespace DB_IO_DBF_2019_
         {
             ObservableCollection<ClassBog> CB = new ObservableCollection<ClassBog>();
 
-            DataTable dt = DbReturnDataTable($"SELECT dbo.Titel.titel, dbo.Books.isbnID, dbo.Books.forfatterID, dbo.Books.forlagID, dbo.Books.genreID, dbo.Books.typeID, dbo.Books.pris, dbo.Books.id, dbo.Books.titelID" +
-                "FROM dbo.Books INNER JOIN" +
-                "dbo.Titel ON dbo.Books.titelID = dbo.Titel.id"+
-                $"WHERE (dbo.Titel.titel LIKE '*{search}*')");
+            DataTable dt = DbReturnDataTable($"EXEC spGetBooks @Search='{search}'");
             foreach (DataRow row in dt.Rows)
             {
                 ClassBog bog = new ClassBog();
@@ -68,12 +65,7 @@ namespace DB_IO_DBF_2019_
         }
         public ObservableCollection<ClassBog> GetAllLentToUser(ClassUser inUser, string strStatus)
         {
-            string strSQL = "SELECT dbo.Books.titelID, dbo.Books.isbnID, dbo.Books.forfatterID, dbo.Books.forlagID, dbo.Books.genreID, " +
-                "dbo.Books.typeID, dbo.Books.pris, dbo.Books.id, dbo.Udlaan.udlaansDato, dbo.Udlaan.personID " +
-                "FROM dbo.Udlaan LEFT OUTER JOIN " +
-                "dbo.Books ON dbo.Udlaan.bookID = dbo.Books.id " +
-                $"WHERE(dbo.Udlaan.udlaansStatus = {strStatus} OR " +
-                $"dbo.Udlaan.udlaansStatus IS NULL) AND(dbo.Udlaan.personID = {inUser.id})";
+            string strSQL = $"EXEC spGetBooks @Status={strStatus}, @UserID={inUser.id}";
 
             DataTable dt = DbReturnDataTable(strSQL);
 
@@ -83,12 +75,12 @@ namespace DB_IO_DBF_2019_
                 ClassBog bog = new ClassBog();
 
                 bog.id = Convert.ToInt32(row["id"].ToString());
-                bog.isbnNr = GetISBNFromDB(row["isbnID"].ToString());
-                bog.titel = GetTitleFromDB(row["titelID"].ToString());
-                bog.forfatter = GetAuthorFromDB(row["forfatterID"].ToString());
-                bog.forlag = GetPublisherFromDB(row["forlagID"].ToString());
-                bog.genre = GetGenreFromDB(row["genreID"].ToString());
-                bog.type = GetTypeFromDB(row["typeID"].ToString());
+                bog.isbnNr = new ClassISBN { id = row["isbnID"].ToString(), ISBN = row["isbnNr"].ToString() };
+                bog.titel = new ClassTitle { id = row["titelID"].ToString(), title = row["titel"].ToString() };
+                bog.forfatter = new ClassAuthor { id = row["forfatterID"].ToString(), author = row["forfatter"].ToString() };
+                bog.forlag = new ClassPublisher { id = row["forlagID"].ToString(), publisher = row["forlag"].ToString() };
+                bog.genre = new ClassGenre { id = row["genreID"].ToString(), genre = row["genre"].ToString() };
+                bog.type = new ClassType { id = row["typeID"].ToString(), type = row["TypeNavn"].ToString() };
                 bog.pris = Convert.ToDecimal(row["pris"].ToString());
                 bog.rentdate.udlaansdate = Convert.ToDateTime( row["udlaansDato"].ToString());
                 listCB.Add(bog);
