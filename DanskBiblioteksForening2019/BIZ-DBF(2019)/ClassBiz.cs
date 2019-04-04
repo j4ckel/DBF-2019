@@ -29,7 +29,7 @@ namespace BIZ_DBF_2019_
 
         private ClassUser _user;
         ClassDbfDB classDbfDB;
-
+        private DBFContext getData = new DBFContext();
         /// <summary>
         /// Default constructor
         /// </summary>
